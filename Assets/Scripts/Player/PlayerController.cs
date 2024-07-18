@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
 
     // Player Components
     private CharacterController controller;
+    private PlayerInteract playerInteract;
     private Vector3 playerVelocity;
 
     // Player Stats
@@ -26,6 +27,10 @@ public class PlayerController : MonoBehaviour
         playerInput = new PlayerInput();
         roaming = playerInput.Roaming;
         controller = gameObject.GetComponent<CharacterController>();
+        playerInteract = gameObject.GetComponent<PlayerInteract>();
+
+        roaming.Interact.performed += ctx => playerInteract.InteractWithSelected();
+        roaming.ToggleInteract.performed += ctx => playerInteract.CycleInteractable();
     }
 
     private void Update()
