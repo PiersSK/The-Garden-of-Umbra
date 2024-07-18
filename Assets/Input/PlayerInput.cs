@@ -35,6 +35,24 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""64785805-fb65-4834-b1f0-da47165fb33e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ToggleInteract"",
+                    ""type"": ""Button"",
+                    ""id"": ""a86bc4fe-c9fd-4d98-a77c-3c0ea72af0a7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -147,6 +165,50 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""76b6409d-f27c-4ee2-8b5b-fa0414ed74c8"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e4ddd21f-8d67-45ad-98a5-96eb72c14e50"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""eb8b149c-db01-4cb7-988e-9627d984cb6b"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToggleInteract"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""644481d1-e56d-4ae0-a0a5-b4c6ab78fc25"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToggleInteract"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -156,6 +218,8 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         // Roaming
         m_Roaming = asset.FindActionMap("Roaming", throwIfNotFound: true);
         m_Roaming_Movement = m_Roaming.FindAction("Movement", throwIfNotFound: true);
+        m_Roaming_Interact = m_Roaming.FindAction("Interact", throwIfNotFound: true);
+        m_Roaming_ToggleInteract = m_Roaming.FindAction("ToggleInteract", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -218,11 +282,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Roaming;
     private List<IRoamingActions> m_RoamingActionsCallbackInterfaces = new List<IRoamingActions>();
     private readonly InputAction m_Roaming_Movement;
+    private readonly InputAction m_Roaming_Interact;
+    private readonly InputAction m_Roaming_ToggleInteract;
     public struct RoamingActions
     {
         private @PlayerInput m_Wrapper;
         public RoamingActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Roaming_Movement;
+        public InputAction @Interact => m_Wrapper.m_Roaming_Interact;
+        public InputAction @ToggleInteract => m_Wrapper.m_Roaming_ToggleInteract;
         public InputActionMap Get() { return m_Wrapper.m_Roaming; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -235,6 +303,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Movement.started += instance.OnMovement;
             @Movement.performed += instance.OnMovement;
             @Movement.canceled += instance.OnMovement;
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
+            @ToggleInteract.started += instance.OnToggleInteract;
+            @ToggleInteract.performed += instance.OnToggleInteract;
+            @ToggleInteract.canceled += instance.OnToggleInteract;
         }
 
         private void UnregisterCallbacks(IRoamingActions instance)
@@ -242,6 +316,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Movement.started -= instance.OnMovement;
             @Movement.performed -= instance.OnMovement;
             @Movement.canceled -= instance.OnMovement;
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
+            @ToggleInteract.started -= instance.OnToggleInteract;
+            @ToggleInteract.performed -= instance.OnToggleInteract;
+            @ToggleInteract.canceled -= instance.OnToggleInteract;
         }
 
         public void RemoveCallbacks(IRoamingActions instance)
@@ -262,5 +342,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     public interface IRoamingActions
     {
         void OnMovement(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
+        void OnToggleInteract(InputAction.CallbackContext context);
     }
 }
