@@ -3059,14 +3059,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 640821843}
     m_Modifications:
-    - target: {fileID: 2561955326722013413, guid: 13468790c43af9b4582d8ccd7052f252, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 7dbe69ee31f16424a991465b72366461, type: 2}
-    - target: {fileID: 4954123904510666695, guid: 13468790c43af9b4582d8ccd7052f252, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 7dbe69ee31f16424a991465b72366461, type: 2}
     - target: {fileID: 5840447800977796141, guid: 13468790c43af9b4582d8ccd7052f252, type: 3}
       propertyPath: m_Name
       value: AppleTree (1)
