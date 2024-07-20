@@ -6,9 +6,10 @@ using UnityEngine;
 public class FleeState : BaseState
 {
     private float fleeDistance = 10f;
+    private float initialSpeed;
     public override void Enter()
     {
-
+        initialSpeed = creature.Agent.speed;
     }
 
     public override void Perform()
@@ -26,7 +27,7 @@ public class FleeState : BaseState
 
     public override void Exit()
     {
-
+        creature.Agent.speed = initialSpeed;
     }
 
     public void Flee()

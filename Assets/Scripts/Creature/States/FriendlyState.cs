@@ -7,7 +7,7 @@ public class FriendlyState : BaseState
 {
     public override void Enter()
     {
-       
+        creature.Agent.stoppingDistance = 2;
     }
 
     public override void Perform()
@@ -24,11 +24,11 @@ public class FriendlyState : BaseState
     }
     public override void Exit()
     {
-
+        creature.Agent.stoppingDistance = 0;
     }
 
     public void FollowPlayer()
     {
-        creature.Agent.SetDestination(creature.Player.transform.position - new Vector3(1, 1, 1));
+        creature.Agent.SetDestination(creature.Player.transform.position);
     }
 }
