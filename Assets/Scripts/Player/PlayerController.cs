@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     // Player Components
     private CharacterController controller;
     private PlayerInteract playerInteract;
+    [SerializeField] private Animator playerAnimator;
+    [SerializeField] private SpriteRenderer playerSprite;
     private Vector3 playerVelocity;
 
     // Player Stats
@@ -21,6 +23,9 @@ public class PlayerController : MonoBehaviour
 
     // Player Status
     private bool isGrounded;
+
+    // Animation Names
+    private const string WALKINGANIM = "IsWalking";
 
     private void Awake()
     {
@@ -46,10 +51,17 @@ public class PlayerController : MonoBehaviour
     private void ProcessMove()
     {
         Vector2 input = roaming.Movement.ReadValue<Vector2>();
+        playerAnimator.SetBool(WALKINGANIM, input != Vector2.zero);
         Vector3 moveDirection = Vector3.zero;
 
         moveDirection.x = input.x;
         moveDirection.z = input.y;
+
+        if (input.x > 0)
+            playerSprite.flipX = false;
+        else if (input.x < 0)
+            playerSprite.flipX = true;
+
         controller.Move(transform.TransformDirection(moveDirection) * speed * Time.deltaTime);
 
         //Apply gravity, set to constant force if grounded
