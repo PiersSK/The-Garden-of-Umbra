@@ -7,9 +7,11 @@ public class FleeState : BaseState
 {
     private float fleeDistance = 10f;
     private float initialSpeed;
+    private Vector3 originalPosition;
     public override void Enter()
     {
         initialSpeed = creature.Agent.speed;
+        originalPosition = creature.transform.position;
     }
 
     public override void Perform()
@@ -17,6 +19,10 @@ public class FleeState : BaseState
         if (creature.CanDetectPlayer() && creature.isSkittish)
         {
             Flee();
+            if (Vector3.Distance(creature.transform.position, originalPosition) > fleeDistance)
+            {
+                stateMachine.ChangeState(new DespawnedState());
+            }
         }
         else
         {

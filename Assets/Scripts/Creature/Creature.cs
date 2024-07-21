@@ -10,6 +10,8 @@ public class Creature : MonoBehaviour
     private StateMachine stateMachine;
     private NavMeshAgent agent;
     public NavMeshAgent Agent { get => agent;}
+    public MeshRenderer meshRenderer;
+    public MeshRenderer MeshRenderer { get => meshRenderer;}
     [SerializeField] private string currentState;
     [SerializeField] public bool isSkittish = false;
     public Path path;
@@ -24,6 +26,7 @@ public class Creature : MonoBehaviour
     {
         stateMachine = GetComponent<StateMachine>();
         agent = GetComponent<NavMeshAgent>();
+        meshRenderer = GetComponent<MeshRenderer>();
         stateMachine.Initialise();
         player = GameObject.FindGameObjectWithTag("Player");
         playerController = PlayerController.FindAnyObjectByType<PlayerController>();
