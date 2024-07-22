@@ -413,6 +413,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: WitchHutUI
       objectReference: {fileID: 0}
+    - target: {fileID: 1058133972644007815, guid: 57f2fb28c354645049d3ef328d96cb5e, type: 3}
+      propertyPath: m_text
+      value: "...The Ember Emperor must be pleased...\n            ...Jesting used
+        to bring me such joy...\n\n\t                    ...if only I could <b>find
+        my fire again</b>..."
+      objectReference: {fileID: 0}
     - target: {fileID: 5599038365368998585, guid: 57f2fb28c354645049d3ef328d96cb5e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
