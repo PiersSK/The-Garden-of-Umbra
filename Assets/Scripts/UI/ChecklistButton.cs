@@ -5,7 +5,11 @@ using UnityEngine.UI;
 
 public class ChecklistButton : MonoBehaviour
 {
-    private bool isChecked = false;
+    public ShadowAspect.Aspect aspect;
+    public ShadowAspect.AspectSlot aspectSlot;
+    public ShadowAspect shadowAspect;
+
+    public bool isChecked = false;
     private Image buttonImage;
 
     private Color uncheckedColor = new Color(255, 255, 255, 0.1f);
@@ -17,12 +21,17 @@ public class ChecklistButton : MonoBehaviour
         buttonImage.color = uncheckedColor;
 
         GetComponent<Button>().onClick.AddListener(ToggleState);
+
+        shadowAspect = new ShadowAspect(aspect, aspectSlot);
     }
 
     public void ToggleState()
     {
+        if (!isChecked) ChecklistUI.Instance.ClearAspectsOfSlot(aspectSlot);
+
         isChecked = !isChecked;
         Color stateColor = isChecked ? checkedColor : uncheckedColor;
         GetComponent<Image>().color = stateColor;
+        
     }
 }
