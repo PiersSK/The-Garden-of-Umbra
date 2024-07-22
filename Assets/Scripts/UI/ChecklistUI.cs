@@ -11,7 +11,6 @@ public class ChecklistUI : MonoBehaviour
     [SerializeField] private List<ChecklistButton> checkButtons = new List<ChecklistButton>(9);
     private List<ChecklistButton> checkedAspects = new();
 
-    private bool footAspectChecked = false; // Used for potion names
     [SerializeField] private TextMeshProUGUI potionName;
 
     // Potion name lookups
@@ -33,13 +32,10 @@ public class ChecklistUI : MonoBehaviour
             if (button.isChecked)
             {
                 if (!checkedAspects.Contains(button))
-                {
                     checkedAspects.Add(button);
-                    if(button.aspectSlot == ShadowAspect.AspectSlot.Feet) footAspectChecked = true;
-                }
+
             } else if(checkedAspects.Contains(button)) {
                 checkedAspects.Remove(button);
-                if (button.aspectSlot == ShadowAspect.AspectSlot.Feet) footAspectChecked = false;
             }
         }
 
@@ -51,6 +47,14 @@ public class ChecklistUI : MonoBehaviour
         foreach(ChecklistButton button in checkedAspects) {
             if (button.aspectSlot == slot) button.ToggleState();
         }
+    }
+
+    private bool FootAspectChecked()
+    {
+        foreach (ChecklistButton button in checkedAspects)
+            if (button.aspectSlot == ShadowAspect.AspectSlot.Feet) return true;
+
+        return false;
     }
 
     private string GetPotionName()
@@ -72,7 +76,7 @@ public class ChecklistUI : MonoBehaviour
                     suffix = suffixes[(int)button.aspect % 3];    
                 else if (button.aspectSlot == ShadowAspect.AspectSlot.Body)
                 {
-                    if(footAspectChecked)
+                    if(FootAspectChecked())
                         adjective = adjectives[(int)button.aspect % 3];
                     else
                         noun = nouns[(int)button.aspect % 3];
