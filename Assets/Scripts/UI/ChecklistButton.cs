@@ -27,7 +27,7 @@ public class ChecklistButton : MonoBehaviour
 
     public void ToggleState()
     {
-        if (!isChecked && !ChecklistUI.Instance.CanCheckAspect(aspectSlot)) return;
+        if (!isChecked) ChecklistUI.Instance.ClearAspectsOfSlot(aspectSlot);
 
         isChecked = !isChecked;
         Color stateColor = isChecked ? checkedColor : uncheckedColor;
