@@ -343,6 +343,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3263f83367854f0da07a80eddc194c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aspect: 0
+  aspectSlot: 0
+  isChecked: 0
 --- !u!1 &871018281091773268
 GameObject:
   m_ObjectHideFlags: 0
@@ -611,6 +614,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3263f83367854f0da07a80eddc194c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aspect: 0
+  aspectSlot: 1
+  isChecked: 0
 --- !u!1 &1630861982701057026
 GameObject:
   m_ObjectHideFlags: 0
@@ -1156,6 +1162,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8274342574139179603}
+  - component: {fileID: 6008072864262960349}
   m_Layer: 5
   m_Name: ChecklistUI
   m_TagString: Untagged
@@ -1184,6 +1191,28 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6008072864262960349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3107026143195066759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f18a895fe7977ff40b605af0dc876c47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkButtons:
+  - {fileID: 7588500566944707148}
+  - {fileID: 2044420078060901873}
+  - {fileID: 1039946947722944937}
+  - {fileID: 8032984331990774672}
+  - {fileID: 3518444873134787069}
+  - {fileID: 322331180268571894}
+  - {fileID: 6917054090241693678}
+  - {fileID: 6235718736238535915}
+  - {fileID: 7983162541650693818}
 --- !u!1 &3537904101905391419
 GameObject:
   m_ObjectHideFlags: 0
@@ -1318,6 +1347,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3263f83367854f0da07a80eddc194c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aspect: 0
+  aspectSlot: 1
+  isChecked: 0
 --- !u!1 &3889516629898415979
 GameObject:
   m_ObjectHideFlags: 0
@@ -1452,6 +1484,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3263f83367854f0da07a80eddc194c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aspect: 0
+  aspectSlot: 2
+  isChecked: 0
 --- !u!1 &4134984434506306500
 GameObject:
   m_ObjectHideFlags: 0
@@ -1720,6 +1755,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3263f83367854f0da07a80eddc194c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aspect: 0
+  aspectSlot: 2
+  isChecked: 0
 --- !u!1 &4362193161676703054
 GameObject:
   m_ObjectHideFlags: 0
@@ -1854,6 +1892,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3263f83367854f0da07a80eddc194c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aspect: 0
+  aspectSlot: 2
+  isChecked: 0
 --- !u!1 &4611246739461094841
 GameObject:
   m_ObjectHideFlags: 0
@@ -2256,6 +2297,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3263f83367854f0da07a80eddc194c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aspect: 0
+  aspectSlot: 0
+  isChecked: 0
 --- !u!1 &5567081876964020055
 GameObject:
   m_ObjectHideFlags: 0
@@ -3263,6 +3307,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3263f83367854f0da07a80eddc194c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aspect: 0
+  aspectSlot: 0
+  isChecked: 0
 --- !u!1 &8831284186344844959
 GameObject:
   m_ObjectHideFlags: 0
@@ -3397,3 +3444,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3263f83367854f0da07a80eddc194c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aspect: 0
+  aspectSlot: 1
+  isChecked: 0
