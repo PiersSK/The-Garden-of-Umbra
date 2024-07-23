@@ -21,7 +21,6 @@ public class PlayerInteract : MonoBehaviour
         //Save reference to current objects in range
         List<Interactable> initialInteractables = new();
         initialInteractables.AddRange(interactablesInRange);
-        Debug.Log(initialInteractables.Count);
 
         //Update objects in range
         UpdateInteractablesInRange();
