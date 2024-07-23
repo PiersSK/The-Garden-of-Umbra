@@ -9286,7 +9286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac9860f1765569245bb86818ce360d69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryItems:
+  flasks:
   - {fileID: 1460375809}
   - {fileID: 185065032}
   - {fileID: 1216982577}
@@ -9607,6 +9607,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 922901619175648919, guid: 9fe52fb5ec3081a45b1645bdb4afbdcc, type: 3}
+      propertyPath: filledSprite
+      value: 
+      objectReference: {fileID: -1281358922, guid: 20c6958ac049337499c2ed0a7c7afd9c, type: 3}
     - target: {fileID: 1324040220529133101, guid: 9fe52fb5ec3081a45b1645bdb4afbdcc, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -9630,14 +9634,6 @@ PrefabInstance:
     - target: {fileID: 1324040220529133101, guid: 9fe52fb5ec3081a45b1645bdb4afbdcc, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1669111272827377453, guid: 9fe52fb5ec3081a45b1645bdb4afbdcc, type: 3}
-      propertyPath: m_CellSize.x
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 1669111272827377453, guid: 9fe52fb5ec3081a45b1645bdb4afbdcc, type: 3}
-      propertyPath: m_CellSize.y
-      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 3793728067689446502, guid: 9fe52fb5ec3081a45b1645bdb4afbdcc, type: 3}
       propertyPath: m_Name
