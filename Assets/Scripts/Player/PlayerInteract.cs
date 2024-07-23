@@ -42,7 +42,7 @@ public class PlayerInteract : MonoBehaviour
         {
             float distance = Vector3.Distance(interactable.transform.position, transform.position);
 
-            if (distance <= interactRange)
+            if (distance <= interactRange && interactable.CanInteract())
             {
                 if (!interactablesInRange.Contains(interactable)) interactablesInRange.Add(interactable);
             }
