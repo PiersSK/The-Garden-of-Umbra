@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6181c91788569a149bd43bf8dc872bcd, type: 3}
   m_Name: Hooves
   m_EditorClassIdentifier: 
-  aspect: 0
-  slot: 0
+  aspect: 8
+  slot: 2

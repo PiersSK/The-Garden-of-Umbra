@@ -15,7 +15,8 @@ public class ShadowAspect: ScriptableObject
         Wings,
         Beans,
         Claws,
-        Hooves
+        Hooves,
+        None
     }
 
     public enum AspectSlot

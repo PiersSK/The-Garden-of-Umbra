@@ -8,9 +8,16 @@ public class QuestTracker : MonoBehaviour
 {
     public static QuestTracker Instance { get; private set; }
 
+    public Quest activeQuest;
+
     public List<ShadowAspect> checkedAspects = new();
     [SerializeField] private TextMeshProUGUI targetUI;
     [SerializeField] private string targetUIName;
+
+    // TEMP TESTING INVENTORY
+    public ShadowAspect.Aspect headAspect = ShadowAspect.Aspect.None;
+    public ShadowAspect.Aspect bodyAspect = ShadowAspect.Aspect.None;
+    public ShadowAspect.Aspect feetAspect = ShadowAspect.Aspect.None;
 
 
     private void Awake()
@@ -33,7 +40,7 @@ public class QuestTracker : MonoBehaviour
     private void Update()
     {
         UpdateGatheringList();
-        Debug.Log(checkedAspects.Count);
+        Debug.Log(QuestRequirementsMet());
     }
 
     private void SearchForTargetUIIfLost(Scene current, Scene next)
@@ -74,7 +81,13 @@ public class QuestTracker : MonoBehaviour
                 targetUI.text = "Go to your hut to see what the dreamer needs and add shadows to your list";
             }
         }
+    }
 
+    public bool QuestRequirementsMet()
+    {
+        return headAspect == activeQuest.headSolution
+            && bodyAspect == activeQuest.bodySolution
+            && feetAspect == activeQuest.feetSolution;
     }
 
 
