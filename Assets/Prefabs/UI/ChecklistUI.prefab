@@ -343,8 +343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3263f83367854f0da07a80eddc194c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aspect: 0
-  aspectSlot: 0
+  shadowAspect: {fileID: 11400000, guid: 15ba2a6e68d4a8d4d99fc627f8d5e24e, type: 2}
   isChecked: 0
 --- !u!1 &871018281091773268
 GameObject:
@@ -614,8 +613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3263f83367854f0da07a80eddc194c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aspect: 0
-  aspectSlot: 1
+  shadowAspect: {fileID: 11400000, guid: 87be11592174e92408af37b6578c27c3, type: 2}
   isChecked: 0
 --- !u!1 &1384291822395512255
 GameObject:
@@ -1826,8 +1824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3263f83367854f0da07a80eddc194c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aspect: 0
-  aspectSlot: 1
+  shadowAspect: {fileID: 11400000, guid: 0e90df9b06ec0154f82454f515adf012, type: 2}
   isChecked: 0
 --- !u!1 &3889516629898415979
 GameObject:
@@ -1963,8 +1960,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3263f83367854f0da07a80eddc194c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aspect: 0
-  aspectSlot: 2
+  shadowAspect: {fileID: 11400000, guid: 29e70cbf766b71a4e9ab4b88aec5c38b, type: 2}
   isChecked: 0
 --- !u!1 &4057769003894968079
 GameObject:
@@ -2309,8 +2305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3263f83367854f0da07a80eddc194c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aspect: 0
-  aspectSlot: 2
+  shadowAspect: {fileID: 11400000, guid: 0a0f035e251da8c42963b57c872be193, type: 2}
   isChecked: 0
 --- !u!1 &4362193161676703054
 GameObject:
@@ -2446,8 +2441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3263f83367854f0da07a80eddc194c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aspect: 0
-  aspectSlot: 2
+  shadowAspect: {fileID: 11400000, guid: e76bfec8a3329e642a3aede389afbf97, type: 2}
   isChecked: 0
 --- !u!1 &4548623883168096869
 GameObject:
@@ -2926,8 +2920,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3263f83367854f0da07a80eddc194c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aspect: 0
-  aspectSlot: 0
+  shadowAspect: {fileID: 11400000, guid: 2ac9f126c221afe458dd5ee9eed7bd2a, type: 2}
   isChecked: 0
 --- !u!1 &5567081876964020055
 GameObject:
@@ -3250,15 +3243,15 @@ RectTransform:
   m_Children:
   - {fileID: 7191285360059079628}
   - {fileID: 5192604810872887581}
+  - {fileID: 6469070116527582623}
   - {fileID: 2631664830410897992}
   - {fileID: 6002942884437385205}
   - {fileID: 6598521775563254258}
+  - {fileID: 7932730568170691310}
   - {fileID: 3682857974607192223}
   - {fileID: 8759147724098285411}
   - {fileID: 9152864999413081103}
   - {fileID: 3510344557648337221}
-  - {fileID: 6469070116527582623}
-  - {fileID: 7932730568170691310}
   - {fileID: 3190182371254710881}
   - {fileID: 741696208270547014}
   - {fileID: 1204179249873369979}
@@ -3608,7 +3601,7 @@ GameObject:
   - component: {fileID: 8537733951187775916}
   - component: {fileID: 6663091046345053252}
   m_Layer: 5
-  m_Name: Text (TMP) (3)
+  m_Name: Head Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4364,8 +4357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3263f83367854f0da07a80eddc194c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aspect: 1
-  aspectSlot: 0
+  shadowAspect: {fileID: 11400000, guid: 5713a930a1e57564396772c2cdf4634f, type: 2}
   isChecked: 0
 --- !u!1 &8831284186344844959
 GameObject:
@@ -4501,6 +4493,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3263f83367854f0da07a80eddc194c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aspect: 0
-  aspectSlot: 1
+  shadowAspect: {fileID: 11400000, guid: a65c33d3b03874a49af37eeab718da5a, type: 2}
   isChecked: 0

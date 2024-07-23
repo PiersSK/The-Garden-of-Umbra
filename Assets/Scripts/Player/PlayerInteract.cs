@@ -7,14 +7,16 @@ using UnityEngine;
 public class PlayerInteract : MonoBehaviour
 {
     [SerializeField] private float interactRange = 1.0f;
-    [SerializeField] private TextMeshProUGUI promptUIText;
-    [SerializeField] private TextMeshProUGUI nameUIText;
-    [SerializeField] private GameObject cycleUIObject;
     [SerializeField] Color interactHighlightColor = new Color(0.3f, 0.3f, 0.3f);
-
+    private InteractUI interactUI;
 
     private List<Interactable> interactablesInRange = new();
     private Interactable selectedInteractable;
+
+    private void Start()
+    {
+        interactUI = UIManager.Instance.InteractUI.GetComponent<InteractUI>();
+    }
 
     private void Update()
     {
@@ -42,7 +44,7 @@ public class PlayerInteract : MonoBehaviour
         {
             float distance = Vector3.Distance(interactable.transform.position, transform.position);
 
-            if (distance <= interactRange)
+            if (distance <= interactRange && interactable.CanInteract())
             {
                 if (!interactablesInRange.Contains(interactable)) interactablesInRange.Add(interactable);
             }
@@ -121,10 +123,10 @@ public class PlayerInteract : MonoBehaviour
 
     private void ShowSelectedInteractablePrompt()
     {
-        promptUIText.text = selectedInteractable == null ? string.Empty : "[E] " + selectedInteractable.promptText;
-        nameUIText.text = selectedInteractable == null ? string.Empty : selectedInteractable.name;
+        interactUI.promptUIText.text = selectedInteractable == null ? string.Empty : "[E] " + selectedInteractable.promptText;
+        interactUI.nameUIText.text = selectedInteractable == null ? string.Empty : selectedInteractable.name;
 
-        cycleUIObject.SetActive(interactablesInRange.Count > 1);
+        interactUI.cyclePromptObject.SetActive(interactablesInRange.Count > 1);
     }
 
     public void InteractWithSelected()

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,7 +10,6 @@ public class ChecklistUI : MonoBehaviour
     public static ChecklistUI Instance { get; private set; }
 
     [SerializeField] private List<ChecklistButton> checkButtons = new List<ChecklistButton>(9);
-    private List<ChecklistButton> checkedAspects = new();
 
     [SerializeField] private TextMeshProUGUI potionName;
 
@@ -27,59 +27,42 @@ public class ChecklistUI : MonoBehaviour
 
     private void Update()
     {
-        foreach (ChecklistButton button in checkButtons)
-        {
-            if (button.isChecked)
-            {
-                if (!checkedAspects.Contains(button))
-                    checkedAspects.Add(button);
-
-            } else if(checkedAspects.Contains(button)) {
-                checkedAspects.Remove(button);
-            }
-        }
-
         potionName.text = GetPotionName();
     }
 
     public void ClearAspectsOfSlot(ShadowAspect.AspectSlot slot)
     {
-        foreach(ChecklistButton button in checkedAspects) {
-            if (button.aspectSlot == slot) button.ToggleState();
+        foreach (ChecklistButton button in checkButtons)
+        {
+            if (button.isChecked && button.shadowAspect.slot == slot) button.ToggleState();
         }
     }
 
-    private bool FootAspectChecked()
-    {
-        foreach (ChecklistButton button in checkedAspects)
-            if (button.aspectSlot == ShadowAspect.AspectSlot.Feet) return true;
-
-        return false;
-    }
-
-    private string GetPotionName()
+    public string GetPotionName()
     {
         string prefix = string.Empty;
         string adjective = string.Empty;
         string noun = string.Empty;
         string suffix = string.Empty;
 
+        List<ShadowAspect> checkedAspects = QuestTracker.Instance.checkedAspects;
+
         if (checkedAspects.Count == 0)
             return "???";
         else
         {
-            foreach(ChecklistButton button in checkedAspects)
+            foreach (ShadowAspect shadowAspect in checkedAspects)
             {
-                if(button.aspectSlot == ShadowAspect.AspectSlot.Head)
-                    prefix = prefixes[(int)button.aspect];
-                else if (button.aspectSlot == ShadowAspect.AspectSlot.Feet)
-                    suffix = suffixes[(int)button.aspect % 3];    
-                else if (button.aspectSlot == ShadowAspect.AspectSlot.Body)
+                if (shadowAspect.slot == ShadowAspect.AspectSlot.Head)
+                    prefix = prefixes[(int)shadowAspect.aspect];
+                else if (shadowAspect.slot == ShadowAspect.AspectSlot.Feet)
+                    suffix = suffixes[(int)shadowAspect.aspect % 3];
+                else if (shadowAspect.slot == ShadowAspect.AspectSlot.Body)
                 {
-                    if(FootAspectChecked())
-                        adjective = adjectives[(int)button.aspect % 3];
+                    if (checkedAspects.Any(o => o.slot == ShadowAspect.AspectSlot.Feet))
+                        adjective = adjectives[(int)shadowAspect.aspect % 3];
                     else
-                        noun = nouns[(int)button.aspect % 3];
+                        noun = nouns[(int)shadowAspect.aspect % 3];
                 }
             }
         }
