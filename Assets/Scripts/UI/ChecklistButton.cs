@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using static ShadowAspect;
 
 public class ChecklistButton : MonoBehaviour
 {
-    public ShadowAspect.Aspect aspect;
-    public ShadowAspect.AspectSlot aspectSlot;
     public ShadowAspect shadowAspect;
 
     public bool isChecked = false;
@@ -22,16 +22,28 @@ public class ChecklistButton : MonoBehaviour
 
         GetComponent<Button>().onClick.AddListener(ToggleState);
 
-        shadowAspect = new ShadowAspect(aspect, aspectSlot);
+        if (QuestTracker.Instance.checkedAspects.Contains(shadowAspect))
+        {
+            isChecked = true;
+            UpdateStateUI();
+        }
     }
 
     public void ToggleState()
     {
-        if (!isChecked) ChecklistUI.Instance.ClearAspectsOfSlot(aspectSlot);
+        if (!isChecked) ChecklistUI.Instance.ClearAspectsOfSlot(shadowAspect.slot);
 
         isChecked = !isChecked;
+        UpdateStateUI();
+
+        if (isChecked) QuestTracker.Instance.checkedAspects.Add(shadowAspect);
+        else QuestTracker.Instance.checkedAspects.Remove(shadowAspect);
+    }
+
+    private void UpdateStateUI()
+    {
         Color stateColor = isChecked ? checkedColor : uncheckedColor;
         GetComponent<Image>().color = stateColor;
-        
     }
+
 }

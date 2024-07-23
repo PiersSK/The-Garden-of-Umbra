@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShadowAspect
+[CreateAssetMenu]
+public class ShadowAspect: ScriptableObject
 {
     public enum Aspect
     {
@@ -26,10 +27,4 @@ public class ShadowAspect
 
     public Aspect aspect;
     public AspectSlot slot;
-
-    public ShadowAspect(Aspect aspect, AspectSlot slot)
-    {
-        this.aspect = aspect;
-        this.slot = slot;
-    }
 }
