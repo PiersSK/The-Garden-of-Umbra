@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: 1.PyrionAshborn
   m_EditorClassIdentifier: 
   questGiver: Pyrion Ashborn
-  dreamDialogue: "...The Ember Emperor must be pleased...             ...Jesting
-    used to bring me such joy...  \t                    ...if only I could <b>find
-    my fire again</b>..."
+  dreamDialogue: ...The Ember Emperor must be pleased...   ...Jesting used to bring
+    me such joy...   ...if only I could <b>find my fire again</b>...
   completionDialogue: Ahh just the warmth I needed! To show this to others is what
     truly brought me joy!
   headSolution: 9

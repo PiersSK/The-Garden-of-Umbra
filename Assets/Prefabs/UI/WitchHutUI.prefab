@@ -821,6 +821,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLine: {fileID: 1058133972644007815}
+  dreamerSprite: {fileID: 4860629187861160689}
+  interactButton: {fileID: 5937205942061421945}
+  dismissButton: {fileID: 8923572443721320733}
 --- !u!1 &3796658385127318958
 GameObject:
   m_ObjectHideFlags: 0

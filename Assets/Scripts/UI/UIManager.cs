@@ -31,15 +31,23 @@ public class UIManager : MonoBehaviour
     {
         if (newScene.name == "Garden")
         {
-            InteractUI.SetActive(true);
-            QuestUI.SetActive(true);
-            WitchHutUI.SetActive(false);
+            SetActiveIfNotNull(InteractUI, true);
+            SetActiveIfNotNull(QuestUI, true);
+            SetActiveIfNotNull(WitchHutUI, false);
         }
         else if (newScene.name == "WitchHut")
         {
-            InteractUI.SetActive(false);
-            QuestUI.SetActive(false);
-            WitchHutUI.SetActive(true);
+            SetActiveIfNotNull(InteractUI, false);
+            SetActiveIfNotNull(QuestUI, false);
+            SetActiveIfNotNull(WitchHutUI, true);
+        }
+    }
+
+    private void SetActiveIfNotNull(GameObject obj, bool active)
+    {
+        if(obj != null)
+        {
+            obj.SetActive(active);
         }
     }
 }

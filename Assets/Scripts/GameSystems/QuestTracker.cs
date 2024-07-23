@@ -34,29 +34,37 @@ public class QuestTracker : MonoBehaviour
     private void Update()
     {
         UpdateGatheringList();
-        Debug.Log(QuestRequirementsMet());
+        if(DialogueUI.Instance != null)
+            DialogueUI.Instance.SetCurrentDialogueLine(QuestRequirementsMet() ? activeQuest.completionDialogue : activeQuest.dreamDialogue);
     }
     private void UpdateGatheringList()
     {
         if (targetUI != null)
         {
-            if (checkedAspects.Count > 0)
+            if (activeQuest != null)
             {
-                string quest = "You have set out to make a <b>" + ChecklistUI.Instance.GetPotionName() + "</b>";
-                if (checkedAspects.Count == 1)
-                    quest += "\nThis will require finding a creature that has just the aspect of <b>" + checkedAspects[0].aspect.ToString() + "</b>";
+                if (checkedAspects.Count > 0)
+                {
+                    string quest = "You have set out to make a <b>" + ChecklistUI.Instance.GetPotionName() + "</b>";
+                    if (checkedAspects.Count == 1)
+                        quest += "\nThis will require finding a creature that has just the aspect of <b>" + checkedAspects[0].aspect.ToString() + "</b>";
+                    else
+                    {
+                        quest += "\nThis will require finding a multi-aspected creature or combining shadows to produce one with the following aspects:\n\t<b>";
+                        foreach (ShadowAspect markedAspect in checkedAspects) quest += markedAspect.aspect.ToString() + "\n\t";
+                        quest += "</b>";
+                    }
+
+                    targetUI.text = quest;
+                }
                 else
                 {
-                    quest += "\nThis will require finding a multi-aspected creature or combining shadows to produce one with the following aspects:\n\t<b>";
-                    foreach (ShadowAspect markedAspect in checkedAspects) quest += markedAspect.aspect.ToString() + "\n\t";
-                    quest += "</b>";
+                    targetUI.text = "Go to your hut to see what the dreamer needs and add shadows to your list";
                 }
-
-                targetUI.text = quest;
             }
             else
             {
-                targetUI.text = "Go to your hut to see what the dreamer needs and add shadows to your list";
+                targetUI.text = "Wait for a new dreamer to arrive...";
             }
         }
     }
@@ -68,5 +76,13 @@ public class QuestTracker : MonoBehaviour
             && feetAspect == activeQuest.feetSolution;
     }
 
+    public void CompleteQuestIfRequirementsMet()
+    {
+        if(QuestRequirementsMet())
+        {
+            activeQuest = null;
+            DialogueUI.Instance.HideDreamerAndDialogue();
+        }
+    }
 
 }
