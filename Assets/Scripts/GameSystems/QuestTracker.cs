@@ -31,33 +31,11 @@ public class QuestTracker : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    private void Start()
-    {
-        SceneManager.activeSceneChanged += SearchForTargetUIIfLost;
-    }
-
     private void Update()
     {
         UpdateGatheringList();
         Debug.Log(QuestRequirementsMet());
     }
-
-    private void SearchForTargetUIIfLost(Scene current, Scene next)
-    {
-        if (targetUI == null)
-        {
-            try
-            {
-                targetUI = GameObject.Find(targetUIName).GetComponent<TextMeshProUGUI>();
-            }
-            catch
-            {
-                Debug.LogWarning("Can't find QuestTracker targetUI");
-            }
-        }
-    }
-
     private void UpdateGatheringList()
     {
         if (targetUI != null)
