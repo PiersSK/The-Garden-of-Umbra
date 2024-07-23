@@ -34,7 +34,7 @@ public class QuestTracker : MonoBehaviour
     private void Update()
     {
         UpdateGatheringList();
-        if(DialogueUI.Instance != null)
+        if(DialogueUI.Instance != null && activeQuest != null)
             DialogueUI.Instance.SetCurrentDialogueLine(QuestRequirementsMet() ? activeQuest.completionDialogue : activeQuest.dreamDialogue);
     }
     private void UpdateGatheringList()
