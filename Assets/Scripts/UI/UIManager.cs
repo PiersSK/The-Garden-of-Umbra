@@ -12,6 +12,8 @@ public class UIManager : MonoBehaviour
     public GameObject InteractUI;
     public GameObject QuestUI;
     public GameObject WitchHutUI;
+    public GameObject DialogueUI;
+
     private void Awake()
     {
         if (UIManager.Instance == null)
