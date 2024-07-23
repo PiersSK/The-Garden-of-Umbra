@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 7733498324743538833}
   - component: {fileID: 1458922120409937539}
   - component: {fileID: -8859377288018150924}
+  - component: {fileID: 8390389779262169064}
+  - component: {fileID: 2453726551702169833}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -120,7 +122,41 @@ MonoBehaviour:
   InteractUI: {fileID: 7171143651645135025}
   QuestUI: {fileID: 1790901715872379334}
   WitchHutUI: {fileID: 4959038467466625187}
-  interactCyclePrompt: {fileID: 4147270757123566367}
+--- !u!114 &8390389779262169064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3203714244276097121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!114 &2453726551702169833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3203714244276097121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
 --- !u!1001 &1580579666527207026
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -294,11 +330,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80563a1e72e5ccf468133108369e0a4e, type: 3}
---- !u!1 &4147270757123566367 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3197916456100042093, guid: 80563a1e72e5ccf468133108369e0a4e, type: 3}
-  m_PrefabInstance: {fileID: 1580579666527207026}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7171143651645135025 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8532735786273220291, guid: 80563a1e72e5ccf468133108369e0a4e, type: 3}

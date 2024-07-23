@@ -1,14 +1,13 @@
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Scriptable Object/Large Flask")]
-public class LargeFlask : ScriptableObject
+public class LargeFlask : Item
 {
-    public Item item;
-    public bool addShadow(Shadow newShadow)
+    public override bool AddShadow(Shadow newShadow)
     {
-        if (item.shadow is null)
+        if (shadow is null)
         {
-            item.shadow = newShadow;
+            shadow = newShadow;
             return true;
         }
 
