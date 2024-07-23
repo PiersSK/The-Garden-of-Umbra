@@ -8,18 +8,37 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     [Header("UI")]
     public Image image;
+    public Sprite emptySprite;
+    public Sprite filledSprite;
 
     [HideInInspector]
     public Transform parentAfterDrag;
+    public Vector3 idleAngle;
 
     public void Start()
     {
-        initialiseItem(item);
+        idleAngle = transform.localEulerAngles;
+        image.raycastTarget = true;
     }
 
-    public void initialiseItem(Item newItem)
+    public void OnMouseEnter()
     {
-        image.sprite = newItem.image;
+        transform.localScale = new Vector3(1.3f, 1.3f, 1.3f);
+        transform.localEulerAngles = new Vector3(0, 0, 30f);
+        if (item.shadow is null)
+        {
+            Debug.Log($"{nameof(item)} is empty");
+        }
+        else
+        {
+            Debug.Log($"{item.shadow.headAspect}, {item.shadow.bodyAspect}, {item.shadow.feetAspect}");
+        }
+    }
+
+    public void OnMouseExit()
+    {
+        transform.localScale = Vector3.one;
+        transform.localEulerAngles = idleAngle;
     }
 
     public void OnBeginDrag(PointerEventData eventData)

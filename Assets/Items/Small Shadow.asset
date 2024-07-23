@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34fbc847d82b955498415fd524ef8b81, type: 3}
-  m_Name: Voodoo Dool
+  m_Script: {fileID: 11500000, guid: 55b4982cbcd51534e928ba38292e5372, type: 3}
+  m_Name: Small Shadow
   m_EditorClassIdentifier: 
-  tile: {fileID: 0}
-  type: 1
-  actionType: 0
-  range: {x: 5, y: 4}
-  stackable: 1
-  image: {fileID: 21300000, guid: 0c73fa14d09c82345a0d08c2b2e80a95, type: 3}
+  headAspect: 1
+  bodyAspect: 0
+  feetAspect: 3
+  size: 0
