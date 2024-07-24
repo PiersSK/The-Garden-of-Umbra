@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5610d0c17ed57b143acf9e59ccb765a0, type: 3}
+  m_Name: CottonSprite
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 3168146857291521025, guid: 7a6976e5e10a12443bc9531d0c111a7b, type: 3}
+  currentState: 
+  isSkittish: 0
+  isFriendly: 1
+  isIndifferent: 0
+  isHostile: 0
+  pathName: CottonSpritePath
+  spawnPoint: {x: -10, y: 1, z: -23}
+  sightDistance: 5
+  creature: 0
+  defaultBehaviour: 0
+  defaultState: WanderState
+  headAspect: 0
+  bodyAspect: 0
+  feetAspect: 1
+  shadowSize: 0
