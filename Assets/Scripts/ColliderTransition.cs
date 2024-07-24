@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ColliderTransition : MonoBehaviour
 {
-    [SerializeField] private string newSceneName;
+    [SerializeField] private UIManager.UIPreset presetToLoad;
 
     private const string PLAYEROBJECTNAME = "Player";
 
@@ -13,7 +13,7 @@ public class ColliderTransition : MonoBehaviour
     {
         if(other.gameObject.name == PLAYEROBJECTNAME)
         {
-            SceneManager.LoadScene(newSceneName);
+            UIManager.Instance.SetUIForPreset(presetToLoad);
         }
     }
 }

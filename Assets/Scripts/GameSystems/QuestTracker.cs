@@ -82,6 +82,7 @@ public class QuestTracker : MonoBehaviour
         {
             activeQuest = null;
             DialogueUI.Instance.HideDreamerAndDialogue();
+
         }
     }
 

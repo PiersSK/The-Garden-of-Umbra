@@ -5,8 +5,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class Quest : ScriptableObject
 {
-    public string questGiver;
-    // TODO: public Sprite finalFormSprite;
+    public FormedDreamer questGiver;
 
     public string dreamDialogue;
     public string completionDialogue;

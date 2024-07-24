@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
+using UnityEditor.Presets;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,6 +15,12 @@ public class UIManager : MonoBehaviour
     public GameObject WitchHutUI;
     public GameObject DialogueUI;
 
+    public enum UIPreset
+    {
+        Garden,
+        WitchHut
+    }
+
     private void Awake()
     {
         if (UIManager.Instance == null)
@@ -24,24 +31,25 @@ public class UIManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-
-        SceneManager.activeSceneChanged += SetUIForScene;
     }
 
-    private void SetUIForScene(Scene oldScene, Scene newScene)
+    public void SetUIForPreset(UIPreset preset)
     {
-        if (newScene.name == "Garden")
+        if (preset == UIPreset.Garden)
         {
             SetActiveIfNotNull(InteractUI, true);
             SetActiveIfNotNull(QuestUI, true);
             SetActiveIfNotNull(WitchHutUI, false);
+
+            PlayerController.Instance.EnablePlayerControl();
         }
-        else if (newScene.name == "WitchHut")
+        else if (preset == UIPreset.WitchHut)
         {
             SetActiveIfNotNull(InteractUI, false);
             SetActiveIfNotNull(QuestUI, false);
             SetActiveIfNotNull(WitchHutUI, true);
+
+            PlayerController.Instance.DisablePlayerControl();
         }
     }
 
