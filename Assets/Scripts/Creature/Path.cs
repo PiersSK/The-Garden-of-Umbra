@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Path : MonoBehaviour
 {
-    public List<Transform> waypoints = new List<Transform>();
+    public GameObject path;
+    //public List<Transform> waypoints = new List<Transform>();
     // Start is called before the first frame update
     void Start()
     {
@@ -15,5 +16,22 @@ public class Path : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void PatrolPath()
+    {
+        /*if (creature.Agent.remainingDistance < 0.2f)
+        {
+            waitTimer += Time.deltaTime;
+            if (waitTimer > 3) 
+            {
+            if(waypointIndex < creature.path.waypoints.Count - 1)
+                waypointIndex++;
+            else
+                waypointIndex = 0;
+            creature.Agent.SetDestination(creature.path.waypoints[waypointIndex].position);
+            waitTimer = 0;
+            }
+        }*/
     }
 }

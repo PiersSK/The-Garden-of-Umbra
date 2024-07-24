@@ -3,24 +3,17 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 
-public class FriendlyState : BaseState
+public class FollowState : BaseState
 {
     public override void Enter()
     {
+        stateName = "FollowState";
         creature.Agent.stoppingDistance = 2;
     }
 
     public override void Perform()
     {
-        if(creature.CanDetectPlayer())
-        {
-            FollowPlayer();
-        }
-        else
-        {
-            creature.Agent.SetDestination(creature.path.waypoints[0].position);
-            stateMachine.ChangeState(new IdleState());
-        }
+
     }
     public override void Exit()
     {
