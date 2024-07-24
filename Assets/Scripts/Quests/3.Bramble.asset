@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27beef3b88b90ab4fac3952a115cf294, type: 3}
+  m_Name: 3.Bramble
+  m_EditorClassIdentifier: 
+  questGiver: {fileID: 11400000, guid: f7bf7d8720aaab3459c2be68c2bab3bd, type: 2}
+  dreamDialogue: intuition... resilience... power...
+  completionDialogue: Y..y...you're right. If I stay strong, I can protect my people
+  headSolution: 0
+  bodySolution: 3
+  feetSolution: 7

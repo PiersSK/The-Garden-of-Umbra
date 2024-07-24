@@ -62,7 +62,6 @@ public class SpawnManager : MonoBehaviour
     {
         if (activeCreatures.TryGetValue(creature, out GameObject newCreature))
         {
-            player.GetComponent<PlayerInteract>().ForceRemoveInteractable(newCreature.GetComponent<Interactable>());
             Destroy(newCreature);
             activeCreatures.Remove(creature);
             StartCoroutine(RespawnCreature(creature, respawnDelay, distanceFromSpawn));

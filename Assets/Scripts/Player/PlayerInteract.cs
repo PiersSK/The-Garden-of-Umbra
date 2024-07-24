@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
 using TMPro;
 using UnityEngine;
 
@@ -16,7 +15,7 @@ public class PlayerInteract : MonoBehaviour
 
     private void Start()
     {
-        interactUI = UIManager.Instance.InteractUI.GetComponent<InteractUI>();
+        interactUI = UIManager.Instance.interactUI.GetComponent<InteractUI>();
     }
 
     private void Update()
@@ -27,6 +26,7 @@ public class PlayerInteract : MonoBehaviour
 
         //Update objects in range
         UpdateInteractablesInRange();
+
         if ((!interactablesInRange.All(initialInteractables.Contains) //if the list has changed at all
             || interactablesInRange.Count != initialInteractables.Count)
             && interactablesInRange.Count > 0)
@@ -55,7 +55,8 @@ public class PlayerInteract : MonoBehaviour
                 SetObjectAndChildrenHighlight(interactable.transform, false);
             }
         }
-        interactablesInRange.RemoveAll(x => x == null);
+
+        
     }
 
     private Interactable GetBestInteractable()
@@ -148,14 +149,6 @@ public class PlayerInteract : MonoBehaviour
 
             selectedInteractable = interactablesInRange[newIndex];
             HighlightSelectedObject();
-        }
-    }
-
-    public void ForceRemoveInteractable(Interactable interactable)
-    {
-        if (interactablesInRange.Contains(interactable))
-        {
-            interactablesInRange.Remove(interactable);
         }
     }
 }

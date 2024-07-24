@@ -9,10 +9,10 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance { get; private set; }
 
-    public GameObject InteractUI;
-    public GameObject QuestUI;
-    public GameObject WitchHutUI;
-    public GameObject DialogueUI;
+    public GameObject interactUI;
+    public GameObject questUI;
+    public GameObject witchHutUI;
+    public GameObject dialogueUI;
 
     public enum UIPreset
     {
@@ -36,17 +36,18 @@ public class UIManager : MonoBehaviour
     {
         if (preset == UIPreset.Garden)
         {
-            SetActiveIfNotNull(InteractUI, true);
-            SetActiveIfNotNull(QuestUI, true);
-            SetActiveIfNotNull(WitchHutUI, false);
+            SetActiveIfNotNull(interactUI, true);
+            SetActiveIfNotNull(questUI, true);
+            SetActiveIfNotNull(witchHutUI, false);
 
             PlayerController.Instance.EnablePlayerControl();
+            DialogueUI.Instance.ShowDreamer(); //Garden should always reset dreamer for re-entry
         }
         else if (preset == UIPreset.WitchHut)
         {
-            SetActiveIfNotNull(InteractUI, false);
-            SetActiveIfNotNull(QuestUI, false);
-            SetActiveIfNotNull(WitchHutUI, true);
+            SetActiveIfNotNull(interactUI, false);
+            SetActiveIfNotNull(questUI, false);
+            SetActiveIfNotNull(witchHutUI, true);
 
             PlayerController.Instance.DisablePlayerControl();
         }

@@ -118,10 +118,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9aa6be68bc3a8b419f553cab9b3d6c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractUI: {fileID: 7171143651645135025}
-  QuestUI: {fileID: 1790901715872379334}
-  WitchHutUI: {fileID: 4959038467466625187}
-  DialogueUI: {fileID: 0}
+  interactUI: {fileID: 7171143651645135025}
+  questUI: {fileID: 1790901715872379334}
+  witchHutUI: {fileID: 4959038467466625187}
+  dialogueUI: {fileID: 5822465963165410134}
 --- !u!1001 &1580579666527207026
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -426,7 +426,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 978182864752720224, guid: 57f2fb28c354645049d3ef328d96cb5e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5599038365368998585, guid: 57f2fb28c354645049d3ef328d96cb5e, type: 3}
       propertyPath: m_Pivot.x
