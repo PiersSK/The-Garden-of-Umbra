@@ -13,7 +13,7 @@ public class FormedDreamerInteractable : Interactable
     [SerializeField] private TextMeshProUGUI dialogue;
 
     private float fadeTimer = 0f;
-    private float showDialogueFor = 5f;
+    [SerializeField] private float showDialogueFor = 2.5f;
 
 
     private void Update()
