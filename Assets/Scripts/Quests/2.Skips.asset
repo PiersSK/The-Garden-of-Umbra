@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27beef3b88b90ab4fac3952a115cf294, type: 3}
+  m_Name: 2.Skips
+  m_EditorClassIdentifier: 
+  questGiver: {fileID: 11400000, guid: 991c61f388735bf4688962d4d542855f, type: 2}
+  dreamDialogue: intuition... warmth
+  completionDialogue: tysm
+  headSolution: 0
+  bodySolution: 9
+  feetSolution: 6

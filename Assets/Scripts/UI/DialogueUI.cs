@@ -35,4 +35,10 @@ public class DialogueUI : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    public void ShowDreamer()
+    {
+        dreamerSprite.gameObject.SetActive(true);
+        interactButton.gameObject.SetActive(true);
+    }
+
 }

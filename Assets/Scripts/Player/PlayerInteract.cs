@@ -15,7 +15,7 @@ public class PlayerInteract : MonoBehaviour
 
     private void Start()
     {
-        interactUI = UIManager.Instance.InteractUI.GetComponent<InteractUI>();
+        interactUI = UIManager.Instance.interactUI.GetComponent<InteractUI>();
     }
 
     private void Update()
