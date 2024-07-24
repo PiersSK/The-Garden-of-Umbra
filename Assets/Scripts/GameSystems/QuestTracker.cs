@@ -91,13 +91,14 @@ public class QuestTracker : MonoBehaviour
         bodyAspect = ShadowAspect.Aspect.None;
         feetAspect = ShadowAspect.Aspect.None;
 
-        checkedAspects = new();
+        ChecklistUI.Instance.UncheckAll();
     }
 
     public void CompleteQuestIfRequirementsMet()
     {
         if(QuestRequirementsMet())
         {
+            Debug.Log("Completing quest");
             DialogueUI.Instance.HideDreamerAndDialogue();
             GameObject obj = Instantiate(activeQuest.questGiver.spriteObject, activeQuest.questGiver.spawnPoint, Quaternion.identity);
             obj.name = activeQuest.questGiver.dreamerName;
