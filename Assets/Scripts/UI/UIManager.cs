@@ -12,6 +12,14 @@ public class UIManager : MonoBehaviour
     public GameObject InteractUI;
     public GameObject QuestUI;
     public GameObject WitchHutUI;
+    public GameObject DialogueUI;
+
+    public enum UIPreset
+    {
+        Garden,
+        WitchHut
+    }
+
     private void Awake()
     {
         if (UIManager.Instance == null)
@@ -22,24 +30,25 @@ public class UIManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-
-        SceneManager.activeSceneChanged += SetUIForScene;
     }
 
-    private void SetUIForScene(Scene oldScene, Scene newScene)
+    public void SetUIForPreset(UIPreset preset)
     {
-        if (newScene.name == "Garden")
+        if (preset == UIPreset.Garden)
         {
             SetActiveIfNotNull(InteractUI, true);
             SetActiveIfNotNull(QuestUI, true);
             SetActiveIfNotNull(WitchHutUI, false);
+
+            PlayerController.Instance.EnablePlayerControl();
         }
-        else if (newScene.name == "WitchHut")
+        else if (preset == UIPreset.WitchHut)
         {
             SetActiveIfNotNull(InteractUI, false);
             SetActiveIfNotNull(QuestUI, false);
             SetActiveIfNotNull(WitchHutUI, true);
+
+            PlayerController.Instance.DisablePlayerControl();
         }
     }
 

@@ -6,8 +6,17 @@ using UnityEngine.UI;
 
 public class ButtonSceneTransition : MonoBehaviour
 {
-    public void LoadScene(string name)
+    [SerializeField] private UIManager.UIPreset presetToLoad;
+
+    private void Start()
     {
-        SceneManager.LoadScene(name);
+        GetComponent<Button>().onClick.AddListener(LoadUIPreset);
     }
+
+    public void LoadUIPreset()
+    {
+        Debug.Log("loading");
+        UIManager.Instance.SetUIForPreset(presetToLoad);
+    }
+
 }

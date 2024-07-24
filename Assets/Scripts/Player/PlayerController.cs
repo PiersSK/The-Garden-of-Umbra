@@ -6,6 +6,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    //Singleton
+    public static PlayerController Instance;
+
     // Input System
     private PlayerInput playerInput;
     private PlayerInput.RoamingActions roaming;
@@ -29,6 +32,8 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        Instance = this;
+
         playerInput = new PlayerInput();
         roaming = playerInput.Roaming;
         controller = gameObject.GetComponent<CharacterController>();
@@ -73,13 +78,23 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void OnEnable()
+    public void DisablePlayerControl()
+    {
+        roaming.Disable();
+    }
+
+    public void EnablePlayerControl()
     {
         roaming.Enable();
     }
 
+    private void OnEnable()
+    {
+        EnablePlayerControl();
+    }
+
     private void OnDisable()
     {
-        roaming.Disable();
+        DisablePlayerControl();
     }
 }

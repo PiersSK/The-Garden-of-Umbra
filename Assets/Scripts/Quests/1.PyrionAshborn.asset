@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27beef3b88b90ab4fac3952a115cf294, type: 3}
   m_Name: 1.PyrionAshborn
   m_EditorClassIdentifier: 
-  questGiver: Pyrion Ashborn
+  questGiver: {fileID: 11400000, guid: 025890149f09fe94980afeea9fce2016, type: 2}
   dreamDialogue: ...The Ember Emperor must be pleased...   ...Jesting used to bring
     me such joy...   ...if only I could <b>find my fire again</b>...
   completionDialogue: Ahh just the warmth I needed! To show this to others is what
