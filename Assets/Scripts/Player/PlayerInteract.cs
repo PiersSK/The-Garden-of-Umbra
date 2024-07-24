@@ -156,7 +156,6 @@ public class PlayerInteract : MonoBehaviour
         if (interactablesInRange.Contains(interactable))
         {
             interactablesInRange.Remove(interactable);
-            Debug.Log("We did it, Joe!");
         }
     }
 }

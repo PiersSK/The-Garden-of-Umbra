@@ -28,7 +28,6 @@ public class Interactable : MonoBehaviour
     {
         if(spawnManager != null && gameObject != null)
         {
-            Debug.Log(gameObject.name + " interacted with!");
             spawnManager.DespawnCreature(creature);
         }
     }

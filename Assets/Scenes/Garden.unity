@@ -1813,8 +1813,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 493486067}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
-<<<<<<< Updated upstream
-=======
 --- !u!1001 &502247334
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2701,7 +2699,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7855103958909363635, guid: 72cf18c24dd3fa34c81ef08c2f04234c, type: 3}
   m_PrefabInstance: {fileID: 288085911}
   m_PrefabAsset: {fileID: 0}
->>>>>>> Stashed changes
 --- !u!1 &711349207
 GameObject:
   m_ObjectHideFlags: 0
@@ -3182,9 +3179,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-<<<<<<< Updated upstream
-  m_SourcePrefab: {fileID: 100100000, guid: bda9ce288eb242046b45ae56f59eef1b, type: 3}
-=======
   m_SourcePrefab: {fileID: 100100000, guid: 365db40bca0b1544295b80369b3155d6, type: 3}
 --- !u!1 &833314328
 GameObject:
@@ -3542,7 +3536,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72cf18c24dd3fa34c81ef08c2f04234c, type: 3}
->>>>>>> Stashed changes
 --- !u!1 &1010549264
 GameObject:
   m_ObjectHideFlags: 0
@@ -4340,8 +4333,6 @@ Transform:
   - {fileID: 1782677781}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< Updated upstream
-=======
 --- !u!1 &1256092407
 GameObject:
   m_ObjectHideFlags: 0
@@ -4396,7 +4387,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7855103958909363635, guid: 72cf18c24dd3fa34c81ef08c2f04234c, type: 3}
   m_PrefabInstance: {fileID: 1570071367}
   m_PrefabAsset: {fileID: 0}
->>>>>>> Stashed changes
 --- !u!1 &1259333607
 GameObject:
   m_ObjectHideFlags: 0
@@ -5754,8 +5744,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 290846765231342013, guid: 3b571540529937d499e426af2c320423, type: 3}
   m_PrefabInstance: {fileID: 1591042578}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< Updated upstream
-=======
 --- !u!1 &1673711642
 GameObject:
   m_ObjectHideFlags: 0
@@ -5799,7 +5787,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7855103958909363635, guid: 72cf18c24dd3fa34c81ef08c2f04234c, type: 3}
   m_PrefabInstance: {fileID: 970436048}
   m_PrefabAsset: {fileID: 0}
->>>>>>> Stashed changes
 --- !u!1 &1709975718
 GameObject:
   m_ObjectHideFlags: 0
@@ -7573,13 +7560,10 @@ SceneRoots:
   - {fileID: 1578220638}
   - {fileID: 1260689168}
   - {fileID: 2622867719458948157}
-<<<<<<< Updated upstream
   - {fileID: 1415746611}
   - {fileID: 1571419754}
   - {fileID: 1155298095}
   - {fileID: 836593224}
   - {fileID: 755010296}
-=======
   - {fileID: 1256092409}
   - {fileID: 1673711643}
->>>>>>> Stashed changes
