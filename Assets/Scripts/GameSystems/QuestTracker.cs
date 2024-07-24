@@ -80,8 +80,9 @@ public class QuestTracker : MonoBehaviour
     {
         if(QuestRequirementsMet())
         {
-            activeQuest = null;
             DialogueUI.Instance.HideDreamerAndDialogue();
+            Instantiate(activeQuest.questGiver.spriteObject, activeQuest.questGiver.spawnPoint, Quaternion.identity);
+            activeQuest = null;
 
         }
     }

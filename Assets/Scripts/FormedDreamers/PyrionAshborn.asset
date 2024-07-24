@@ -15,4 +15,4 @@ MonoBehaviour:
   dreamerName: Pyrion Ashborn
   formedSprite: {fileID: 21300000, guid: 8ff7b10bb25ccb54e9ee5cd1caab6b7b, type: 3}
   spriteObject: {fileID: 1972761144371383710, guid: 5d79c5a39de466e498e592d41e7627a5, type: 3}
-  spawnPoint: {x: 0, y: 0, z: 0}
+  spawnPoint: {x: 9, y: 0.06, z: -4}
