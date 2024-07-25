@@ -46,4 +46,25 @@ public class InventoryManager : MonoBehaviour
                 return false;
         }
     }
+
+    public bool IsThereSpaceForAShadowSir(Shadow creatureShadow)
+    {
+        switch (creatureShadow.size)
+        {
+            case ShadowSize.Small:
+                foreach(Flask flask in flasks)
+                {
+                    if(flask.shadow is null)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            case ShadowSize.Medium:
+                return flasks[1].shadow is null || flasks[2].shadow is null;
+            case ShadowSize.Large:
+                return flasks[2].shadow is null;
+            default: return false;
+        }
+    }
 }

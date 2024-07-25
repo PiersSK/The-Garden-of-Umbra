@@ -26,6 +26,7 @@ public class ShadowInteractable : Interactable
 
     public override bool CanInteract()
     {
-        return GetComponent<SpriteRenderer>().shadowCastingMode != UnityEngine.Rendering.ShadowCastingMode.Off;
+        return GetComponent<SpriteRenderer>().shadowCastingMode != UnityEngine.Rendering.ShadowCastingMode.Off 
+            && InventoryManager.Instance.IsThereSpaceForAShadowSir(shadow);
     }
 }
