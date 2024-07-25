@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class FlasksUI : MonoBehaviour
 {
     public InventoryItem inventoryItem;
-    
+    public Shadow shadow;
 
     private void Start()
     {
@@ -25,6 +25,7 @@ public class FlasksUI : MonoBehaviour
             InventoryItem childComponent = newChildInventoryItem.GetComponent<InventoryItem>();
             if(childComponent is not null ) 
             {
+                flask.shadow = shadow;
                 childComponent.image.sprite = flask.getSprite();
             }
         }

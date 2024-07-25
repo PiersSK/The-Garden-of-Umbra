@@ -6363,7 +6363,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac9860f1765569245bb86818ce360d69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flasks: []
+  flasks:
+  - {fileID: 11400000, guid: afe4d6852e925ac46a4ec30584563de4, type: 2}
 --- !u!4 &2622867719458948160 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2973917191965442452, guid: 14dea992ce513814f88a8d597029c775, type: 3}
@@ -6867,6 +6868,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6385142080470450632, guid: 9fe52fb5ec3081a45b1645bdb4afbdcc, type: 3}
+      propertyPath: shadow
+      value: 
+      objectReference: {fileID: 11400000, guid: fde211d1d841be54ca4effbae92386ab, type: 2}
+    - target: {fileID: 6385142080470450632, guid: 9fe52fb5ec3081a45b1645bdb4afbdcc, type: 3}
+      propertyPath: inventoryItem
+      value: 
+      objectReference: {fileID: 3833805055704903279, guid: 81ad34b68eb98b94cb48072b472738b9, type: 3}
     - target: {fileID: 7192937750074745924, guid: 9fe52fb5ec3081a45b1645bdb4afbdcc, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -6941,11 +6950,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8405278545420224659, guid: 9fe52fb5ec3081a45b1645bdb4afbdcc, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 442.0671
       objectReference: {fileID: 0}
     - target: {fileID: 8405278545420224659, guid: 9fe52fb5ec3081a45b1645bdb4afbdcc, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 98.6144
       objectReference: {fileID: 0}
     - target: {fileID: 8405278545420224659, guid: 9fe52fb5ec3081a45b1645bdb4afbdcc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6977,11 +6986,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8405278545420224659, guid: 9fe52fb5ec3081a45b1645bdb4afbdcc, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 200
+      value: 256.03357
       objectReference: {fileID: 0}
     - target: {fileID: 8405278545420224659, guid: 9fe52fb5ec3081a45b1645bdb4afbdcc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 78
+      value: 84.30722
       objectReference: {fileID: 0}
     - target: {fileID: 8405278545420224659, guid: 9fe52fb5ec3081a45b1645bdb4afbdcc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
