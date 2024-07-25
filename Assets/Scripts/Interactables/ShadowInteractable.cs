@@ -10,11 +10,18 @@ public class ShadowInteractable : Interactable
     private ShadowAspect.Aspect feetAspect = ShadowAspect.Aspect.Beans;
     [SerializeField]
     private Shadow shadow;
+    public ShadowAspect.Aspect headAspect = ShadowAspect.Aspect.None;
+    public ShadowAspect.Aspect bodyAspect = ShadowAspect.Aspect.None;
+    public ShadowAspect.Aspect feetAspect = ShadowAspect.Aspect.None;
+
 
     public override void Interact()
     {
         GetComponent<SpriteRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
         var shadowAdded = InventoryManager.Instance.AddShadow(shadow);
+
+        QuestTracker.Instance.headAspect = headAspect;
+        QuestTracker.Instance.bodyAspect = bodyAspect;
         QuestTracker.Instance.feetAspect = feetAspect;
     }
 

@@ -8,7 +8,9 @@ public class QuestTracker : MonoBehaviour
 {
     public static QuestTracker Instance { get; private set; }
 
-    public Quest activeQuest;
+    [SerializeField] private List<Quest> quests;
+    private int questIndex = 0;
+    private Quest activeQuest;
 
     public List<ShadowAspect> checkedAspects = new();
     [SerializeField] private TextMeshProUGUI targetUI;
@@ -31,6 +33,13 @@ public class QuestTracker : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void Start()
+    {
+        if(quests.Count > 0) 
+            activeQuest = quests[0];
+    }
+
     private void Update()
     {
         UpdateGatheringList();
@@ -76,12 +85,33 @@ public class QuestTracker : MonoBehaviour
             && feetAspect == activeQuest.feetSolution;
     }
 
+    private void ResetPlayerAspectsAndChecklist()
+    {
+        headAspect = ShadowAspect.Aspect.None;
+        bodyAspect = ShadowAspect.Aspect.None;
+        feetAspect = ShadowAspect.Aspect.None;
+
+        ChecklistUI.Instance.UncheckAll();
+    }
+
     public void CompleteQuestIfRequirementsMet()
     {
         if(QuestRequirementsMet())
         {
-            activeQuest = null;
+            Debug.Log("Completing quest");
             DialogueUI.Instance.HideDreamerAndDialogue();
+            GameObject obj = Instantiate(activeQuest.questGiver.spriteObject, activeQuest.questGiver.spawnPoint, Quaternion.identity);
+            obj.name = activeQuest.questGiver.dreamerName;
+
+            ResetPlayerAspectsAndChecklist();
+
+            questIndex++;
+            if (quests.Count > questIndex)
+                activeQuest = quests[questIndex];    
+            else
+                activeQuest = null;
+
+
         }
     }
 

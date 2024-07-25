@@ -2,9 +2,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 public abstract class BaseState {
-    public Creature creature;
+    public Creatures creature;
     public StateMachine stateMachine;
-
+    public string stateName;
 
     // start
     public abstract void Enter();

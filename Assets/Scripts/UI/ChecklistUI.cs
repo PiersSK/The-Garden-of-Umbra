@@ -38,6 +38,15 @@ public class ChecklistUI : MonoBehaviour
         }
     }
 
+    public void UncheckAll()
+    {
+        foreach (ChecklistButton button in checkButtons)
+        {
+            if(button.isChecked)
+                button.ToggleState();
+        }
+    }
+
     public string GetPotionName()
     {
         string prefix = string.Empty;

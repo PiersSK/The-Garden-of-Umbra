@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class StateMachine : MonoBehaviour
@@ -8,12 +10,11 @@ public class StateMachine : MonoBehaviour
 
     public void Initialise()
     {
-        ChangeState(new IdleState());
+
     }
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -36,8 +37,15 @@ public class StateMachine : MonoBehaviour
         if (activeState != null)
         {
             activeState.stateMachine = this;
-            activeState.creature = GetComponent<Creature>();
+            //activeState.creature = GetComponent<Creatures>();
             activeState.Enter();
         }
+    }
+
+    public void SetDefaultState(string stateName)
+    {
+        Type stateType = Type.GetType(stateName);
+        BaseState defaultState = (BaseState)Activator.CreateInstance(stateType);
+        ChangeState(defaultState);
     }
 }

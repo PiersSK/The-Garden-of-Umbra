@@ -201,10 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19c3774a687a1fc4195cf35ef56b750b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactRange: 2
-  promptUIText: {fileID: 0}
-  nameUIText: {fileID: 0}
-  cycleUIObject: {fileID: 0}
+  interactRange: 3
   interactHighlightColor: {r: 0.3, g: 0.3, b: 0.3, a: 1}
 --- !u!143 &1265729430645060878
 CharacterController:
