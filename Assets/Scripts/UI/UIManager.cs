@@ -26,12 +26,17 @@ public class UIManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            SetUIForPreset(UIPreset.Garden);
         } else
         {
             Destroy(gameObject);
         }
 
+    }
+
+    private void Start()
+    {
+        SetUIForPreset(UIPreset.Garden);
+        Debug.Log("?)))");
     }
 
     public void SetUIForPreset(UIPreset preset)
@@ -41,6 +46,7 @@ public class UIManager : MonoBehaviour
             SetActiveIfNotNull(interactUI, true);
             SetActiveIfNotNull(questUI, true);
             SetActiveIfNotNull(witchHutUI, false);
+            SetActiveIfNotNull(dialogueUI, false);
 
             PlayerController.Instance.EnablePlayerControl();
             if(DialogueUI.Instance!= null) DialogueUI.Instance.ShowDreamer(); //Garden should always reset dreamer for re-entry
@@ -50,6 +56,7 @@ public class UIManager : MonoBehaviour
             SetActiveIfNotNull(interactUI, false);
             SetActiveIfNotNull(questUI, false);
             SetActiveIfNotNull(witchHutUI, true);
+            SetActiveIfNotNull(dialogueUI, false);
 
             PlayerController.Instance.DisablePlayerControl();
         }

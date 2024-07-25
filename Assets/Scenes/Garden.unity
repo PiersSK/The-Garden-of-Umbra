@@ -5898,6 +5898,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1822316003687219912, guid: bf09933265a76c941984eca5aceee0ab, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1955703860798811322, guid: bf09933265a76c941984eca5aceee0ab, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 3
@@ -6052,7 +6056,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4959038467466625187, guid: bf09933265a76c941984eca5aceee0ab, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5460005827563827212, guid: bf09933265a76c941984eca5aceee0ab, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -6115,6 +6119,10 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5822465963165410134, guid: bf09933265a76c941984eca5aceee0ab, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8318442163160756201, guid: bf09933265a76c941984eca5aceee0ab, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
