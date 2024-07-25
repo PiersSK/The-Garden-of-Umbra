@@ -105,6 +105,7 @@ public class QuestTracker : MonoBehaviour
         if(QuestRequirementsMet())
         {
             Debug.Log("Completing quest");
+            InventoryManager.Instance.ClearAllFlasks();
             DialogueUI.Instance.HideDreamerAndDialogue();
             GameObject obj = Instantiate(activeQuest.questGiver.spriteObject, activeQuest.questGiver.spawnPoint, Quaternion.identity);
             obj.name = activeQuest.questGiver.dreamerName;

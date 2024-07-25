@@ -12,7 +12,7 @@ public class ShadowInteractable : Interactable
     public override void Interact()
     {
         GetComponent<SpriteRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
-        var shadowAdded = InventoryManager.Instance.AddShadow(shadow);
+        var shadowAdded = InventoryManager.Instance.AddShadow(creature.shadow);
 
         QuestTracker.Instance.headAspect = creature.shadow.headAspect;
         QuestTracker.Instance.bodyAspect = creature.shadow.bodyAspect;
@@ -22,6 +22,6 @@ public class ShadowInteractable : Interactable
     public override bool CanInteract()
     {
         return GetComponent<SpriteRenderer>().shadowCastingMode != UnityEngine.Rendering.ShadowCastingMode.Off 
-            && InventoryManager.Instance.IsThereSpaceForAShadowSir(shadow);
+            && InventoryManager.Instance.IsThereSpaceForAShadowSir(creature.shadow);
     }
 }
