@@ -6,8 +6,7 @@ using Aspects;
 public class ShadowInteractable : Interactable
 {
 
-    // TEMP: Hardcoded beans shadow for testing until inventory implementatio
-    private ShadowAspect.Aspect feetAspect = ShadowAspect.Aspect.Beans;
+    // TEMP: Hardcoded beans shadow for testing until inventory implementation
     [SerializeField]
     private Shadow shadow;
     public ShadowAspect.Aspect headAspect = ShadowAspect.Aspect.None;
