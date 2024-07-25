@@ -2,14 +2,12 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
-{
-    public Item item;
+public class InventoryItem : MonoBehaviour 
+{ 
+    public Flask item;
 
     [Header("UI")]
     public Image image;
-    public Sprite emptySprite;
-    public Sprite filledSprite;
 
     [HideInInspector]
     public Transform parentAfterDrag;
@@ -39,23 +37,5 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         transform.localScale = Vector3.one;
         transform.localEulerAngles = idleAngle;
-    }
-
-    public void OnBeginDrag(PointerEventData eventData)
-    {
-        image.raycastTarget = false;
-        parentAfterDrag = transform.parent;
-        transform.SetParent(transform.root);
-    }
-
-    public void OnDrag(PointerEventData eventData)
-    {
-        transform.position = Input.mousePosition;
-    }
-
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        image.raycastTarget = true;
-        transform.SetParent(parentAfterDrag);
     }
 }

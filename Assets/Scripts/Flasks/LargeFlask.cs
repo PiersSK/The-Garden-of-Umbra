@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Scriptable Object/Large Flask")]
-public class LargeFlask : Item
+public class LargeFlask : Flask
 {
     public override bool AddShadow(Shadow newShadow)
     {

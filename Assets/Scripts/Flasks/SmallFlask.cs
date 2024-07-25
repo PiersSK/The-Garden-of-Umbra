@@ -2,7 +2,7 @@ using Aspects;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Scriptable Object/Small Flask")]
-public class SmallFlask : Item
+public class SmallFlask : Flask
 {
     public override bool AddShadow(Shadow newShadow)
     {
