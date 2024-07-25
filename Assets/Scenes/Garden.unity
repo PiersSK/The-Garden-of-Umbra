@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 203844588}
-  m_IndirectSpecularColor: {r: 0.44940966, g: 0.49948543, b: 0.5756948, a: 1}
+  m_IndirectSpecularColor: {r: 0.44940948, g: 0.4994849, b: 0.575694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4821,7 +4821,7 @@ MonoBehaviour:
   spawnManager: {fileID: 1256092408}
   promptText: Take Shadow [S]
   priority: 0
-  shadow: {fileID: 0}
+  shadow: {fileID: 11400000, guid: fde211d1d841be54ca4effbae92386ab, type: 2}
   headAspect: 9
   bodyAspect: 9
   feetAspect: 9

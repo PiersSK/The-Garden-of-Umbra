@@ -4,7 +4,6 @@ using UnityEngine.UI;
 public class FlasksUI : MonoBehaviour
 {
     public InventoryItem inventoryItem;
-    public Shadow shadow;
 
     private void Start()
     {
@@ -16,6 +15,11 @@ public class FlasksUI : MonoBehaviour
         createGrid();
     }
 
+    public void Update()
+    {
+        UpdateGrid();
+    }
+
     public void createGrid()
     {
         foreach(Flask flask in InventoryManager.Instance.flasks)
@@ -25,7 +29,7 @@ public class FlasksUI : MonoBehaviour
             InventoryItem childComponent = newChildInventoryItem.GetComponent<InventoryItem>();
             if(childComponent is not null ) 
             {
-                flask.shadow = shadow;
+                flask.shadow = null;
                 childComponent.image.sprite = flask.getSprite();
             }
         }
@@ -43,7 +47,9 @@ public class FlasksUI : MonoBehaviour
 
             if(flaskImage is not null )
             {
-                flaskImage.sprite = inventoryFlask.flaskUnlocked ? inventoryFlask.getSprite() : null;
+                flaskImage.sprite = inventoryFlask.getSprite();
+                flaskImage.color = inventoryFlask.flaskUnlocked ? new Color(1f, 1f, 1f, 1f) : new Color(1f, 1f, 1f, 0f);
+                //flaskImage.gameObject.SetActive(inventoryFlask.flaskUnlocked);
             }
 
             
