@@ -9,10 +9,8 @@ public class Quest : ScriptableObject
 
     public string dreamDialogue;
     public string completionDialogue;
-    // TODO: Add full dialogue once solved
 
-    // TEMP: Replace with actual inventory objects
-    public ShadowAspect.Aspect headSolution;
-    public ShadowAspect.Aspect bodySolution;
-    public ShadowAspect.Aspect feetSolution;
+    public Aspects.HeadAspect headSolution;
+    public Aspects.BodyAspect bodySolution;
+    public Aspects.FeetAspect feetSolution;
 }

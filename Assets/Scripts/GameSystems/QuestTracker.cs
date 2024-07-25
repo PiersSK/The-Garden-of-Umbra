@@ -12,14 +12,18 @@ public class QuestTracker : MonoBehaviour
     private int questIndex = 0;
     private Quest activeQuest;
 
-    public List<ShadowAspect> checkedAspects = new();
     [SerializeField] private TextMeshProUGUI targetUI;
     [SerializeField] private string targetUIName;
 
+    // Aspects To Gather
+    public Aspects.HeadAspect headToGather = Aspects.HeadAspect.None;
+    public Aspects.BodyAspect bodyToGather = Aspects.BodyAspect.None;
+    public Aspects.FeetAspect feetToGather = Aspects.FeetAspect.None;
+
     // TEMP TESTING INVENTORY
-    public ShadowAspect.Aspect headAspect = ShadowAspect.Aspect.None;
-    public ShadowAspect.Aspect bodyAspect = ShadowAspect.Aspect.None;
-    public ShadowAspect.Aspect feetAspect = ShadowAspect.Aspect.None;
+    public Aspects.HeadAspect headAspect = Aspects.HeadAspect.None;
+    public Aspects.BodyAspect bodyAspect = Aspects.BodyAspect.None;
+    public Aspects.FeetAspect feetAspect = Aspects.FeetAspect.None;
 
 
     private void Awake()
@@ -52,17 +56,12 @@ public class QuestTracker : MonoBehaviour
         {
             if (activeQuest != null)
             {
-                if (checkedAspects.Count > 0)
+                if (NumberOfAspectsChecked() > 0)
                 {
-                    string quest = "You have set out to make a <b>" + ChecklistUI.Instance.GetPotionName() + "</b>";
-                    if (checkedAspects.Count == 1)
-                        quest += "\nThis will require finding a creature that has just the aspect of <b>" + checkedAspects[0].aspect.ToString() + "</b>";
-                    else
-                    {
-                        quest += "\nThis will require finding a multi-aspected creature or combining shadows to produce one with the following aspects:\n\t<b>";
-                        foreach (ShadowAspect markedAspect in checkedAspects) quest += markedAspect.aspect.ToString() + "\n\t";
-                        quest += "</b>";
-                    }
+                    string quest = "You have set out to make a <b>" + ChecklistUI.Instance.GetPotionName() + "</b>. You'll need to craft a shadow with:";
+                    if (headToGather != Aspects.HeadAspect.None) quest += "\n\t - " + headToGather.ToString();
+                    if (bodyToGather != Aspects.BodyAspect.None) quest += "\n\t - " + bodyToGather.ToString();
+                    if (feetToGather != Aspects.FeetAspect.None) quest += "\n\t - " + feetToGather.ToString();
 
                     targetUI.text = quest;
                 }
@@ -78,6 +77,13 @@ public class QuestTracker : MonoBehaviour
         }
     }
 
+    private int NumberOfAspectsChecked()
+    {
+        return headToGather != Aspects.HeadAspect.None ? 1 : 0
+            + bodyToGather != Aspects.BodyAspect.None ? 1 : 0
+            + feetToGather != Aspects.FeetAspect.None ? 1: 0;
+    }
+
     public bool QuestRequirementsMet()
     {
         return headAspect == activeQuest.headSolution
@@ -87,9 +93,9 @@ public class QuestTracker : MonoBehaviour
 
     private void ResetPlayerAspectsAndChecklist()
     {
-        headAspect = ShadowAspect.Aspect.None;
-        bodyAspect = ShadowAspect.Aspect.None;
-        feetAspect = ShadowAspect.Aspect.None;
+        headAspect = Aspects.HeadAspect.None;
+        bodyAspect = Aspects.BodyAspect.None;
+        feetAspect = Aspects.FeetAspect.None;
 
         ChecklistUI.Instance.UncheckAll();
     }

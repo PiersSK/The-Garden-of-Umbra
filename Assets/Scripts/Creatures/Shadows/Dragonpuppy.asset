@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27beef3b88b90ab4fac3952a115cf294, type: 3}
-  m_Name: 2.Skips
+  m_Script: {fileID: 11500000, guid: 55b4982cbcd51534e928ba38292e5372, type: 3}
+  m_Name: Dragonpuppy
   m_EditorClassIdentifier: 
-  questGiver: {fileID: 11400000, guid: 991c61f388735bf4688962d4d542855f, type: 2}
-  dreamDialogue: intuition... warmth
-  completionDialogue: tysm
-  headSolution: 1
-  bodySolution: 0
-  feetSolution: 1
+  headAspect: 1
+  bodyAspect: 0
+  feetAspect: 1
+  size: 0

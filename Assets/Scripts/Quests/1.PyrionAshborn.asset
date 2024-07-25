@@ -17,6 +17,6 @@ MonoBehaviour:
     me such joy...   ...if only I could <b>find my fire again</b>...
   completionDialogue: Ahh just the warmth I needed! To show this to others is what
     truly brought me joy!
-  headSolution: 9
-  bodySolution: 9
-  feetSolution: 6
+  headSolution: 0
+  bodySolution: 0
+  feetSolution: 1

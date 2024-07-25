@@ -24,7 +24,4 @@ MonoBehaviour:
   creature: 0
   defaultBehaviour: 0
   defaultState: WanderState
-  headAspect: 0
-  bodyAspect: 0
-  feetAspect: 1
-  shadowSize: 0
+  shadow: {fileID: 11400000, guid: 2e9b52e594e536f43b1193a7c634ca21, type: 2}
