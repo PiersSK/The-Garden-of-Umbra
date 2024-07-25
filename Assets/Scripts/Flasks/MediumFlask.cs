@@ -2,14 +2,13 @@ using Aspects;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Scriptable Object/Medium Flask")]
-public class MediumFlask : ScriptableObject
+public class MediumFlask : Flask
 {
-    public Item item;
-    public bool addShadow(Shadow newShadow)
+    public override bool AddShadow(Shadow newShadow)
     {
-        if (item.shadow is null && newShadow.size >= ShadowSize.Medium)
+        if (shadow is null && newShadow.size <= ShadowSize.Medium)
         {
-            item.shadow = newShadow;
+            shadow = newShadow;
             return true;
         }
 

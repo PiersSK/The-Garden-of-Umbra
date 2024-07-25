@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2973917191965442452}
+  - component: {fileID: 5955411185682245390}
   m_Layer: 0
   m_Name: InventoryManager
   m_TagString: Untagged
@@ -31,3 +32,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5955411185682245390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425756709656952392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac9860f1765569245bb86818ce360d69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flasks:
+  - {fileID: 11400000, guid: afe4d6852e925ac46a4ec30584563de4, type: 2}
+  - {fileID: 11400000, guid: dcb0da0667c24ef4c94e055bb23cafb9, type: 2}
+  - {fileID: 11400000, guid: b79df01cb7f2de64fa28cc4c8a7edde9, type: 2}
