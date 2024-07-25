@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7375918d99e41b428770facc79a78a8, type: 3}
   m_Name: Medium Flask
   m_EditorClassIdentifier: 
-  item: {fileID: 0}
+  shadow: {fileID: 0}
+  range: {x: 5, y: 4}
+  filledSprite: {fileID: 270744254, guid: 20c6958ac049337499c2ed0a7c7afd9c, type: 3}
+  emptySprite: {fileID: 21300000, guid: 99f40b65b01ec09428cb123764ae213f, type: 3}
+  flaskUnlocked: 1

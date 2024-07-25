@@ -12,7 +12,7 @@ public class Shadow : ScriptableObject
     public FeetAspect feetAspect;
     public ShadowSize size;
 
-    protected Shadow (
+    public Shadow (
         ShadowSize _size,
         HeadAspect _head,
         BodyAspect _body,
