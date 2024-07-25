@@ -5865,6 +5865,18 @@ PrefabInstance:
       propertyPath: witchHutUI
       value: 
       objectReference: {fileID: 1971278297}
+    - target: {fileID: 500974116618736518, guid: bf09933265a76c941984eca5aceee0ab, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 351
+      objectReference: {fileID: 0}
+    - target: {fileID: 809036961100954954, guid: bf09933265a76c941984eca5aceee0ab, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 960
+      objectReference: {fileID: 0}
+    - target: {fileID: 809036961100954954, guid: bf09933265a76c941984eca5aceee0ab, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 79.534
+      objectReference: {fileID: 0}
     - target: {fileID: 925775975538601199, guid: bf09933265a76c941984eca5aceee0ab, type: 3}
       propertyPath: m_Pivot.x
       value: 0
