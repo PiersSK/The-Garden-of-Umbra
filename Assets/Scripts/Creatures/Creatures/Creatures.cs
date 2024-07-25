@@ -52,8 +52,5 @@ public class Creatures : ScriptableObject
     public Creature creature;
     public DefaultBehaviour defaultBehaviour;
     public string defaultState;
-    public Aspects.HeadAspect headAspect;
-    public Aspects.BodyAspect bodyAspect;
-    public Aspects.FeetAspect feetAspect;
-    public Aspects.ShadowSize shadowSize;
+    public Shadow shadow;
 }

@@ -1,13 +1,15 @@
+using Aspects;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
-using static ShadowAspect;
 
 public class ChecklistButton : MonoBehaviour
 {
-    public ShadowAspect shadowAspect;
+    public HeadAspect headAspect;
+    public BodyAspect bodyAspect;
+    public FeetAspect feetAspect;
 
     public bool isChecked = false;
     private Image buttonImage;
@@ -21,23 +23,47 @@ public class ChecklistButton : MonoBehaviour
         buttonImage.color = uncheckedColor;
 
         GetComponent<Button>().onClick.AddListener(ToggleState);
-
-        if (QuestTracker.Instance.checkedAspects.Contains(shadowAspect))
-        {
-            isChecked = true;
-            UpdateStateUI();
-        }
     }
 
     public void ToggleState()
     {
-        if (!isChecked) ChecklistUI.Instance.ClearAspectsOfSlot(shadowAspect.slot);
-
         isChecked = !isChecked;
         UpdateStateUI();
 
-        if (isChecked) QuestTracker.Instance.checkedAspects.Add(shadowAspect);
-        else QuestTracker.Instance.checkedAspects.Remove(shadowAspect);
+        if (isChecked) AddToChecklist();
+        else RemoveFromChecklist();
+    }
+
+    private void AddToChecklist()
+    {
+        if (headAspect != HeadAspect.None)
+        {
+            if (QuestTracker.Instance.headToGather != HeadAspect.None)
+                ChecklistUI.Instance.UntickHeadButton(QuestTracker.Instance.headToGather);
+
+            QuestTracker.Instance.headToGather = headAspect;
+        } else if (bodyAspect != BodyAspect.None)
+        {
+            if (QuestTracker.Instance.bodyToGather != BodyAspect.None)
+                ChecklistUI.Instance.UntickBodyButton(QuestTracker.Instance.bodyToGather);
+
+            QuestTracker.Instance.bodyToGather = bodyAspect;
+        } else if (feetAspect != FeetAspect.None)
+        {
+            if (QuestTracker.Instance.feetToGather != FeetAspect.None)
+                ChecklistUI.Instance.UntickFeetButton(QuestTracker.Instance.feetToGather);
+            QuestTracker.Instance.feetToGather = feetAspect;
+        }
+    }
+
+    private void RemoveFromChecklist()
+    {
+        if (headAspect != HeadAspect.None)
+            QuestTracker.Instance.headToGather = HeadAspect.None;
+        else if (bodyAspect != BodyAspect.None)
+            QuestTracker.Instance.bodyToGather = BodyAspect.None;
+        else if (feetAspect != FeetAspect.None)
+            QuestTracker.Instance.feetToGather = FeetAspect.None;
     }
 
     private void UpdateStateUI()

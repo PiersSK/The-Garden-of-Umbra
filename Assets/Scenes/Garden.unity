@@ -2481,14 +2481,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73c0bbb1ba739e34fb0ce3112f8e84b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  creature: {fileID: 0}
-  spawnManager: {fileID: 1256092408}
   promptText: Take Shadow [S]
   priority: 0
-  shadow: {fileID: 11400000, guid: 8f1b983ec86953f4faa85a5f408629e6, type: 2}
-  headAspect: 9
-  bodyAspect: 9
-  feetAspect: 9
+  creature: {fileID: 11400000, guid: fddcd6c770f5dbb4e80b5ca139e72d71, type: 2}
+  spawnManager: {fileID: 1256092408}
 --- !u!212 &819667596
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3547,12 +3543,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 010719a099840bb4d95a76628f370f74, type: 2}
   - {fileID: 11400000, guid: 651e1f458bcb53741a47981d6a509d3d, type: 2}
   - {fileID: 11400000, guid: 67e0a59a9b731924c97c8b41cd351bb2, type: 2}
-  checkedAspects: []
   targetUI: {fileID: 1341080174}
   targetUIName: GatheringTarget
-  headAspect: 9
-  bodyAspect: 9
-  feetAspect: 9
+  headToGather: 0
+  bodyToGather: 0
+  feetToGather: 0
+  headAspect: 0
+  bodyAspect: 0
+  feetAspect: 0
 --- !u!4 &1260689168
 Transform:
   m_ObjectHideFlags: 0
@@ -3794,14 +3792,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73c0bbb1ba739e34fb0ce3112f8e84b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  creature: {fileID: 11400000, guid: 52b6721e305cf9344bc182e9975b0f94, type: 2}
-  spawnManager: {fileID: 1256092408}
   promptText: Take Shadow [S]
   priority: 0
-  shadow: {fileID: 11400000, guid: 8f1b983ec86953f4faa85a5f408629e6, type: 2}
-  headAspect: 9
-  bodyAspect: 9
-  feetAspect: 9
+  creature: {fileID: 11400000, guid: 52b6721e305cf9344bc182e9975b0f94, type: 2}
+  spawnManager: {fileID: 1256092408}
 --- !u!65 &1415746613
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4817,14 +4811,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73c0bbb1ba739e34fb0ce3112f8e84b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  creature: {fileID: 11400000, guid: cea6f299107483541a2f14ef4109a6fb, type: 2}
-  spawnManager: {fileID: 1256092408}
   promptText: Take Shadow [S]
   priority: 0
-  shadow: {fileID: 11400000, guid: fde211d1d841be54ca4effbae92386ab, type: 2}
-  headAspect: 9
-  bodyAspect: 9
-  feetAspect: 9
+  creature: {fileID: 11400000, guid: cea6f299107483541a2f14ef4109a6fb, type: 2}
+  spawnManager: {fileID: 1256092408}
 --- !u!212 &1690798297
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5957,6 +5947,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1822316003687219912, guid: bf09933265a76c941984eca5aceee0ab, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1955703860798811322, guid: bf09933265a76c941984eca5aceee0ab, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 3
@@ -6111,7 +6105,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4959038467466625187, guid: bf09933265a76c941984eca5aceee0ab, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5460005827563827212, guid: bf09933265a76c941984eca5aceee0ab, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -6172,6 +6166,14 @@ PrefabInstance:
     - target: {fileID: 5460005827563827212, guid: bf09933265a76c941984eca5aceee0ab, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5822465963165410134, guid: bf09933265a76c941984eca5aceee0ab, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8318442163160756201, guid: bf09933265a76c941984eca5aceee0ab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

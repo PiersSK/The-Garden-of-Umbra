@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+using Aspects;
 
 public class ChecklistUI : MonoBehaviour
 {
@@ -14,15 +14,16 @@ public class ChecklistUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI potionName;
 
     // Potion name lookups
-    private readonly List<string> prefixes = new List<string>() { "Crystal-clear", "Hearty", "Swirling" };
-    private readonly List<string> adjectives = new List<string>() { "Protective ", "Pure ", "Inspiring " };
-    private readonly List<string> nouns = new List<string>() { "Protection", "Purity", "Inspiration" };
-    private readonly List<string> suffixes = new List<string>() { "Embers", "Aura", "Hooves" };
+    private readonly List<string> prefixes = new List<string>() { string.Empty, "Crystal-clear", "Hearty", "Swirling" };
+    private readonly List<string> adjectives = new List<string>() { string.Empty, "Protective ", "Pure ", "Inspiring " };
+    private readonly List<string> nouns = new List<string>() { string.Empty, "Protection", "Purity", "Inspiration" };
+    private readonly List<string> suffixes = new List<string>() { string.Empty, "Embers", "Aura", "Hooves" };
 
 
     private void Awake()
     {
         Instance = this;
+        gameObject.SetActive(false);
     }
 
     private void Update()
@@ -30,11 +31,30 @@ public class ChecklistUI : MonoBehaviour
         potionName.text = GetPotionName();
     }
 
-    public void ClearAspectsOfSlot(ShadowAspect.AspectSlot slot)
+    public void UntickHeadButton(HeadAspect aspect)
     {
-        foreach (ChecklistButton button in checkButtons)
+        foreach(var button in checkButtons)
         {
-            if (button.isChecked && button.shadowAspect.slot == slot) button.ToggleState();
+            if (button.isChecked && button.headAspect == aspect)
+                button.ToggleState();
+        }
+    }
+
+    public void UntickBodyButton(BodyAspect aspect)
+    {
+        foreach (var button in checkButtons)
+        {
+            if (button.isChecked && button.bodyAspect == aspect)
+                button.ToggleState();
+        }
+    }
+
+    public void UntickFeetButton(FeetAspect aspect)
+    {
+        foreach (var button in checkButtons)
+        {
+            if (button.isChecked && button.feetAspect == aspect)
+                button.ToggleState();
         }
     }
 
@@ -49,32 +69,15 @@ public class ChecklistUI : MonoBehaviour
 
     public string GetPotionName()
     {
-        string prefix = string.Empty;
+        string prefix = prefixes[(int)QuestTracker.Instance.headToGather];
         string adjective = string.Empty;
         string noun = string.Empty;
-        string suffix = string.Empty;
+        string suffix = suffixes[(int)QuestTracker.Instance.feetToGather];
 
-        List<ShadowAspect> checkedAspects = QuestTracker.Instance.checkedAspects;
-
-        if (checkedAspects.Count == 0)
-            return "???";
+        if (QuestTracker.Instance.feetToGather != FeetAspect.None)
+            adjective = adjectives[(int)QuestTracker.Instance.bodyToGather];
         else
-        {
-            foreach (ShadowAspect shadowAspect in checkedAspects)
-            {
-                if (shadowAspect.slot == ShadowAspect.AspectSlot.Head)
-                    prefix = prefixes[(int)shadowAspect.aspect];
-                else if (shadowAspect.slot == ShadowAspect.AspectSlot.Feet)
-                    suffix = suffixes[(int)shadowAspect.aspect % 3];
-                else if (shadowAspect.slot == ShadowAspect.AspectSlot.Body)
-                {
-                    if (checkedAspects.Any(o => o.slot == ShadowAspect.AspectSlot.Feet))
-                        adjective = adjectives[(int)shadowAspect.aspect % 3];
-                    else
-                        noun = nouns[(int)shadowAspect.aspect % 3];
-                }
-            }
-        }
+            noun = nouns[(int)QuestTracker.Instance.bodyToGather];
 
         string potionName = prefix;
         potionName += prefix == string.Empty ? "Potion" : " potion";

@@ -9,20 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5610d0c17ed57b143acf9e59ccb765a0, type: 3}
-  m_Name: DragonPuppy
+  m_Script: {fileID: 11500000, guid: 55b4982cbcd51534e928ba38292e5372, type: 3}
+  m_Name: CottonSprite
   m_EditorClassIdentifier: 
-  currentState: 
-  isSkittish: 0
-  isFriendly: 0
-  isIndifferent: 0
-  isHostile: 0
-  path: {fileID: 0}
-  sightDistance: 5
-  creature: 5
-  defaultBehaviour: 0
-  defaultState: 0
   headAspect: 0
   bodyAspect: 0
-  feetAspect: 0
-  shadowSize: 0
+  feetAspect: 1
+  size: 0

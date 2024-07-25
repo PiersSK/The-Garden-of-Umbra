@@ -21,6 +21,11 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    public void ClearAllFlasks()
+    {
+        foreach (Flask flask in flasks) flask.shadow = null;
+    }
+
     public bool AddShadow(Shadow newShadow)
     {
         var shadowAdded = false;
