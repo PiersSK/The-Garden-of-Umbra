@@ -30,6 +30,7 @@ public class FlasksUI : MonoBehaviour
             if(childComponent is not null ) 
             {
                 flask.shadow = null;
+                childComponent.item = flask;
                 childComponent.image.sprite = flask.getSprite();
             }
         }

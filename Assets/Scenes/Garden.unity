@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 203844588}
-  m_IndirectSpecularColor: {r: 0.44940948, g: 0.4994849, b: 0.575694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44940966, g: 0.49948543, b: 0.5756948, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2485,7 +2485,7 @@ MonoBehaviour:
   spawnManager: {fileID: 1256092408}
   promptText: Take Shadow [S]
   priority: 0
-  shadow: {fileID: 0}
+  shadow: {fileID: 11400000, guid: 8f1b983ec86953f4faa85a5f408629e6, type: 2}
   headAspect: 9
   bodyAspect: 9
   feetAspect: 9
@@ -3798,7 +3798,7 @@ MonoBehaviour:
   spawnManager: {fileID: 1256092408}
   promptText: Take Shadow [S]
   priority: 0
-  shadow: {fileID: 0}
+  shadow: {fileID: 11400000, guid: 8f1b983ec86953f4faa85a5f408629e6, type: 2}
   headAspect: 9
   bodyAspect: 9
   feetAspect: 9
@@ -6768,6 +6768,38 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1118924358601513570, guid: 9fe52fb5ec3081a45b1645bdb4afbdcc, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1118924358601513570, guid: 9fe52fb5ec3081a45b1645bdb4afbdcc, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1118924358601513570, guid: 9fe52fb5ec3081a45b1645bdb4afbdcc, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1118924358601513570, guid: 9fe52fb5ec3081a45b1645bdb4afbdcc, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1118924358601513570, guid: 9fe52fb5ec3081a45b1645bdb4afbdcc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1118924358601513570, guid: 9fe52fb5ec3081a45b1645bdb4afbdcc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1264768872980264816, guid: 9fe52fb5ec3081a45b1645bdb4afbdcc, type: 3}
+      propertyPath: m_CellSize.x
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 1264768872980264816, guid: 9fe52fb5ec3081a45b1645bdb4afbdcc, type: 3}
+      propertyPath: m_CellSize.y
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 1324040220529133101, guid: 9fe52fb5ec3081a45b1645bdb4afbdcc, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -6950,11 +6982,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8405278545420224659, guid: 9fe52fb5ec3081a45b1645bdb4afbdcc, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 442.0671
+      value: 601.745
       objectReference: {fileID: 0}
     - target: {fileID: 8405278545420224659, guid: 9fe52fb5ec3081a45b1645bdb4afbdcc, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 98.6144
+      value: 137.6639
       objectReference: {fileID: 0}
     - target: {fileID: 8405278545420224659, guid: 9fe52fb5ec3081a45b1645bdb4afbdcc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6986,11 +7018,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8405278545420224659, guid: 9fe52fb5ec3081a45b1645bdb4afbdcc, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 256.03357
+      value: 335.87256
       objectReference: {fileID: 0}
     - target: {fileID: 8405278545420224659, guid: 9fe52fb5ec3081a45b1645bdb4afbdcc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 84.30722
+      value: 103.83197
       objectReference: {fileID: 0}
     - target: {fileID: 8405278545420224659, guid: 9fe52fb5ec3081a45b1645bdb4afbdcc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7029,7 +7061,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3918018094976074068, guid: 9fe52fb5ec3081a45b1645bdb4afbdcc, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9fe52fb5ec3081a45b1645bdb4afbdcc, type: 3}
