@@ -324,6 +324,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100956836}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &107658307
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 107658308}
+  m_Layer: 0
+  m_Name: CaveWaypoint
+  m_TagString: Untagged
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &107658308
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107658307}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -10, y: 1.4000015, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1672436727}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &113917175
 GameObject:
   m_ObjectHideFlags: 0
@@ -1018,7 +1049,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.8584906, g: 0.64783406, b: 0.2713154, a: 1}
+  m_Color: {r: 0.9245283, g: 0.76439303, b: 0.47970805, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -2831,7 +2862,7 @@ GameObject:
   - component: {fileID: 360758960}
   - component: {fileID: 360758959}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Rope
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2845,12 +2876,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 360758957}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.06, y: 9.41, z: -7.91}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 9.6, z: 0}
   m_LocalScale: {x: 0.1, y: 20, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1672436727}
+  m_Father: {fileID: 1317205233}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &360758959
 BoxCollider:
@@ -12002,6 +12033,21 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2124705421725058983, guid: 0fa96507922ebf3408d31674402a3f26, type: 3}
+--- !u!114 &1229453305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229453300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ce318f9c22914146b23497aaa470c2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  promptText: Go Down The Well...
+  priority: 0
+  movePlayerTo: {fileID: 107658308}
 --- !u!1001 &1229740091
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13000,6 +13046,54 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4711208715938537054, guid: 848306b2144485440983488975e2b211, type: 3}
+--- !u!1 &1317205232
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1317205233}
+  - component: {fileID: 1317205234}
+  m_Layer: 0
+  m_Name: Rope
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1317205233
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317205232}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -11.62, y: 1.03, z: -8.08}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 360758958}
+  m_Father: {fileID: 1672436727}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1317205234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317205232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ce318f9c22914146b23497aaa470c2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  promptText: Back To Garden
+  priority: 0
+  movePlayerTo: {fileID: 1767368203}
 --- !u!4 &1332100669 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4020538182036215791, guid: 63050625ad833d942ab734b1528ceaf1, type: 3}
@@ -15209,8 +15303,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1511381624}
-  - {fileID: 360758958}
+  - {fileID: 1317205233}
   - {fileID: 1094136290}
+  - {fileID: 107658308}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1673711642
@@ -15932,6 +16027,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1764749900}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1767368202
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1767368203}
+  m_Layer: 0
+  m_Name: WellWaypoint
+  m_TagString: Untagged
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1767368203
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767368202}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -17.58, y: 1.6, z: 11.59}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1782677780
 GameObject:
   m_ObjectHideFlags: 0
@@ -16268,6 +16394,25 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 759428607}
   m_SourcePrefab: {fileID: 100100000, guid: 013f21c862fff244bb029a6761eaf322, type: 3}
+--- !u!1 &1905556579 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2321572288908395240, guid: 172a2eba05f8a554bad475e556abe2e8, type: 3}
+  m_PrefabInstance: {fileID: 2074283621250376910}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1905556581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905556579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3a8125739ca2d745a5fe23a7706e1c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  promptText: Face The Overgrown Half
+  priority: 0
 --- !u!1 &1917057473
 GameObject:
   m_ObjectHideFlags: 0
@@ -16864,7 +17009,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 797f14ac8f198d8489e1cada58f7b7c0, type: 2}
     - target: {fileID: 919132149155446097, guid: 0fa96507922ebf3408d31674402a3f26, type: 3}
       propertyPath: m_Name
-      value: Well1b
+      value: Well
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16873,6 +17018,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0fa96507922ebf3408d31674402a3f26, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1229453304}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0fa96507922ebf3408d31674402a3f26, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1229453305}
   m_SourcePrefab: {fileID: 100100000, guid: 0fa96507922ebf3408d31674402a3f26, type: 3}
 --- !u!1 &1987520598 stripped
 GameObject:
@@ -18365,7 +18513,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2321572288908395240, guid: 172a2eba05f8a554bad475e556abe2e8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2426673875694311832, guid: 172a2eba05f8a554bad475e556abe2e8, type: 3}
       propertyPath: m_Name
@@ -18414,7 +18562,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2321572288908395240, guid: 172a2eba05f8a554bad475e556abe2e8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1905556581}
   m_SourcePrefab: {fileID: 100100000, guid: 172a2eba05f8a554bad475e556abe2e8, type: 3}
 --- !u!1001 &2315448463507338946
 PrefabInstance:
@@ -19361,8 +19512,9 @@ SceneRoots:
   - {fileID: 766324008}
   - {fileID: 252838220}
   - {fileID: 577126077}
-  - {fileID: 1984189452}
   - {fileID: 1672436727}
   - {fileID: 1993012618}
   - {fileID: 224422074}
   - {fileID: 2133397715}
+  - {fileID: 1767368203}
+  - {fileID: 1984189452}

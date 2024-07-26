@@ -185,6 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08d9cf83dc229c0419b71123c5abaf4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: {fileID: 0}
   playerAnimator: {fileID: 6637750952612475890}
   playerSprite: {fileID: 5590339944320698573}
   speed: 9
@@ -201,7 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19c3774a687a1fc4195cf35ef56b750b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactRange: 3
+  interactRange: 4
   interactHighlightColor: {r: 0.3, g: 0.3, b: 0.3, a: 1}
 --- !u!143 &1265729430645060878
 CharacterController:

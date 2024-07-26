@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    
-    
     public string promptText;
     public int priority = 0;
 
