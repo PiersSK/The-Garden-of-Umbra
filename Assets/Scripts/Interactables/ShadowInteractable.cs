@@ -14,6 +14,7 @@ public class ShadowInteractable : Interactable
     private void Start()
     {
         if(aspectUI != null) aspectUI.UpdateAspectUI(creature.shadow);
+        promptText = "Take Shadow [" + creature.shadow.size.ToString() + "]";
     }
 
     private void Update()
