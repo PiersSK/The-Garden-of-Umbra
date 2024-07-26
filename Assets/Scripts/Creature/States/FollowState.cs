@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class FollowState : BaseState
 {
+    public FollowState(StateMachine stateMachine) : base(stateMachine) {}
     public override void Enter()
     {
-        stateName = "FollowState";
-        creature.Agent.stoppingDistance = 2;
+
     }
 
     public override void Perform()
@@ -17,11 +17,11 @@ public class FollowState : BaseState
     }
     public override void Exit()
     {
-        creature.Agent.stoppingDistance = 0;
+
     }
 
     public void FollowPlayer()
     {
-        creature.Agent.SetDestination(creature.Player.transform.position);
+
     }
 }

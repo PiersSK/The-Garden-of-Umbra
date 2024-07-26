@@ -1,17 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class StateMachine : MonoBehaviour
 {
     public BaseState activeState;
-
-    public void Initialise()
-    {
-
-    }
+    private Dictionary<string, BaseState> states = new Dictionary<string, BaseState>();
     // Start is called before the first frame update
     void Start()
     {
@@ -23,29 +20,34 @@ public class StateMachine : MonoBehaviour
         if (activeState != null)
         {
             activeState.Perform();
+            Debug.Log("Active State: " + activeState);
         }
     }
-    public void ChangeState(BaseState newState)
+
+    public void AddState(string stateName, BaseState state)
+    {
+        states[stateName] = state;
+    }
+    public void ChangeState(string newStateName)
     {
         if(activeState != null)
         {
             activeState.Exit();
         }
 
-        activeState = newState;
-
-        if (activeState != null)
+        if (states.ContainsKey(newStateName))
         {
-            activeState.stateMachine = this;
-            //activeState.creature = GetComponent<Creatures>();
+            activeState = states[newStateName];
             activeState.Enter();
         }
     }
 
-    public void SetDefaultState(string stateName)
+    public void SetDefaultState(string defaultStateName)
     {
-        Type stateType = Type.GetType(stateName);
-        BaseState defaultState = (BaseState)Activator.CreateInstance(stateType);
-        ChangeState(defaultState);
+        if (states.ContainsKey(defaultStateName))
+        {
+            activeState = states[defaultStateName];
+            activeState.Enter();
+        }
     }
 }

@@ -6,9 +6,9 @@ public class PatrolState : BaseState
 {
     public int waypointIndex;
     public float waitTimer;
+    public PatrolState(StateMachine stateMachine, int waypointIndex) : base(stateMachine) {}       
     public override void Enter()
     {
-        stateName = "PatrolState";
        PatrolCycle();
     }
 
