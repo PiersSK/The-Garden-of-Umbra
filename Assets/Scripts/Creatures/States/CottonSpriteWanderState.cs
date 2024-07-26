@@ -3,30 +3,35 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class WanderState : BaseState
+public class CottonSpriteWanderState : BaseState
 {
     public float wanderRadius = 15f;
     public Vector3 randomPosition = Vector3.zero;
+    private Creatures creature;
+    private GameObject player;
     private NavMeshAgent creatureAgent;
-    private Vector3 spawnPoint;
 
-    public WanderState(StateMachine stateMachine, Vector3 spawnPoint, NavMeshAgent creatureAgent, float wanderRadius) : base(stateMachine)
+    public CottonSpriteWanderState(StateMachine stateMachine, NavMeshAgent creatureAgent, Creatures creature, float wanderRadius, GameObject player) : base(stateMachine)
     {
-        this.spawnPoint = spawnPoint;
-        this.creatureAgent = creatureAgent;
+        this.creature = creature;
+        this.player = player;
         this.wanderRadius = wanderRadius;
+        this.creatureAgent = creatureAgent;
     }
 
     public override void Enter()
     {
         creatureAgent.SetDestination(GetNewDestination());
-        Debug.Log("current destination: " + creatureAgent.destination);
     }
     
 
     public override void Perform()
     {
        Wander();
+       if (Vector3.Distance(creatureAgent.transform.position, player.transform.position) < 5f)
+       {
+            stateMachine.ChangeState("CottonSpriteFollowState");
+       }
     }
     
     public override void Exit()
@@ -57,7 +62,7 @@ public class WanderState : BaseState
         }
         else
         {
-            return spawnPoint;
+            return creature.spawnPoint;
         }
        
         
@@ -67,7 +72,7 @@ public class WanderState : BaseState
     {
         if(Vector3.Distance(creatureAgent.transform.position, creatureAgent.destination) < creatureAgent.stoppingDistance)
         {
-            stateMachine.ChangeState("SittingState");
+            stateMachine.ChangeState("CottonSpriteSittingState");
         }
 
     }
