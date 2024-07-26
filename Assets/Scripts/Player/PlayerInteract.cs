@@ -6,12 +6,19 @@ using UnityEngine;
 
 public class PlayerInteract : MonoBehaviour
 {
+    public static PlayerInteract Instance { get; private set; }
+
     [SerializeField] private float interactRange = 1.0f;
     [SerializeField] Color interactHighlightColor = new Color(0.2f, 0.2f, 0.2f);
     private InteractUI interactUI;
 
-    private List<Interactable> interactablesInRange = new();
+    public List<Interactable> interactablesInRange = new();
     private Interactable selectedInteractable;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Start()
     {

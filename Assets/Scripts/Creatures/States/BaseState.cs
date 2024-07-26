@@ -1,10 +1,15 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public abstract class BaseState {
-    public Creatures creature;
-    public StateMachine stateMachine;
-    public string stateName;
+  
+     protected StateMachine stateMachine;
+
+     public BaseState(StateMachine stateMachine)
+     {
+        this.stateMachine = stateMachine;
+     }
 
     // start
     public abstract void Enter();
