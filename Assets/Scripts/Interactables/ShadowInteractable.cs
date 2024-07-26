@@ -2,12 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Aspects;
+using UnityEngine.UI;
 
 public class ShadowInteractable : Interactable
 {
     public Creatures creature;
     public SpawnManager spawnManager;
 
+    public AspectUI aspectUI;
+
+    private void Start()
+    {
+        if(aspectUI != null) aspectUI.UpdateAspectUI(creature.shadow);
+    }
+
+    private void Update()
+    {
+        if(aspectUI != null) aspectUI.gameObject.SetActive(PlayerInteract.Instance.interactablesInRange.Contains(this));
+    }
 
     public override void Interact()
     {
