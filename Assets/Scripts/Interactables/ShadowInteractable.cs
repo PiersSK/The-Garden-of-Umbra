@@ -1,27 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Aspects;
 
 public class ShadowInteractable : Interactable
 {
+    public Creatures creature;
+    public SpawnManager spawnManager;
 
-    // TEMP: Hardcoded beans shadow for testing until inventory implementatio
-    public ShadowAspect.Aspect headAspect = ShadowAspect.Aspect.None;
-    public ShadowAspect.Aspect bodyAspect = ShadowAspect.Aspect.None;
-    public ShadowAspect.Aspect feetAspect = ShadowAspect.Aspect.None;
 
     public override void Interact()
     {
         GetComponent<SpriteRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+        var shadowAdded = InventoryManager.Instance.AddShadow(creature.shadow);
 
-
-        QuestTracker.Instance.headAspect = headAspect;
-        QuestTracker.Instance.bodyAspect = bodyAspect;
-        QuestTracker.Instance.feetAspect = feetAspect;
+        QuestTracker.Instance.headAspect = creature.shadow.headAspect;
+        QuestTracker.Instance.bodyAspect = creature.shadow.bodyAspect;
+        QuestTracker.Instance.feetAspect = creature.shadow.feetAspect;
     }
 
     public override bool CanInteract()
     {
-        return GetComponent<SpriteRenderer>().shadowCastingMode != UnityEngine.Rendering.ShadowCastingMode.Off;
+        return GetComponent<SpriteRenderer>().shadowCastingMode != UnityEngine.Rendering.ShadowCastingMode.Off 
+            && InventoryManager.Instance.IsThereSpaceForAShadowSir(creature.shadow);
     }
 }

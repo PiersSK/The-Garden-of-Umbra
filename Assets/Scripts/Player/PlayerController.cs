@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     private PlayerInput.RoamingActions roaming;
 
     // Player Components
-    private CharacterController controller;
+    public CharacterController controller;
     private PlayerInteract playerInteract;
     [SerializeField] private Animator playerAnimator;
     [SerializeField] private SpriteRenderer playerSprite;

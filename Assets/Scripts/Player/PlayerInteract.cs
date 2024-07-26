@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerInteract : MonoBehaviour
 {
     [SerializeField] private float interactRange = 1.0f;
-    [SerializeField] Color interactHighlightColor = new Color(0.3f, 0.3f, 0.3f);
+    [SerializeField] Color interactHighlightColor = new Color(0.2f, 0.2f, 0.2f);
     private InteractUI interactUI;
 
     private List<Interactable> interactablesInRange = new();
@@ -34,6 +34,8 @@ public class PlayerInteract : MonoBehaviour
             selectedInteractable = GetBestInteractable();
             HighlightSelectedObject();
         }
+        else if (interactablesInRange.Count == 0)
+            selectedInteractable = null;
 
         ShowSelectedInteractablePrompt();
     }
@@ -44,7 +46,7 @@ public class PlayerInteract : MonoBehaviour
         {
             float distance = Vector3.Distance(interactable.transform.position, transform.position);
 
-            if (distance <= interactRange && interactable.CanInteract())
+            if (distance <= interactRange && interactable.CanInteract() && interactable.gameObject.activeSelf)
             {
                 if (!interactablesInRange.Contains(interactable)) interactablesInRange.Add(interactable);
             }
@@ -56,7 +58,7 @@ public class PlayerInteract : MonoBehaviour
             }
         }
 
-        
+        interactablesInRange.RemoveAll(o => o == null || !o.gameObject.activeSelf);
     }
 
     private Interactable GetBestInteractable()
