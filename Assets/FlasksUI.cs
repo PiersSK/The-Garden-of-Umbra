@@ -31,7 +31,7 @@ public class FlasksUI : MonoBehaviour
             {
                 flask.shadow = null;
                 childComponent.item = flask;
-                childComponent.image.sprite = flask.getSprite();
+                childComponent.image.sprite = flask.emptySprite;
             }
         }
     }
@@ -48,12 +48,12 @@ public class FlasksUI : MonoBehaviour
 
             if(flaskImage is not null )
             {
-                flaskImage.sprite = inventoryFlask.getSprite();
-                flaskImage.color = inventoryFlask.flaskUnlocked ? new Color(1f, 1f, 1f, 1f) : new Color(1f, 1f, 1f, 0f);
-                //flaskImage.gameObject.SetActive(inventoryFlask.flaskUnlocked);
+                flaskImage.sprite = inventoryFlask.emptySprite; 
+                flaskImage.color = inventoryFlask.shadow is null ? new Color(1f, 1f, 1f, 0.5f) : new Color(0.36f, 0.35f, 0.48f, 0.7f);
+                flaskImage.gameObject.SetActive(inventoryFlask.flaskUnlocked);
             }
 
-            
+
         }
     }
 }

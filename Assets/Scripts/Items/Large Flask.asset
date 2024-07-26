@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shadow: {fileID: 0}
   range: {x: 5, y: 4}
-  filledSprite: {fileID: -1911277545, guid: 20c6958ac049337499c2ed0a7c7afd9c, type: 3}
-  emptySprite: {fileID: 21300000, guid: 99f40b65b01ec09428cb123764ae213f, type: 3}
+  filledSprite: {fileID: 21300000, guid: ab53cfb610f594a42ab4f75894c34b56, type: 3}
+  emptySprite: {fileID: 21300000, guid: 8675275bc73d4654bb1e2af729512e7e, type: 3}
   flaskUnlocked: 1

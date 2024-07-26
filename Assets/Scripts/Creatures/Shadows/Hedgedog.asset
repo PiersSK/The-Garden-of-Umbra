@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55b4982cbcd51534e928ba38292e5372, type: 3}
   m_Name: Hedgedog
   m_EditorClassIdentifier: 
+  shadowName: Hedgedog
   headAspect: 1
   bodyAspect: 1
   feetAspect: 2
   size: 0
+  headAspectSprite: {fileID: -1281358922, guid: 20c6958ac049337499c2ed0a7c7afd9c, type: 3}
+  bodyAspectSprite: {fileID: -470017033, guid: 20c6958ac049337499c2ed0a7c7afd9c, type: 3}
+  feetAspectSprite: {fileID: -1911277545, guid: 20c6958ac049337499c2ed0a7c7afd9c, type: 3}

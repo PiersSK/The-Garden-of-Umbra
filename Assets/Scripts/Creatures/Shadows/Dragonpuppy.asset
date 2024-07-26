@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55b4982cbcd51534e928ba38292e5372, type: 3}
   m_Name: Dragonpuppy
   m_EditorClassIdentifier: 
+  shadowName: Dragon Puppy
   headAspect: 1
   bodyAspect: 0
   feetAspect: 1
   size: 0
+  headAspectSprite: {fileID: -1281358922, guid: 20c6958ac049337499c2ed0a7c7afd9c, type: 3}
+  bodyAspectSprite: {fileID: 21300000, guid: 5f6b302c19c8bd64c9bbd35c68cfba4f, type: 3}
+  feetAspectSprite: {fileID: -1646080030, guid: 20c6958ac049337499c2ed0a7c7afd9c, type: 3}

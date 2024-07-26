@@ -7,10 +7,16 @@ using System.Drawing;
 [CreateAssetMenu(menuName = "Scriptable Object/Shadow")]
 public class Shadow : ScriptableObject
 {
+    public string shadowName;
+
     public HeadAspect headAspect;
     public BodyAspect bodyAspect;
     public FeetAspect feetAspect;
     public ShadowSize size;
+
+    public Sprite headAspectSprite;
+    public Sprite bodyAspectSprite;
+    public Sprite feetAspectSprite;
 
     protected Shadow (
         ShadowSize _size,
