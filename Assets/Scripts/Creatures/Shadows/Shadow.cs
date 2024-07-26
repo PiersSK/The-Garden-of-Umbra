@@ -18,10 +18,6 @@ public class Shadow : ScriptableObject
     public Sprite bodyAspectSprite;
     public Sprite feetAspectSprite;
 
-    public Sprite headAspectSprite;
-    public Sprite bodyAspectSprite;
-    public Sprite feetAspectSprite;
-
     public Shadow (
         ShadowSize _size,
         HeadAspect _head,

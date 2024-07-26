@@ -57,9 +57,9 @@ public class InventoryManager : MonoBehaviour
         switch (creatureShadow.size)
         {
             case ShadowSize.Small:
-                foreach(Flask flask in flasks)
+                foreach (Flask flask in flasks)
                 {
-                    if(flask.shadow is null)
+                    if (flask.shadow is null)
                     {
                         return true;
                     }
@@ -71,27 +71,5 @@ public class InventoryManager : MonoBehaviour
                 return flasks[2].shadow is null;
             default: return false;
         }
-    }
-
-    public Shadow CombineInventoryShadows()
-    {
-        var finalShadow = new Shadow();
-        var flasks = Instance.flasks;
-
-        for (int i = flasks.Count - 1; i > -1; i--)
-        {
-            if (flasks[i].flaskUnlocked && flasks[i].shadow is not null) 
-            {
-                var flaskShadow = flasks[i].shadow;
-                finalShadow.headAspect = flaskShadow.headAspect == 
-                    HeadAspect.None ? finalShadow.headAspect : flaskShadow.headAspect;
-                finalShadow.bodyAspect = flaskShadow.bodyAspect ==
-                    BodyAspect.None ? finalShadow.bodyAspect : flaskShadow.bodyAspect;
-                finalShadow.feetAspect = flaskShadow.feetAspect ==
-                    FeetAspect.None ? finalShadow.feetAspect : flaskShadow.feetAspect;
-            }
-        }
-
-        return finalShadow;
     }
 }
