@@ -5,12 +5,13 @@ using UnityEngine;
 
 public class FleeState : BaseState
 {
-    private float fleeDistance = 10f;
+    private float fleeDistance = 5f;
     private float initialSpeed;
+
+    public FleeState(StateMachine stateMachine) : base(stateMachine) {}
     public override void Enter()
     {
-        stateName = "FleeState";
-        initialSpeed = creature.Agent.speed;
+       // initialSpeed = creature.Agent.speed;
     }
 
     public override void Perform()
@@ -20,7 +21,7 @@ public class FleeState : BaseState
 
     public override void Exit()
     {
-        creature.Agent.speed = initialSpeed;
+        //creature.Agent.speed = initialSpeed;
     }
 
     public void Flee()
