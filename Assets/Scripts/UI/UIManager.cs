@@ -36,7 +36,6 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         SetUIForPreset(UIPreset.Garden);
-        Debug.Log("?)))");
     }
 
     public void SetUIForPreset(UIPreset preset)
