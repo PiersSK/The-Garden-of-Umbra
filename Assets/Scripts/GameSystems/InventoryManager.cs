@@ -76,7 +76,7 @@ public class InventoryManager : MonoBehaviour
     public Shadow CombineInventoryShadows()
     {
         var finalShadow = new Shadow();
-        var flasks = InventoryManager.Instance.flasks;
+        var flasks = Instance.flasks;
 
         for (int i = flasks.Count - 1; i > -1; i--)
         {
