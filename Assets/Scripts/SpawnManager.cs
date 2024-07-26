@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class SpawnManager : MonoBehaviour
 {
@@ -30,13 +33,19 @@ public class SpawnManager : MonoBehaviour
         }
         creatureReference.creature = creature;
 
+        NavMeshAgent creatureAgent = newCreature.GetComponent<NavMeshAgent>();
+
         StateMachine stateMachine = newCreature.GetComponent<StateMachine>();
         if (stateMachine == null)
         {
             stateMachine = newCreature.AddComponent<StateMachine>();
         }
+        stateMachine.AddState("WanderState", new WanderState(stateMachine, creature.spawnPoint, creatureAgent, 5f));
+        stateMachine.AddState("SittingState", new SittingState(stateMachine));
+
         stateMachine.SetDefaultState(creature.defaultState);
-                
+        
+
         GameObject path = GameObject.Find(creature.pathName);
 
         Path creaturePath = newCreature.GetComponent<Path>();
