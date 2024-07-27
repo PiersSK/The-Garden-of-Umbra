@@ -15,7 +15,7 @@ MonoBehaviour:
   prefab: {fileID: 3168146857291521025, guid: 7a6976e5e10a12443bc9531d0c111a7b, type: 3}
   currentState: 
   pathName: CottonSpritePath
-  spawnPoint: {x: -10, y: 1, z: -23}
+  spawnPoint: {x: -10, y: 0.82, z: -23}
   sightDistance: 5
   creature: 0
   defaultBehaviour: 0

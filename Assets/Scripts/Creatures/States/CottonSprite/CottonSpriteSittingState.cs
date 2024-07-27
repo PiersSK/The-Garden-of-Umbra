@@ -19,7 +19,6 @@ public class CottonSpriteSittingState : BaseState
     }
     public override void Enter()
     {
-        
     }
 
     public override void Perform()

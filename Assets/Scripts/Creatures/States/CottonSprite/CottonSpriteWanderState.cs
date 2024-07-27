@@ -21,22 +21,29 @@ public class CottonSpriteWanderState : BaseState
 
     public override void Enter()
     {
+        creatureAgent.stoppingDistance = 1f;
         creatureAgent.SetDestination(GetNewDestination());
+        creatureAgent.GetComponent<Animator>().SetBool("IsWalking", true);
     }
     
 
     public override void Perform()
     {
-       Wander();
-       if (Vector3.Distance(creatureAgent.transform.position, player.transform.position) < 5f)
-       {
+        Wander();
+        if (creatureAgent.velocity.x > 0)
+            creatureAgent.GetComponent<SpriteRenderer>().flipX = false;
+        else if (creatureAgent.velocity.x < 0)
+            creatureAgent.GetComponent<SpriteRenderer>().flipX = true;
+
+        if (Vector3.Distance(creatureAgent.transform.position, player.transform.position) < 5f)
+        {
             stateMachine.ChangeState("CottonSpriteFollowState");
-       }
+        }
     }
     
     public override void Exit()
     {
-
+        creatureAgent.GetComponent<Animator>().SetBool("IsWalking", false);
     }
 
     public Vector3 GetNewDestination()
@@ -58,7 +65,9 @@ public class CottonSpriteWanderState : BaseState
         }
         if (notInObstacle)
         {
+            Debug.Log(newDestination);
             return newDestination;
+            
         }
         else
         {
@@ -70,7 +79,7 @@ public class CottonSpriteWanderState : BaseState
 
     public void Wander()
     {
-        if(Vector3.Distance(creatureAgent.transform.position, creatureAgent.destination) < creatureAgent.stoppingDistance)
+        if(Vector3.Distance(creatureAgent.transform.position, creatureAgent.destination) < (creatureAgent.stoppingDistance*1.5f))
         {
             stateMachine.ChangeState("CottonSpriteSittingState");
         }

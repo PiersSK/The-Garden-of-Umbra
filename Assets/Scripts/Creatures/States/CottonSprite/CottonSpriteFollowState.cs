@@ -18,15 +18,21 @@ public class CottonSpriteFollowState : BaseState
     }
     public override void Enter()
     {
+        creatureAgent.stoppingDistance = 3f;
+        creatureAgent.GetComponent<Animator>().SetBool("IsWalking", true);
     }
 
     public override void Perform()
     {
         FollowPlayer();
+        if (creatureAgent.velocity.x > 0)
+            creatureAgent.GetComponent<SpriteRenderer>().flipX = false;
+        else if (creatureAgent.velocity.x < 0)
+            creatureAgent.GetComponent<SpriteRenderer>().flipX = true;
     }
     public override void Exit()
     {
-
+        creatureAgent.GetComponent<Animator>().SetBool("IsWalking", false);
     }
 
     public void FollowPlayer()
