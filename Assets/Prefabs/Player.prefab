@@ -202,8 +202,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19c3774a687a1fc4195cf35ef56b750b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactRange: 4
+  interactRange: 3
   interactHighlightColor: {r: 0.3, g: 0.3, b: 0.3, a: 1}
+  interactablesInRange: []
 --- !u!143 &1265729430645060878
 CharacterController:
   m_ObjectHideFlags: 0

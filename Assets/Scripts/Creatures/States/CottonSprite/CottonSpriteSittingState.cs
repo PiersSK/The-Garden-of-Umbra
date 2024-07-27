@@ -7,7 +7,17 @@ using UnityEngine.AI;
 public class CottonSpriteSittingState : BaseState
 {
     public float sittingTime = 5f;
+    private float chanceToWander = 0.5f; // 0->1 as a percentage
+    private float noticePlayerMaxRange = 8f;
+    private float noticePlayerMinRange = 4f;
     public float timeSat = 0f;
+
+    private bool shouldStand = false;
+    private float standTimer = 0f;
+    private float timeToStand = 2f;
+
+    private string nextState = "CottonSpriteWanderState";
+
     private Creatures creature;
     private GameObject player;
     private NavMeshAgent creatureAgent;
@@ -19,30 +29,65 @@ public class CottonSpriteSittingState : BaseState
     }
     public override void Enter()
     {
-        
+        creatureAgent.GetComponent<Animator>().SetBool("IsSitting", true);
     }
 
     public override void Perform()
     {
        Sitting();
+
+        if (shouldStand)
+        {
+            standTimer += Time.deltaTime;
+            if (standTimer >= timeToStand)
+            {
+                stateMachine.ChangeState(nextState);
+            }
+        }
+
     }
-    
+
     public override void Exit()
     {
+        creatureAgent.GetComponent<Animator>().SetBool("IsSitting", false);
         timeSat = 0f;
+        shouldStand = false;
+        standTimer = 0f;
     }
     
     public void Sitting()
     {
+        float distanceToPlayer = Vector3.Distance(creatureAgent.transform.position, player.transform.position);
+        Debug.Log(distanceToPlayer);
+
         timeSat += Time.deltaTime;
-       if (timeSat >= sittingTime && Vector3.Distance(creatureAgent.transform.position, player.transform.position) > 5f)
-       {
-            stateMachine.ChangeState("CottonSpriteWanderState");
-       }
-       if (Vector3.Distance(creatureAgent.transform.position, player.transform.position) < 5f && Vector3.Distance(creatureAgent.transform.position, player.transform.position) > 3f)
-       {
-            stateMachine.ChangeState("CottonSpriteFollowState");
-       }
+        if (timeSat >= sittingTime && distanceToPlayer > noticePlayerMaxRange)
+        {
+            if (Random.Range(0f, 1f) <= chanceToWander && shouldStand == false)
+            {
+                shouldStand = true;
+                nextState = "CottonSpriteWanderState";
+            }
+            else timeSat = 0f;
+        }
+        else if (distanceToPlayer <= noticePlayerMaxRange && distanceToPlayer > noticePlayerMinRange)
+        {
+            shouldStand = true;
+            nextState = "CottonSpriteFollowState";
+        }
+        else
+        {
+            shouldStand = false;
+            standTimer = 0f;
+
+            float xDistanceToPlayer = (player.transform.position - creatureAgent.transform.position).x;
+            if (xDistanceToPlayer > 0)
+                creatureAgent.GetComponent<SpriteRenderer>().flipX = false;
+            else if (xDistanceToPlayer < 0)
+                creatureAgent.GetComponent<SpriteRenderer>().flipX = true;
+        }
+
+        
     }
         
     

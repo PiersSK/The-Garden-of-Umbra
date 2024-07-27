@@ -41,7 +41,7 @@ public class SpawnManager : MonoBehaviour
         {
             stateMachine = newCreature.AddComponent<StateMachine>();
         }
-        stateMachine.AddState("CottonSpriteWanderState", new CottonSpriteWanderState(stateMachine, creatureAgent, creature, 5f, player));
+        stateMachine.AddState("CottonSpriteWanderState", new CottonSpriteWanderState(stateMachine, creatureAgent, creature, 10f, player));
         stateMachine.AddState("CottonSpriteSittingState", new CottonSpriteSittingState(stateMachine, creatureAgent, creature, player));
         stateMachine.AddState("CottonSpriteFollowState", new CottonSpriteFollowState(stateMachine, creatureAgent, creature, player));
         stateMachine.AddState("FlittletWanderState", new FlittletWanderState(stateMachine, creatureAgent, creature, 10f));

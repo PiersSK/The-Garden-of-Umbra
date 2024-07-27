@@ -20,4 +20,4 @@ MonoBehaviour:
   creature: 1
   defaultBehaviour: 1
   defaultState: FlittletWanderState
-  shadow: {fileID: 0}
+  shadow: {fileID: 11400000, guid: 5ebab339b57964c6fa48edb92fe774c4, type: 2}
