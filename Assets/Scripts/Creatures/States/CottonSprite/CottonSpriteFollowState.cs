@@ -6,6 +6,9 @@ using UnityEngine.AI;
 
 public class CottonSpriteFollowState : BaseState
 {
+    private bool shouldSit = false;
+    private float sittingTimer = 0f;
+    private float timeToSit = 0.5f;
 
     private Creatures creature;
     private GameObject player;
@@ -29,19 +32,43 @@ public class CottonSpriteFollowState : BaseState
             creatureAgent.GetComponent<SpriteRenderer>().flipX = false;
         else if (creatureAgent.velocity.x < 0)
             creatureAgent.GetComponent<SpriteRenderer>().flipX = true;
+
+
+        if (shouldSit)
+        {
+            sittingTimer += Time.deltaTime;
+            if (sittingTimer >= timeToSit)
+            {
+                stateMachine.ChangeState("CottonSpriteSittingState");
+            }
+        }
     }
     public override void Exit()
     {
         creatureAgent.GetComponent<Animator>().SetBool("IsWalking", false);
+        shouldSit = false;
+        sittingTimer = 0f;
     }
 
     public void FollowPlayer()
     {
-        creatureAgent.SetDestination(player.transform.position);
+        Vector3 playerPos = player.transform.position;
+        playerPos.y = creatureAgent.transform.position.y;
+        creatureAgent.SetDestination(playerPos);
+
+        // Is at player
         if (Vector3.Distance(player.transform.position, creatureAgent.transform.position) < creatureAgent.stoppingDistance)
         {
-            stateMachine.ChangeState("CottonSpriteSittingState");
+            creatureAgent.GetComponent<Animator>().SetBool("IsWalking", false);
+            shouldSit = true;
+        } else
+        {
+            creatureAgent.GetComponent<Animator>().SetBool("IsWalking", true);
+            shouldSit = false;
+            sittingTimer = 0f;
         }
+
+        // Is too far from player
         if (Vector3.Distance(player.transform.position, creatureAgent.transform.position) > 5f)
         {
             stateMachine.ChangeState("CottonSpriteWanderState");

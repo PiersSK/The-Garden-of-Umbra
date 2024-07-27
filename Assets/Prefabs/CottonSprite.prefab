@@ -298,7 +298,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2653145052731443138}
   - component: {fileID: 4584908452062958374}
-  - component: {fileID: 7041400300369153022}
+  - component: {fileID: 7478277581271404423}
   - component: {fileID: 8452518067953360803}
   - component: {fileID: 4247047356032504327}
   - component: {fileID: 3181617624265796722}
@@ -378,7 +378,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7041400300369153022
+--- !u!114 &7478277581271404423
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -387,7 +387,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3168146857291521025}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73c0bbb1ba739e34fb0ce3112f8e84b1, type: 3}
+  m_Script: {fileID: 11500000, guid: d7bb0274e4c5d489e8415d0133c7b0a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   promptText: Take Shadow
@@ -404,7 +404,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 3168146857291521025}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 7.2
+  m_Radius: 5.04
   m_Speed: 1
   m_Acceleration: 8
   avoidancePriority: 50
@@ -414,7 +414,7 @@ NavMeshAgent:
   m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 17.82
-  m_BaseOffset: 9.58
+  m_BaseOffset: 9.19
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &4247047356032504327

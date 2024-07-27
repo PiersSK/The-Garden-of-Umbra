@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class CottonSpriteWanderState : BaseState
 {
-    public float wanderRadius = 15f;
+    public float wanderRadius;
     public Vector3 randomPosition = Vector3.zero;
     private Creatures creature;
     private GameObject player;
@@ -53,8 +53,10 @@ public class CottonSpriteWanderState : BaseState
         bool notInObstacle = false;
         for (int i = 0; i < 10; i++)
         {
-            Vector2 wanderDirection = Random.insideUnitCircle * wanderRadius;
-            newDestination = new Vector3(creatureAgent.transform.position.x + wanderDirection.x, creatureAgent.transform.position.y, creatureAgent.transform.position.z + wanderDirection.y);
+            newDestination = new Vector3(
+                creature.spawnPoint.x + Random.Range(0f, wanderRadius),
+                creature.spawnPoint.y,
+                creature.spawnPoint.z + Random.Range(0f, wanderRadius)) ;
 
             if (NavMesh.SamplePosition(newDestination, out hit, wanderRadius, NavMesh.AllAreas))
             {
@@ -65,7 +67,6 @@ public class CottonSpriteWanderState : BaseState
         }
         if (notInObstacle)
         {
-            Debug.Log(newDestination);
             return newDestination;
             
         }
@@ -81,6 +82,7 @@ public class CottonSpriteWanderState : BaseState
     {
         if(Vector3.Distance(creatureAgent.transform.position, creatureAgent.destination) < (creatureAgent.stoppingDistance*1.5f))
         {
+            Debug.Log("Sitting");
             stateMachine.ChangeState("CottonSpriteSittingState");
         }
 
