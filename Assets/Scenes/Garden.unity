@@ -18157,7 +18157,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1552213569
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19485,7 +19485,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1684453163
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19585,7 +19585,7 @@ Transform:
   m_GameObject: {fileID: 1684453162}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 14.55, y: 2.2924106, z: -2.88}
+  m_LocalPosition: {x: 18.22, y: 2.2924106, z: -2.88}
   m_LocalScale: {x: 0.12, y: 0.12, z: 0.12}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -24123,6 +24123,75 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eea6b06ae07120340bb879a9cb436bf4, type: 3}
+--- !u!1001 &3344818459466052283
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1147596710785343627, guid: d5b61004eef7bc04aaeea03c6c550b10, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 14.593574
+      objectReference: {fileID: 0}
+    - target: {fileID: 1147596710785343627, guid: d5b61004eef7bc04aaeea03c6c550b10, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5483185
+      objectReference: {fileID: 0}
+    - target: {fileID: 1147596710785343627, guid: d5b61004eef7bc04aaeea03c6c550b10, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.4435973
+      objectReference: {fileID: 0}
+    - target: {fileID: 1147596710785343627, guid: d5b61004eef7bc04aaeea03c6c550b10, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9961947
+      objectReference: {fileID: 0}
+    - target: {fileID: 1147596710785343627, guid: d5b61004eef7bc04aaeea03c6c550b10, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.08715578
+      objectReference: {fileID: 0}
+    - target: {fileID: 1147596710785343627, guid: d5b61004eef7bc04aaeea03c6c550b10, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1147596710785343627, guid: d5b61004eef7bc04aaeea03c6c550b10, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1147596710785343627, guid: d5b61004eef7bc04aaeea03c6c550b10, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1147596710785343627, guid: d5b61004eef7bc04aaeea03c6c550b10, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1147596710785343627, guid: d5b61004eef7bc04aaeea03c6c550b10, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3465585258742742980, guid: d5b61004eef7bc04aaeea03c6c550b10, type: 3}
+      propertyPath: aspectUI
+      value: 
+      objectReference: {fileID: 1817989411}
+    - target: {fileID: 3465585258742742980, guid: d5b61004eef7bc04aaeea03c6c550b10, type: 3}
+      propertyPath: spawnManager
+      value: 
+      objectReference: {fileID: 1256092408}
+    - target: {fileID: 6573760750187601778, guid: d5b61004eef7bc04aaeea03c6c550b10, type: 3}
+      propertyPath: m_Name
+      value: Flittlet
+      objectReference: {fileID: 0}
+    - target: {fileID: 6573760750187601778, guid: d5b61004eef7bc04aaeea03c6c550b10, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d5b61004eef7bc04aaeea03c6c550b10, type: 3}
 --- !u!1001 &5054604234914394292
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24774,6 +24843,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CottonSprite
       objectReference: {fileID: 0}
+    - target: {fileID: 3168146857291521025, guid: 7a6976e5e10a12443bc9531d0c111a7b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8562678548749147241, guid: 7a6976e5e10a12443bc9531d0c111a7b, type: 3}
       propertyPath: m_Controller
       value: 
@@ -24855,3 +24928,4 @@ SceneRoots:
   - {fileID: 252838220}
   - {fileID: 7511117712076463561}
   - {fileID: 1684453166}
+  - {fileID: 3344818459466052283}
