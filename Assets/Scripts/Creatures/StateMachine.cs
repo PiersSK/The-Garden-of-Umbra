@@ -20,7 +20,6 @@ public class StateMachine : MonoBehaviour
         if (activeState != null)
         {
             activeState.Perform();
-            Debug.Log("Active State: " + activeState);
         }
     }
 
