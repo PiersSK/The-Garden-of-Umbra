@@ -30,7 +30,7 @@ public class HedgedogFleeState : BaseState
 
     public override void Enter()
     {
-        Debug.Log("Entered Flee");
+        creatureAgent.GetComponent<Animator>().SetBool("IsRunning", true);
         initialSpeed = creatureAgent.speed;
         creatureAgent.speed = player.GetComponent<PlayerController>().speed;
         //creatureAgent.stoppingDistance = 0f;
@@ -47,6 +47,11 @@ public class HedgedogFleeState : BaseState
         Vector3 dirFromPlayer = player.transform.position - creatureAgent.transform.position;
         Vector3 target = creatureAgent.transform.position - dirFromPlayer.normalized * 10f;
         creatureAgent.SetDestination(target);
+
+        if (creatureAgent.velocity.x > 0)
+            creatureAgent.GetComponent<SpriteRenderer>().flipX = false;
+        else if (creatureAgent.velocity.x < 0)
+            creatureAgent.GetComponent<SpriteRenderer>().flipX = true;
 
         float percToDespawn = despawnTimer / timeToDespawn;
         creatureAgent.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f - percToDespawn);

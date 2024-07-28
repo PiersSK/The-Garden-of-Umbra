@@ -699,7 +699,7 @@ GameObject:
   - component: {fileID: 6103331237225548148}
   - component: {fileID: 8725297281383629379}
   - component: {fileID: 6298893473750015437}
-  - component: {fileID: 460709377701040553}
+  - component: {fileID: 1928661033571754947}
   - component: {fileID: 8408842858255029865}
   - component: {fileID: 3656484992192675037}
   - component: {fileID: 6582001040081636943}
@@ -799,7 +799,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 17.956635, y: 20.562471, z: 1.393662}
   m_Center: {x: -1.2009475, y: -1.7186888, z: 0.16760324}
---- !u!114 &460709377701040553
+--- !u!114 &1928661033571754947
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -808,10 +808,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8290558544379921499}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73c0bbb1ba739e34fb0ce3112f8e84b1, type: 3}
+  m_Script: {fileID: 11500000, guid: fdd16e0be4548485fa5d36757bd70b02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  promptText: Take Shadow [S]
+  promptText: Take Shadow
   priority: 0
   creature: {fileID: 11400000, guid: fddcd6c770f5dbb4e80b5ca139e72d71, type: 2}
   spawnManager: {fileID: 0}
@@ -860,7 +860,7 @@ Animator:
   m_GameObject: {fileID: 8290558544379921499}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1d52a40e0acf84748b5e57bf93eebb4c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
