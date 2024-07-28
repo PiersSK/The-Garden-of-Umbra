@@ -1,5 +1,6 @@
 using Aspects;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -15,26 +16,49 @@ public class MixShadowUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public Image headAspect;
     public Image bodyAspect;
     public Image feetAspect;
-    public TextMeshProUGUI combinedShadowName;
 
-    private Shadow combinedShadow;
-
-    private void MixShadowsOnClick()
+    public Shadow combinedShadow;
+    private Vector3 defaultSize;
+    public void Awake()
     {
-        var mixResult = CombineInventoryShadows();
-        Debug.Log($"Result Head:{mixResult.headAspect}, Result Body: {mixResult.bodyAspect}, Result Feet: {mixResult.feetAspect}");
+        defaultSize = transform.localScale;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        CombineInventoryShadows();
-        transform.localScale = new Vector3(1.1f, 1.1f, 1.1f);
-        aspectInfo.SetActive(true);
+        var flasksHaveShadow = false;
+        var flasks = InventoryManager.Instance.flasks;
+        foreach (Flask flask in flasks) {
+           if ( flask.shadow is not null )
+            {
+                flasksHaveShadow = true;
+            }
+        }
+        if (flasksHaveShadow)
+        {
+            combinedShadow = CombineInventoryShadows();
+            UpdateAspectUI();
+            transform.localScale = new Vector3(1.1f, 1.1f, 1.1f);
+            aspectInfo.SetActive(true);
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-       aspectInfo.SetActive(false);
+        transform.localScale = defaultSize;
+        aspectInfo.SetActive(false);
+    }
+
+    public void UpdateAspectUI()
+    {
+        headAspect.sprite = combinedShadow.headAspectSprite;
+        headAspect.color = combinedShadow.headAspect == HeadAspect.None ? new Color(0, 0, 0, 0.2f) : Color.white;
+
+        bodyAspect.sprite = combinedShadow.bodyAspectSprite;
+        bodyAspect.color = combinedShadow.bodyAspect == BodyAspect.None ? new Color(0, 0, 0, 0.2f) : Color.white;
+
+        feetAspect.sprite = combinedShadow.feetAspectSprite;
+        feetAspect.color = combinedShadow.feetAspect == FeetAspect.None ? new Color(0, 0, 0, 0.2f) : Color.white;
     }
 
     public Shadow CombineInventoryShadows()
@@ -52,19 +76,19 @@ public class MixShadowUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
                 {
                     combinedShadow.headAspect = flaskShadow.headAspect ==
                     HeadAspect.None ? combinedShadow.headAspect : flaskShadow.headAspect;
-                    headAspect.sprite = flaskShadow.headAspectSprite is not null ? flaskShadow.headAspectSprite : null;
+                    combinedShadow.headAspectSprite = flaskShadow.headAspectSprite is not null ? flaskShadow.headAspectSprite : combinedShadow.headAspectSprite;
                 }
                 if (combinedShadow.bodyAspect == BodyAspect.None)
                 {
                     combinedShadow.bodyAspect = flaskShadow.bodyAspect ==
                     BodyAspect.None ? combinedShadow.bodyAspect : flaskShadow.bodyAspect;
-                    bodyAspect.sprite = flaskShadow.bodyAspectSprite is not null ? flaskShadow.bodyAspectSprite : null;
+                    combinedShadow.bodyAspectSprite = flaskShadow.bodyAspectSprite is not null ? flaskShadow.bodyAspectSprite : combinedShadow.bodyAspectSprite;
                 }
                 if (combinedShadow.feetAspect == FeetAspect.None)
                 {
                     combinedShadow.feetAspect = flaskShadow.feetAspect ==
                     FeetAspect.None ? combinedShadow.feetAspect : flaskShadow.feetAspect;
-                    feetAspect.sprite = flaskShadow.feetAspectSprite is not null ? flaskShadow.feetAspectSprite : null;
+                    combinedShadow.feetAspectSprite = flaskShadow.feetAspectSprite is not null ? flaskShadow.feetAspectSprite : combinedShadow.feetAspectSprite;
                 }
             }
         }
