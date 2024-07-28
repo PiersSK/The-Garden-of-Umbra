@@ -62,8 +62,6 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
         feetAspect.sprite = item.shadow.feetAspectSprite;
         feetAspect.color = item.shadow.feetAspect == Aspects.FeetAspect.None ? new Color(0, 0, 0, 0.2f) : Color.white;
-
-        shadowName.text = item.shadow.shadowName;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
