@@ -7,11 +7,15 @@ public class PlayerThoughts : MonoBehaviour
 {
     public static PlayerThoughts Instance { get; private set; }
 
-    [SerializeField] private GameObject thought;
+    public GameObject thought;
+    public GameObject reaction;
     [SerializeField] private TextMeshProUGUI thoughtText;
 
     private float timeTillFade = 4f;
     private float fadeTimer = 0f;
+
+    private float reactionMaxTime = 2f;
+    private float reactionTimer = 0f;
 
     private void Awake()
     {
@@ -29,11 +33,27 @@ public class PlayerThoughts : MonoBehaviour
         if (thought.activeSelf)
         {
             fadeTimer += Time.deltaTime;
-            if(fadeTimer > timeTillFade )
+            if(fadeTimer > timeTillFade)
             {
                 thought.SetActive(false);
             }
         }
+
+        if (reaction.activeSelf)
+        {
+            reactionTimer += Time.deltaTime;
+            if(reactionTimer > reactionMaxTime)
+            {
+                reaction.SetActive(false);
+            }
+        }
+    }
+
+    public void ShowReaction(float timeToDisplay)
+    {
+        reactionMaxTime = timeToDisplay;
+        reactionTimer = 0f;
+        reaction.SetActive(true);
     }
 
     public void ShowThought(string text, float timeToDisplay)

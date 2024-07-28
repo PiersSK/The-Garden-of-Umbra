@@ -15,6 +15,7 @@ MonoBehaviour:
   questGiver: {fileID: 11400000, guid: f7bf7d8720aaab3459c2be68c2bab3bd, type: 2}
   dreamDialogue: intuition... resilience... power...
   completionDialogue: Y..y...you're right. If I stay strong, I can protect my people
+  type: 1
   headSolution: 1
   bodySolution: 1
   feetSolution: 2

@@ -23,12 +23,11 @@ public class ChecklistUI : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        gameObject.SetActive(false);
     }
 
     private void Update()
     {
-        potionName.text = GetPotionName();
+        potionName.text = GetShadowName();
     }
 
     public void UntickHeadButton(HeadAspect aspect)
@@ -67,8 +66,13 @@ public class ChecklistUI : MonoBehaviour
         }
     }
 
-    public string GetPotionName()
+    public string GetShadowName()
     {
+        if (QuestTracker.Instance.headToGather == HeadAspect.None
+            && QuestTracker.Instance.bodyToGather == BodyAspect.None
+            && QuestTracker.Instance.feetToGather == FeetAspect.None)
+            return "???";
+
         string prefix = prefixes[(int)QuestTracker.Instance.headToGather];
         string adjective = string.Empty;
         string noun = string.Empty;
@@ -80,7 +84,7 @@ public class ChecklistUI : MonoBehaviour
             noun = nouns[(int)QuestTracker.Instance.bodyToGather];
 
         string potionName = prefix;
-        potionName += prefix == string.Empty ? "Potion" : " potion";
+        potionName += prefix == string.Empty ? "Shadow" : " shadow";
         potionName += (adjective + noun + suffix) == string.Empty ? "" : " of ";
         potionName += adjective + noun + suffix;
 

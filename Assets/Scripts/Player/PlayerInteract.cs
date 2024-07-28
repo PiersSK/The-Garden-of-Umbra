@@ -23,7 +23,6 @@ public class PlayerInteract : MonoBehaviour
     private void Start()
     {
         interactUI = UIManager.Instance.interactUI.GetComponent<InteractUI>();
-        PlayerThoughts.Instance.ShowThought("This is a test thought that should show for 5 seconds!", 5f);
     }
 
     private void Update()
