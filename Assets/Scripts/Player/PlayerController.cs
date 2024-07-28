@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class PlayerController : MonoBehaviour
     // Input System
     private PlayerInput playerInput;
     private PlayerInput.RoamingActions roaming;
+
+    // UI Components
+    [SerializeField] private Volume vignetteVolume;
 
     // Player Components
     public CharacterController controller;
@@ -26,6 +30,7 @@ public class PlayerController : MonoBehaviour
 
     // Player Status
     private bool isGrounded;
+    private bool isCrouching  = false;
 
     // Animation Names
     private const string WALKINGANIM = "IsWalking";
@@ -41,6 +46,22 @@ public class PlayerController : MonoBehaviour
 
         roaming.Interact.performed += ctx => playerInteract.InteractWithSelected();
         roaming.ToggleInteract.performed += ctx => playerInteract.CycleInteractable();
+        roaming.Crouch.started += ctx => Crouch();
+        roaming.Crouch.canceled += ctx => UnCrouch();
+    }
+
+    private void Crouch()
+    {
+        isCrouching = true;
+        vignetteVolume.enabled = true;
+        speed /= 2;
+    }
+
+    private void UnCrouch()
+    {
+        isCrouching = false;
+        vignetteVolume.enabled = false;
+        speed *= 2;
     }
 
     private void Update()
