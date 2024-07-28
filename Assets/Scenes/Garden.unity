@@ -14444,6 +14444,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cea6f299107483541a2f14ef4109a6fb, type: 2}
   - {fileID: 11400000, guid: bc7c56b6fe3615542bff300ba419af28, type: 2}
   - {fileID: 11400000, guid: fddcd6c770f5dbb4e80b5ca139e72d71, type: 2}
+  - {fileID: 11400000, guid: 52b6721e305cf9344bc182e9975b0f94, type: 2}
   distanceFromSpawn: 10
   respawnDelay: 10
   player: {fileID: 570553848}
