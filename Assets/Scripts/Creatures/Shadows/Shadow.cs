@@ -18,7 +18,7 @@ public class Shadow : ScriptableObject
     public Sprite bodyAspectSprite;
     public Sprite feetAspectSprite;
 
-    protected Shadow (
+    public Shadow (
         ShadowSize _size,
         HeadAspect _head,
         BodyAspect _body,
@@ -28,5 +28,13 @@ public class Shadow : ScriptableObject
         bodyAspect = _body;
         feetAspect = _feet;
         size = _size;
+    }
+
+    public Shadow()
+    {
+        headAspect = HeadAspect.None;
+        bodyAspect = BodyAspect.None;
+        feetAspect = FeetAspect.None;
+        size = ShadowSize.Small;
     }
 }

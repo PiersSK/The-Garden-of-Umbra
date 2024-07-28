@@ -57,9 +57,9 @@ public class InventoryManager : MonoBehaviour
         switch (creatureShadow.size)
         {
             case ShadowSize.Small:
-                foreach(Flask flask in flasks)
+                foreach (Flask flask in flasks)
                 {
-                    if(flask.shadow is null)
+                    if (flask.shadow is null)
                     {
                         return true;
                     }
