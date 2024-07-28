@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Hedgedog
   m_EditorClassIdentifier: 
   shadowName: Hedgedog
-  headAspect: 1
+  headAspect: 3
   bodyAspect: 1
-  feetAspect: 2
+  feetAspect: 0
   size: 0
-  headAspectSprite: {fileID: -1281358922, guid: 20c6958ac049337499c2ed0a7c7afd9c, type: 3}
+  headAspectSprite: {fileID: 270744254, guid: 20c6958ac049337499c2ed0a7c7afd9c, type: 3}
   bodyAspectSprite: {fileID: -470017033, guid: 20c6958ac049337499c2ed0a7c7afd9c, type: 3}
-  feetAspectSprite: {fileID: -1911277545, guid: 20c6958ac049337499c2ed0a7c7afd9c, type: 3}
+  feetAspectSprite: {fileID: 21300000, guid: 5f6b302c19c8bd64c9bbd35c68cfba4f, type: 3}
