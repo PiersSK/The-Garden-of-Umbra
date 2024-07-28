@@ -12,16 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5610d0c17ed57b143acf9e59ccb765a0, type: 3}
   m_Name: DragonPuppy
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 4814560542865252386, guid: da53c23079f5adf4787737a9f7aeb31f, type: 3}
   currentState: 
-  isSkittish: 0
-  isFriendly: 0
-  isIndifferent: 0
-  isHostile: 0
   pathName: 
-  spawnPoint: {x: 0, y: 0, z: 0}
+  spawnPoint: {x: -1.663512, y: 1.205, z: 16.04822}
   sightDistance: 5
   creature: 5
-  defaultBehaviour: 0
-  defaultState: 0
+  defaultBehaviour: 1
+  defaultState: DragonpuppyDashState
   shadow: {fileID: 11400000, guid: 8d2b0f6b8e074b24385ff1497b5575fb, type: 2}
