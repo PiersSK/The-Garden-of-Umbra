@@ -58,7 +58,6 @@ public class CottonSpriteSittingState : BaseState
     public void Sitting()
     {
         float distanceToPlayer = Vector3.Distance(creatureAgent.transform.position, player.transform.position);
-        Debug.Log(distanceToPlayer);
 
         timeSat += Time.deltaTime;
         if (timeSat >= sittingTime && distanceToPlayer > noticePlayerMaxRange)
