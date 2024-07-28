@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Rendering;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.AI;
@@ -40,8 +41,10 @@ public class SpawnManager : MonoBehaviour
         {
             stateMachine = newCreature.AddComponent<StateMachine>();
         }
-        stateMachine.AddState("WanderState", new WanderState(stateMachine, creature.spawnPoint, creatureAgent, 5f));
-        stateMachine.AddState("SittingState", new SittingState(stateMachine));
+        stateMachine.AddState("CottonSpriteWanderState", new CottonSpriteWanderState(stateMachine, creatureAgent, creature, 10f, player));
+        stateMachine.AddState("CottonSpriteSittingState", new CottonSpriteSittingState(stateMachine, creatureAgent, creature, player));
+        stateMachine.AddState("CottonSpriteFollowState", new CottonSpriteFollowState(stateMachine, creatureAgent, creature, player));
+        stateMachine.AddState("FlittletWanderState", new FlittletWanderState(stateMachine, creatureAgent, creature, 10f));
 
         stateMachine.SetDefaultState(creature.defaultState);
         

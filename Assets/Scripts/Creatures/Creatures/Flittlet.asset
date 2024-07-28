@@ -12,17 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5610d0c17ed57b143acf9e59ccb765a0, type: 3}
   m_Name: Flittlet
   m_EditorClassIdentifier: 
+  prefab: {fileID: 6573760750187601778, guid: d5b61004eef7bc04aaeea03c6c550b10, type: 3}
   currentState: 
-  isSkittish: 0
-  isFriendly: 0
-  isIndifferent: 1
-  isHostile: 0
-  path: {fileID: 0}
+  pathName: 
+  spawnPoint: {x: 15, y: 0, z: -20}
   sightDistance: 5
   creature: 1
-  defaultBehaviour: 0
-  defaultState: 3
-  headAspect: 0
-  bodyAspect: 3
-  feetAspect: 0
-  shadowSize: 0
+  defaultBehaviour: 1
+  defaultState: FlittletWanderState
+  shadow: {fileID: 11400000, guid: 5ebab339b57964c6fa48edb92fe774c4, type: 2}

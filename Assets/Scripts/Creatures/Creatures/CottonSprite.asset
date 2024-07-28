@@ -14,14 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 3168146857291521025, guid: 7a6976e5e10a12443bc9531d0c111a7b, type: 3}
   currentState: 
-  isSkittish: 0
-  isFriendly: 1
-  isIndifferent: 0
-  isHostile: 0
   pathName: CottonSpritePath
-  spawnPoint: {x: -10, y: 1, z: -23}
+  spawnPoint: {x: -10, y: 0.82, z: -23}
   sightDistance: 5
   creature: 0
   defaultBehaviour: 0
-  defaultState: WanderState
+  defaultState: CottonSpriteWanderState
   shadow: {fileID: 11400000, guid: 2e9b52e594e536f43b1193a7c634ca21, type: 2}
