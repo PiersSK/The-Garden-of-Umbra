@@ -15,6 +15,10 @@ public class Creatures : ScriptableObject
     [SerializeField] private string currentState;
     private GameObject player;
     public GameObject Player { get => player;}
+    public bool isSkittish;
+    public bool isFriendly;
+    public bool isIndifferent;
+    public bool isHostile;
     public string pathName;
 
     public Vector3 spawnPoint;
@@ -37,7 +41,7 @@ public class Creatures : ScriptableObject
         Prismole
     }
 
-    public enum Behaviour
+    public enum DefaultBehaviour
     {
         Friendly,
         Indifferent,
@@ -46,7 +50,7 @@ public class Creatures : ScriptableObject
     }
 
     public Creature creature;
-    public Behaviour defaultBehaviour;
+    public DefaultBehaviour defaultBehaviour;
     public string defaultState;
     public Shadow shadow;
 }
