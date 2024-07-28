@@ -53,6 +53,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Crouch"",
+                    ""type"": ""Button"",
+                    ""id"": ""54449f68-0eaa-402a-a686-c58289d2d4e4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -209,6 +218,28 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""ToggleInteract"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""92cc384c-c0d3-4f0c-a9ce-d55b10047cf2"",
+                    ""path"": ""<Keyboard>/leftCtrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Crouch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1301c46d-88b1-4dd3-a6f5-51a10c541fe8"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Crouch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -220,6 +251,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Roaming_Movement = m_Roaming.FindAction("Movement", throwIfNotFound: true);
         m_Roaming_Interact = m_Roaming.FindAction("Interact", throwIfNotFound: true);
         m_Roaming_ToggleInteract = m_Roaming.FindAction("ToggleInteract", throwIfNotFound: true);
+        m_Roaming_Crouch = m_Roaming.FindAction("Crouch", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -284,6 +316,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Roaming_Movement;
     private readonly InputAction m_Roaming_Interact;
     private readonly InputAction m_Roaming_ToggleInteract;
+    private readonly InputAction m_Roaming_Crouch;
     public struct RoamingActions
     {
         private @PlayerInput m_Wrapper;
@@ -291,6 +324,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_Roaming_Movement;
         public InputAction @Interact => m_Wrapper.m_Roaming_Interact;
         public InputAction @ToggleInteract => m_Wrapper.m_Roaming_ToggleInteract;
+        public InputAction @Crouch => m_Wrapper.m_Roaming_Crouch;
         public InputActionMap Get() { return m_Wrapper.m_Roaming; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -309,6 +343,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @ToggleInteract.started += instance.OnToggleInteract;
             @ToggleInteract.performed += instance.OnToggleInteract;
             @ToggleInteract.canceled += instance.OnToggleInteract;
+            @Crouch.started += instance.OnCrouch;
+            @Crouch.performed += instance.OnCrouch;
+            @Crouch.canceled += instance.OnCrouch;
         }
 
         private void UnregisterCallbacks(IRoamingActions instance)
@@ -322,6 +359,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @ToggleInteract.started -= instance.OnToggleInteract;
             @ToggleInteract.performed -= instance.OnToggleInteract;
             @ToggleInteract.canceled -= instance.OnToggleInteract;
+            @Crouch.started -= instance.OnCrouch;
+            @Crouch.performed -= instance.OnCrouch;
+            @Crouch.canceled -= instance.OnCrouch;
         }
 
         public void RemoveCallbacks(IRoamingActions instance)
@@ -344,5 +384,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnToggleInteract(InputAction.CallbackContext context);
+        void OnCrouch(InputAction.CallbackContext context);
     }
 }
