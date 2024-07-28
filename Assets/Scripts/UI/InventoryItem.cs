@@ -9,6 +9,7 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     [Header("UI")]
     public Image image;
+    public Image creatureOutline;
     public GameObject releaseButton;
     public GameObject aspectInfo;
     public Image releaseTimerImage;
@@ -34,6 +35,7 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     private void Update()
     {
+
         if(releaseInProgress)
         {
             releaseTimer += Time.deltaTime;

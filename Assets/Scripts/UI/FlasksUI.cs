@@ -41,8 +41,9 @@ public class FlasksUI : MonoBehaviour
         for (int i = 0; i < transform.childCount; i++)
         {
             Transform child = transform.GetChild(i);
-            InventoryItem flask = child.GetComponent<InventoryItem>();
-            Image flaskImage = flask.GetComponent<Image>();
+            InventoryItem invenItem = child.GetComponent<InventoryItem>();
+            Image flaskImage = invenItem.GetComponent<Image>();
+            Image outline = invenItem.creatureOutline;
 
             var inventoryFlask = InventoryManager.Instance.flasks[i];
 
@@ -50,6 +51,8 @@ public class FlasksUI : MonoBehaviour
             {
                 flaskImage.sprite = inventoryFlask.emptySprite; 
                 flaskImage.color = inventoryFlask.shadow is null ? new Color(1f, 1f, 1f, 0.5f) : new Color(0.36f, 0.35f, 0.48f, 0.7f);
+                outline.color = inventoryFlask.shadow is null ? new Color(1f, 1f, 1f, 0f) : new Color(0.2f, 0.2f, 0.2f, 0.7f);
+                outline.sprite = inventoryFlask.shadow is null ? null : inventoryFlask.shadow.creatureOutline;
                 flaskImage.gameObject.SetActive(inventoryFlask.flaskUnlocked);
             }
 

@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Aspects;
-using UnityEngine.UI;
 
 public class ShadowInteractable : Interactable
 {
@@ -25,7 +21,7 @@ public class ShadowInteractable : Interactable
     public override void Interact()
     {
         GetComponent<SpriteRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
-        var shadowAdded = InventoryManager.Instance.AddShadow(creature.shadow);
+        var shadowAdded = InventoryManager.Instance.AddShadow(creature.shadow, GetComponent<SpriteRenderer>().sprite);
 
         QuestTracker.Instance.headAspect = creature.shadow.headAspect;
         QuestTracker.Instance.bodyAspect = creature.shadow.bodyAspect;
