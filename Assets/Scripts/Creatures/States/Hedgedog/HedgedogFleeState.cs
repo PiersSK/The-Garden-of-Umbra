@@ -8,6 +8,9 @@ public class HedgedogFleeState : BaseState
     private float despawnTimer = 0f;
     private float timeToDespawn = 1.5f;
 
+    private Vector3 fleeNorth = new(31.2f, 0f, -3.6f);
+    private Vector3 fleeSouth = new(7.6f, 0f, -20.6f);
+
     private float initialSpeed;
 
     private NavMeshAgent creatureAgent;
@@ -31,7 +34,7 @@ public class HedgedogFleeState : BaseState
     public override void Enter()
     {
         creatureAgent.GetComponent<Animator>().SetBool("IsRunning", true);
-        initialSpeed = creatureAgent.speed;
+        initialSpeed = creatureAgent.speed * 2f;
         creatureAgent.speed = player.GetComponent<PlayerController>().speed;
         //creatureAgent.stoppingDistance = 0f;
         
@@ -44,9 +47,7 @@ public class HedgedogFleeState : BaseState
 
     public override void Perform()
     {
-        Vector3 dirFromPlayer = player.transform.position - creatureAgent.transform.position;
-        Vector3 target = creatureAgent.transform.position - dirFromPlayer.normalized * 10f;
-        creatureAgent.SetDestination(target);
+        creatureAgent.SetDestination(GetBestFleeSpot());
 
         if (creatureAgent.velocity.x > 0)
             creatureAgent.GetComponent<SpriteRenderer>().flipX = false;
@@ -62,5 +63,14 @@ public class HedgedogFleeState : BaseState
             creatureAgent.speed = initialSpeed;
             spawnManager.DespawnCreature(creature);
         }
+    }
+
+    private Vector3 GetBestFleeSpot()
+    {
+        float northDistance = Vector3.Distance(player.transform.position, fleeNorth);
+        float southDistance = Vector3.Distance(player.transform.position, fleeSouth);
+
+        if (Mathf.Max(northDistance, southDistance) == northDistance) return fleeNorth;
+        else return fleeSouth;
     }
 }

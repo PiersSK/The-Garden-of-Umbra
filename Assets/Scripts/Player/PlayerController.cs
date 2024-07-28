@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
 
     // Player Status
     private bool isGrounded;
-    private bool isCrouching  = false;
+    public bool isCrouching  = false;
 
     // Animation Names
     private const string WALKINGANIM = "IsWalking";

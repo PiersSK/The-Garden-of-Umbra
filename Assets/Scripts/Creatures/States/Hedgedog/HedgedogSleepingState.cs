@@ -33,9 +33,9 @@ public class HedgedogSleepingState : BaseState
     public override void Perform()
     {
         float distanceToPlayer = Vector3.Distance(creatureAgent.transform.position, player.transform.position);
-        if(distanceToPlayer <= alertnessRadius)
+        if(distanceToPlayer <= alertnessRadius && !PlayerController.Instance.isCrouching)
         {
-            Debug.Log("ShouldFlee");
+            creatureAgent.GetComponent<Hedgedog>().surpriseMarker.SetActive(true);
             stateMachine.ChangeState("HedgedogFleeState");
         }
 
