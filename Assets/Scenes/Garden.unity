@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 203844588}
-  m_IndirectSpecularColor: {r: 0.21932873, g: 0.46175015, b: 0.5181763, a: 1}
+  m_IndirectSpecularColor: {r: 0.21932858, g: 0.46175003, b: 0.5181761, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2004,6 +2004,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: afe4d6852e925ac46a4ec30584563de4, type: 2}
   image: {fileID: 195244065}
+  creatureOutline: {fileID: 0}
   releaseButton: {fileID: 481045363}
   aspectInfo: {fileID: 0}
   releaseTimerImage: {fileID: 999910931}
@@ -10403,6 +10404,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: afe4d6852e925ac46a4ec30584563de4, type: 2}
   image: {fileID: 671359377}
+  creatureOutline: {fileID: 0}
   releaseButton: {fileID: 976602390}
   aspectInfo: {fileID: 0}
   releaseTimerImage: {fileID: 1203734819}
@@ -19055,6 +19057,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: afe4d6852e925ac46a4ec30584563de4, type: 2}
   image: {fileID: 1763688699}
+  creatureOutline: {fileID: 0}
   releaseButton: {fileID: 634411073}
   aspectInfo: {fileID: 0}
   releaseTimerImage: {fileID: 1390488335}
