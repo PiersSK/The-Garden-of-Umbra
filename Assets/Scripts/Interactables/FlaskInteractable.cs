@@ -5,6 +5,14 @@ using UnityEngine;
 
 public class FlaskInteractable : Interactable
 {
+    public override bool CanInteract()
+    {
+        if(InventoryManager.Instance.UnlockedFlasks().Count == 0)
+            return Tutorial.Instance.currentStep == 1;
+
+        return true;
+    }
+
     public override void Interact()
     {
         int currentFlasks = InventoryManager.Instance.UnlockedFlasks().Count;

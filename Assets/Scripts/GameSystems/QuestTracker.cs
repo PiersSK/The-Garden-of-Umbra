@@ -11,9 +11,10 @@ public class QuestTracker : MonoBehaviour
 
     [SerializeField] private List<Quest> quests;
     private int questIndex = 0;
-    private Quest activeQuest;
+    public Quest activeQuest;
 
     [SerializeField] private TextMeshProUGUI targetUI;
+    [SerializeField] private ChecklistUI checklistUI;
     [SerializeField] private TextMeshProUGUI dreamerReminderUI;
     [SerializeField] private string targetUIName;
 
@@ -54,12 +55,6 @@ public class QuestTracker : MonoBehaviour
     private void Update()
     {
         UpdateGatheringList();
-        if(dreamerReminderUI != null && activeQuest != null)
-        {
-            dreamerReminderUI.text = activeQuest.dreamDialogue;
-        }
-        if(DialogueUI.Instance != null && activeQuest != null)
-            DialogueUI.Instance.SetCurrentDialogueLine(QuestRequirementsMet() ? activeQuest.completionDialogue : activeQuest.dreamDialogue);
     }
     private void UpdateGatheringList()
     {
@@ -97,9 +92,11 @@ public class QuestTracker : MonoBehaviour
 
     public bool QuestRequirementsMet()
     {
-        return headAspect == activeQuest.headSolution
-            && bodyAspect == activeQuest.bodySolution
-            && feetAspect == activeQuest.feetSolution;
+        Flask flask = InventoryManager.Instance.flasks[0]; // Temp just check small flask
+
+        return flask.shadow.headAspect == activeQuest.headSolution
+            && flask.shadow.bodyAspect == activeQuest.bodySolution
+            && flask.shadow.feetAspect == activeQuest.feetSolution;
     }
 
     private void ResetPlayerAspectsAndChecklist()
@@ -108,18 +105,14 @@ public class QuestTracker : MonoBehaviour
         bodyAspect = Aspects.BodyAspect.None;
         feetAspect = Aspects.FeetAspect.None;
 
-        ChecklistUI.Instance.UncheckAll();
+        checklistUI.UncheckAll();
     }
 
-    public void CompleteQuestIfRequirementsMet()
+    public bool CompleteQuestIfRequirementsMet()
     {
         if(QuestRequirementsMet())
         {
-            Debug.Log("Completing quest");
             InventoryManager.Instance.ClearAllFlasks();
-            DialogueUI.Instance.HideDreamerAndDialogue();
-            GameObject obj = Instantiate(activeQuest.questGiver.spriteObject, activeQuest.questGiver.spawnPoint, Quaternion.identity);
-            obj.name = activeQuest.questGiver.dreamerName;
 
             ResetPlayerAspectsAndChecklist();
 
@@ -129,21 +122,25 @@ public class QuestTracker : MonoBehaviour
             else
                 activeQuest = null;
 
+            // spawn in new dreamer
 
+            return true;
         }
+
+        return false;
     }
 
     private string GetShadowName()
     {
-        string prefix = prefixes[(int)QuestTracker.Instance.headToGather];
+        string prefix = prefixes[(int)headToGather];
         string adjective = string.Empty;
         string noun = string.Empty;
-        string suffix = suffixes[(int)QuestTracker.Instance.feetToGather];
+        string suffix = suffixes[(int)feetToGather];
 
-        if (QuestTracker.Instance.feetToGather != FeetAspect.None)
-            adjective = adjectives[(int)QuestTracker.Instance.bodyToGather];
+        if (feetToGather != FeetAspect.None)
+            adjective = adjectives[(int)bodyToGather];
         else
-            noun = nouns[(int)QuestTracker.Instance.bodyToGather];
+            noun = nouns[(int)bodyToGather];
 
         string potionName = prefix;
         potionName += prefix == string.Empty ? "Shadow" : " shadow";

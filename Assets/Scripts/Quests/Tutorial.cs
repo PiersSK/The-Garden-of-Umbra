@@ -15,9 +15,9 @@ public class Tutorial : MonoBehaviour
     private NavMeshAgent playerAgent;
 
     [SerializeField] private List<string> questSteps;
-    private int currentStep = 0;
+    public int currentStep = 0;
 
-    private FormedDreamerInteractable dreamer;
+    private DreamerInteractable dreamer;
 
     //Opening Cutscene
     private Vector3 frontOfGarden = new(0f, 1.5f, -28.93f);
@@ -84,7 +84,7 @@ public class Tutorial : MonoBehaviour
         if (!PlayerThoughts.Instance.thought.activeSelf && firstThought && !dreamerSpawned)
         {
             GameObject dreamerObj = Instantiate(dreamerPrefab, new Vector3(-6.17f, 1.31f, -27.79f), Quaternion.identity);
-            dreamer = dreamerObj.GetComponent<FormedDreamerInteractable>();
+            dreamer = dreamerObj.GetComponent<DreamerInteractable>();
             dreamer.OnDreamerTalkedTo += CheckDreamerTalkedTo;
             PlayerController.Instance.playerAnimator.SetTrigger("Surprised");
             PlayerThoughts.Instance.ShowReaction(2f);
@@ -106,7 +106,7 @@ public class Tutorial : MonoBehaviour
 
     }
 
-    private void CheckDreamerTalkedTo(object sender, FormedDreamerInteractable.DreamerTalkedToEventArgs e)
+    private void CheckDreamerTalkedTo(object sender, DreamerInteractable.DreamerTalkedToEventArgs e)
     {
         dreamer.OnDreamerTalkedTo -= CheckDreamerTalkedTo;
         Invoke("HaveDreamerThought", e.expectedWaitTime);

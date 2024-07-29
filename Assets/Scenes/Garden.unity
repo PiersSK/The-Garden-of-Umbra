@@ -15101,7 +15101,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 010719a099840bb4d95a76628f370f74, type: 2}
   - {fileID: 11400000, guid: 651e1f458bcb53741a47981d6a509d3d, type: 2}
   - {fileID: 11400000, guid: 67e0a59a9b731924c97c8b41cd351bb2, type: 2}
+  activeQuest: {fileID: 0}
   targetUI: {fileID: 1341080174}
+  checklistUI: {fileID: 7978017073677665082}
   dreamerReminderUI: {fileID: 1267626918}
   targetUIName: GatheringTarget
   headToGather: 0

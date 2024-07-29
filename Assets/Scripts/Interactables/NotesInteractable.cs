@@ -6,6 +6,11 @@ public class NotesInteractable : Interactable
 {
     [SerializeField] private GameObject notesUIButton;
 
+    public override bool CanInteract()
+    {
+        return Tutorial.Instance.currentStep == 1;
+    }
+
     public override void Interact()
     {
         Tutorial.Instance.notesFound = true;
