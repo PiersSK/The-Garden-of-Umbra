@@ -13,8 +13,20 @@ MonoBehaviour:
   m_Name: 3.Bramble
   m_EditorClassIdentifier: 
   questGiver: {fileID: 11400000, guid: f7bf7d8720aaab3459c2be68c2bab3bd, type: 2}
-  dreamDialogue: intuition... resilience... power...
+  dreamDialogue:
+  - "\u2026 No no no no, they\u2019re here, they <b>snuck past me</b> so silently
+    \u2026"
+  - "\u2026 They\u2019ll smash me to pieces, a single blow would surely, how can
+    I <b>survive</b>\u2026"
+  - "\u2026 And those hides, thick as armour, my sword isn\u2019t sharp enough, my
+    arm <b>not strong enough<b>\u2026"
   completionDialogue: Y..y...you're right. If I stay strong, I can protect my people
+  formedDialogue:
+  - Young Brambleheart, at your service!
+  - "Fighting demons is 50% intuition, 50% resilience, and 50% power. Wait\u2026"
+  - All the monsters around here seem pretty chill. Cute, almost.
+  - Cuddly, even.
+  - ...can I pet them?
   headSolution: 1
   bodySolution: 1
   feetSolution: 2

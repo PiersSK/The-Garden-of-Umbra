@@ -18,11 +18,6 @@ public class DialogueUI : MonoBehaviour
         Instance = this;
     }
 
-    private void Start()
-    {
-        dismissButton.onClick.AddListener(QuestTracker.Instance.CompleteQuestIfRequirementsMet);
-    }
-
     public void SetCurrentDialogueLine(string line)
     {
         currentLine.text = line;

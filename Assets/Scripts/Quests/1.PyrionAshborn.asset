@@ -13,10 +13,19 @@ MonoBehaviour:
   m_Name: 1.PyrionAshborn
   m_EditorClassIdentifier: 
   questGiver: {fileID: 11400000, guid: 025890149f09fe94980afeea9fce2016, type: 2}
-  dreamDialogue: ...The Ember Emperor must be pleased...   ...Jesting used to bring
-    me such joy...   ...if only I could <b>find my fire again</b>...
-  completionDialogue: Ahh just the warmth I needed! To show this to others is what
-    truly brought me joy!
+  dreamDialogue:
+  - ...everyone's telling me I'm so <b>cold</b> to people these days...
+  - ...jesting used to bring me such joy...
+  - ...the Emberor is becoming displeased...
+  completionDialogue: Yeehaw, that's good stuff!!! I remember now, the importance
+    of a warm greeting! Thank you kindly miss!
+  formedDialogue:
+  - They call me Pyrion Ashborn, howdy! Wanna see me juggle?
+  - Wow! Wanna see my juggle again?
+  - Haha, yeah! Juggling! Yeeeeeeeaaaaaaaaaah!
+  - "Say, if you\u2019re doing something because you\u2019re scared you\u2019ll be
+    immolated if you don\u2019t, is that like\u2026 wrong? "
+  - Haha, never mind, ignore that! I love to juggle.
   headSolution: 0
   bodySolution: 0
   feetSolution: 1
