@@ -53,6 +53,7 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             releaseTimerImage.fillAmount = releaseTimer / timeToRelease;
             if(releaseTimer >= timeToRelease )
             {
+                SpawnManager.Instance.SpawnCreatureFromShadow(item.shadow);
                 item.RemoveShadow();
 
                 releaseButton.SetActive(false);

@@ -47,6 +47,7 @@ public class FlasksUI : MonoBehaviour
             InventoryItem childComponent = newChildInventoryItem.GetComponent<InventoryItem>();
             if(childComponent is not null ) 
             {
+                flask.flaskUnlocked = false;
                 flask.shadow = null;
                 childComponent.item = flask;
                 childComponent.image.sprite = flask.emptySprite;
