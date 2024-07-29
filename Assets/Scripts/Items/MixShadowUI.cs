@@ -1,6 +1,4 @@
 using Aspects;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -18,14 +16,32 @@ public class MixShadowUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public Shadow combinedShadow;
     private Vector3 defaultSize;
+
+    private Color defaultColor;
+    private bool flasksNowUnlocked;
+
     public void Awake()
     {
         defaultSize = transform.localScale;
+        defaultColor = image.color;
+
+        flasksNowUnlocked = false;
+        image.color = new Color(0,0,0,0);
+
+    }
+
+    public void Update()
+    {
+        if (InventoryManager.Instance.UnlockedFlasks().Count > 0 && !flasksNowUnlocked)
+        {
+            flasksNowUnlocked = true;
+            image.color = defaultColor;
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (FlasksAvShadows())
+        if (FlasksAvShadows() && flasksNowUnlocked)
         {
             combinedShadow = CombineInventoryShadows();
             UpdateAspectUI();
