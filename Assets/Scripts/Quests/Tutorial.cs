@@ -108,10 +108,14 @@ public class Tutorial : MonoBehaviour
 
     private void CheckDreamerTalkedTo(object sender, FormedDreamerInteractable.DreamerTalkedToEventArgs e)
     {
-        dreamerTalkedTo = true;
         dreamer.OnDreamerTalkedTo -= CheckDreamerTalkedTo;
-        PlayerThoughts.Instance.ShowThought("Hmmm restless dreamers are only half formed in this world. I need to craft them a shadow... oh no, I need to find my flask and notes!", 5f);
+        Invoke("HaveDreamerThought", e.expectedWaitTime);
+    }
 
+    private void HaveDreamerThought()
+    {
+        dreamerTalkedTo = true;
+        PlayerThoughts.Instance.ShowThought("Hmmm restless dreamers are only half formed in this world. I need to craft them a shadow... oh no, I need to find my flask and notes!", 5f);
     }
 
     private void CheckToProgress()

@@ -12,7 +12,10 @@ public class FormedDreamerInteractable : Interactable
     {
         public int interactions;
         public string dreamerName;
+        public float expectedWaitTime;
     }
+
+    [SerializeField] private bool cycleDialogue = true;
 
     [SerializeField] private List<string> dialogueLines;
     [SerializeField] private string dreamerName;
@@ -21,6 +24,7 @@ public class FormedDreamerInteractable : Interactable
     private int totalInteractions = 0;
 
     [SerializeField] private GameObject dialogueBox;
+    [SerializeField] private GameObject dialoguePrefab;
     [SerializeField] private TextMeshProUGUI dialogue;
 
     private float fadeTimer = 0f;
@@ -28,7 +32,7 @@ public class FormedDreamerInteractable : Interactable
 
     private void Start()
     {
-        
+        dialogueBox.SetActive(false);
     }
 
     private void Update()
@@ -36,7 +40,7 @@ public class FormedDreamerInteractable : Interactable
         if (dialogueBox.activeSelf)
         {
             fadeTimer += Time.deltaTime;
-            if(fadeTimer >= showDialogueFor)
+            if(fadeTimer >= showDialogueFor * (cycleDialogue ? 1 : dialogueLines.Count))
             {
                 dialogueBox.SetActive(false);
             }
@@ -46,13 +50,36 @@ public class FormedDreamerInteractable : Interactable
     public override void Interact()
     {
         totalInteractions++;
+        UpdateDialogue();
+        OnDreamerTalkedTo?.Invoke(this, new DreamerTalkedToEventArgs() { 
+            interactions = totalInteractions,
+            dreamerName = dreamerName,
+            expectedWaitTime = showDialogueFor * (cycleDialogue ? 1 : dialogueLines.Count)
+        });
+    }
 
-        dialogue.text = dialogueLines[currentIndex];
-        currentIndex++;
-        if (currentIndex >= dialogueLines.Count) currentIndex = 0;
-        dialogueBox.SetActive(true);
+    private void UpdateDialogue()
+    {
+        foreach (Transform dialogue in dialogueBox.transform) Destroy(dialogue.gameObject);
+
+        if (cycleDialogue)
+        {
+            GameObject dialogueObj = Instantiate(dialoguePrefab, dialogueBox.transform);
+            dialogueObj.GetComponentInChildren<TextMeshProUGUI>().text = dialogueLines[currentIndex];
+            currentIndex++;
+            if (currentIndex >= dialogueLines.Count) currentIndex = 0;
+
+        } else
+        {
+            foreach(string line in dialogueLines)
+            {
+                GameObject dialogueObj = Instantiate(dialoguePrefab, dialogueBox.transform);
+                dialogueObj.GetComponentInChildren<TextMeshProUGUI>().text = line;
+            }
+
+        }
+
         fadeTimer = 0f;
-
-        OnDreamerTalkedTo?.Invoke(this, new DreamerTalkedToEventArgs() { interactions = totalInteractions, dreamerName = dreamerName });
+        dialogueBox.SetActive(true);
     }
 }

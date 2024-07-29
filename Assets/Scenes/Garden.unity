@@ -31679,6 +31679,7 @@ GameObject:
   - component: {fileID: 3458700534447963586}
   - component: {fileID: 1564625252864634337}
   - component: {fileID: 2618580864707356118}
+  - component: {fileID: 7978017073677665082}
   m_Layer: 5
   m_Name: Clipboard
   m_TagString: Untagged
@@ -31686,6 +31687,29 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7978017073677665082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7978017073677665081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f18a895fe7977ff40b605af0dc876c47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkButtons:
+  - {fileID: 5784491571141321770}
+  - {fileID: 2690439370274980759}
+  - {fileID: 3992374402423420879}
+  - {fileID: 6229469840602490358}
+  - {fileID: 710838221385637787}
+  - {fileID: 4427117464550677136}
+  - {fileID: 7419453254860046728}
+  - {fileID: 8034659538545586829}
+  - {fileID: 6323200558849267932}
+  potionName: {fileID: 2976735637201739276}
 --- !u!224 &8030121552975262314
 RectTransform:
   m_ObjectHideFlags: 0
