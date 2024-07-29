@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -31,6 +32,7 @@ public class SpawnManager : MonoBehaviour
     void SpawnCreature(Creatures creature)
     {
         GameObject newCreature = Instantiate(creature.prefab, creature.spawnPoint, Quaternion.identity);
+        newCreature.name = creature.name;
 
         CreatureReference creatureReference = newCreature.GetComponent<CreatureReference>();
         if (creatureReference == null)
