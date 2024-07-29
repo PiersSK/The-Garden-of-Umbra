@@ -19,7 +19,7 @@ public class AurafoxSleepingState : BaseState
 
     public override void Enter()
     {
-         creatureAgent.GetComponent<Animator>().SetBool("IsAwake", false);
+        //creatureAgent.GetComponent<Animator>().SetBool("IsAwake", false);
     }
     public override void Perform()
     {
