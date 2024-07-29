@@ -19,5 +19,5 @@ MonoBehaviour:
   sightDistance: 5
   creature: 6
   defaultBehaviour: 1
-  defaultState: WillOMeowWanderState
+  defaultState: WillOMeowWanderingState
   shadow: {fileID: 11400000, guid: 48d0cf6ed0ccca048a35e79f7d6d7621, type: 2}
