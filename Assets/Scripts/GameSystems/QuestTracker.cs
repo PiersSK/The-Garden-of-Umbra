@@ -127,7 +127,6 @@ public class QuestTracker : MonoBehaviour
     public bool QuestRequirementsMet()
     {
         Shadow shadow = combinedShadow.combinedShadow;
-        Debug.Log(shadow);
         if (shadow is null) return false;
 
         return shadow.headAspect == activeQuest.headSolution
