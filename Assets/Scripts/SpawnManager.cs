@@ -5,11 +5,19 @@ using UnityEngine.AI;
 
 public class SpawnManager : MonoBehaviour
 {
+    public static SpawnManager Instance { get; private set; }
+
     public Creatures[] creatures;
     public float distanceFromSpawn = 10f;
     public float respawnDelay = 10f;
     private Dictionary<Creatures, GameObject> activeCreatures = new Dictionary<Creatures, GameObject>();
     public GameObject player;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     void Start()
     {
         SpawnCreatures();
@@ -78,6 +86,18 @@ public class SpawnManager : MonoBehaviour
         activeCreatures[creature] = newCreature;
     }
 
+    public void SpawnCreatureFromShadow(Shadow shadow)
+    {
+        foreach (Creatures creature in creatures)
+        {
+            if(creature.shadow == shadow)
+            {
+                SpawnCreature(creature);
+                break;
+            }
+        }
+    }
+
     void SpawnCreatures()
     {
         foreach (Creatures creature in creatures)
@@ -96,7 +116,16 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    private IEnumerator RespawnCreature(Creatures creature, float delay, float distance)
+    public void DespawnCreatureWithoutRespawn(Creatures creature)
+    {
+        if (activeCreatures.TryGetValue(creature, out GameObject newCreature))
+        {
+            Destroy(newCreature);
+            activeCreatures.Remove(creature);
+        }
+    }
+
+    private IEnumerator RespawnCreature(Creatures creature, float delay, float distance) 
     {
         yield return new WaitForSeconds(delay);
         if(creature != null)

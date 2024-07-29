@@ -613,6 +613,7 @@ MonoBehaviour:
   priority: 0
   creature: {fileID: 11400000, guid: bc7c56b6fe3615542bff300ba419af28, type: 2}
   spawnManager: {fileID: 0}
+  smokeObj: {fileID: 1055847238102491542, guid: 948e2246f7e2bee4683a1620a3dd41a9, type: 3}
   aspectUI: {fileID: 977792365133125582}
 --- !u!95 &5257625970672015384
 Animator:
