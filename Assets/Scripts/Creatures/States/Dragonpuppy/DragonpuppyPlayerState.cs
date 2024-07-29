@@ -1,44 +1,63 @@
 using UnityEngine;
 using UnityEngine.AI;
-public class DragonpuppyDashState : BaseState
+using UnityEngine.Pool;
+public class DragonpuppyPlayerState : BaseState
 {
-    public float wanderRadius = 15f;
     public Vector3 randomPosition = Vector3.zero;
     private Creatures creature;
     private GameObject player;
     private NavMeshAgent creatureAgent;
-    float wanderTime = 5f;
-    float wanderingTime;
-    
-    float detectionRadius = 12f;
+    private float wanderRadius = 15f;
+    private float detectionRadius = 12f;
+    private bool hasReachedPlayer = false;
+    private bool hasReachedSpawn = false;
 
-    public DragonpuppyDashState(StateMachine stateMachine, NavMeshAgent creatureAgent, Creatures creature, float wanderRadius, GameObject player) : base(stateMachine)
+    public DragonpuppyPlayerState(StateMachine stateMachine, NavMeshAgent creatureAgent, Creatures creature, GameObject player) : base(stateMachine)
     {
         this.creature = creature;
-        this.wanderRadius = wanderRadius;
-        this.creatureAgent = creatureAgent;
         this.player = player;
+        this.creatureAgent = creatureAgent;
     }
 
     public override void Enter()
     {
-        Debug.Log("Entered Dash State");
-        creatureAgent.SetDestination(GetNewDestination());
+        Debug.Log("Entered Player State");
+        creatureAgent.SetDestination(player.transform.position);
     }
     
 
     public override void Perform()
     {
-        Wander();
-        if(Vector3.Distance(creatureAgent.transform.position, player.transform.position) < detectionRadius)
+        HasReachedPlayer();
+        if(hasReachedPlayer)
         {
-            stateMachine.ChangeState("DragonpuppyPlayerState");
+            creatureAgent.SetDestination(creature.spawnPoint);
         }
+        HasReachedDestination();
+        if(hasReachedSpawn)
+        {
+            stateMachine.ChangeState("DragonpuppyDashState");
+        }
+
     }
     
     public override void Exit()
     {
+    }
+    public void HasReachedPlayer()
+    {
+        if (Vector3.Distance(creatureAgent.transform.position, player.transform.position) < creatureAgent.stoppingDistance)
+        {
+            hasReachedPlayer = true;
+        }
+    }
 
+    public void HasReachedDestination()
+    {
+        if(Vector3.Distance(creatureAgent.transform.position, creature.spawnPoint) < creatureAgent.stoppingDistance)
+        {
+            hasReachedSpawn = true;
+        }
     }
 
     public Vector3 GetNewDestination()
@@ -68,19 +87,5 @@ public class DragonpuppyDashState : BaseState
         }
        
         
-    }
-
-    public void Wander()
-    {
-        if(Vector3.Distance(creatureAgent.transform.position, creatureAgent.destination) < creatureAgent.stoppingDistance)
-        {
-            creatureAgent.SetDestination(GetNewDestination());
-        }
-        wanderingTime += Time.deltaTime;
-        if (wanderingTime > wanderTime)
-        {
-            creatureAgent.SetDestination(GetNewDestination());
-            wanderingTime = 0;
-        }
     }
 }

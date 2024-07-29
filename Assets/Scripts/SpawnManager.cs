@@ -65,7 +65,8 @@ public class SpawnManager : MonoBehaviour
         stateMachine.AddState("HedgedogFleeState", new HedgedogFleeState(stateMachine, creatureAgent, player, creature, this));
 
         //Dragonpuppy
-        stateMachine.AddState("DragonpuppyDashState", new DragonpuppyDashState(stateMachine, creatureAgent, creature, 10f));
+        stateMachine.AddState("DragonpuppyDashState", new DragonpuppyDashState(stateMachine, creatureAgent, creature, 10f, player));
+        stateMachine.AddState("DragonpuppyPlayerState", new DragonpuppyPlayerState(stateMachine, creatureAgent, creature, player));
 
         //Aurafox
         stateMachine.AddState("AurafoxSleepingState", new AurafoxSleepingState(stateMachine, creatureAgent, creature, player));
