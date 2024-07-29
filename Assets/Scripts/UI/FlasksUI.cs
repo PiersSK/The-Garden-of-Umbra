@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,11 +7,27 @@ public class FlasksUI : MonoBehaviour
 {
     public InventoryItem inventoryItem;
 
+    public static FlasksUI Instance { get; private set; }
+
+    [HideInInspector]
+    public List<InventoryItem> inventoryItems;
+
     private void Start()
     {
         foreach (Transform child in transform)
         {
             Destroy(child.gameObject);
+        }
+        inventoryItems = new List<InventoryItem>();
+
+        if(Instance is null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
         }
 
         createGrid();
@@ -33,6 +50,7 @@ public class FlasksUI : MonoBehaviour
                 flask.shadow = null;
                 childComponent.item = flask;
                 childComponent.image.sprite = flask.emptySprite;
+                inventoryItems.Add(childComponent);
             }
         }
     }

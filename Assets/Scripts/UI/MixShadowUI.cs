@@ -1,4 +1,6 @@
 using Aspects;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -23,15 +25,7 @@ public class MixShadowUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        var flasksHaveShadow = false;
-        var flasks = InventoryManager.Instance.flasks;
-        foreach (Flask flask in flasks) {
-           if ( flask.shadow is not null )
-            {
-                flasksHaveShadow = true;
-            }
-        }
-        if (flasksHaveShadow)
+        if (FlasksAvShadows())
         {
             combinedShadow = CombineInventoryShadows();
             UpdateAspectUI();
@@ -40,10 +34,27 @@ public class MixShadowUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         }
     }
 
+    public bool FlasksAvShadows()
+    {
+        var flasks = InventoryManager.Instance.flasks;
+        foreach (Flask flask in flasks)
+        {
+            if (flask.shadow is not null)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void OnPointerExit(PointerEventData eventData)
     {
         transform.localScale = defaultSize;
         aspectInfo.SetActive(false);
+        foreach(InventoryItem item in FlasksUI.Instance.inventoryItems)
+        {
+            item.aspectInfo.SetActive(false);
+        }
     }
 
     public void UpdateAspectUI()
@@ -56,7 +67,72 @@ public class MixShadowUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
         feetAspect.sprite = combinedShadow.feetAspectSprite;
         feetAspect.color = combinedShadow.feetAspect == FeetAspect.None ? new Color(0, 0, 0, 0.2f) : Color.white;
+
+        UpdateInventoryAspectUI();
     }
+
+    public  void UpdateInventoryAspectUI()
+    {
+        var invenItems = FlasksUI.Instance.inventoryItems;
+        for (int i = invenItems.Count - 1; i > -1; i--)
+        {
+            if(SmallerFlasksAAspects(i, "Head"))
+            {
+                invenItems[i].headAspect.color = new Color(0,33,0,0.2f);
+            }
+            if (SmallerFlasksAAspects(i, "Body"))
+            {
+                invenItems[i].bodyAspect.color = new Color(0, 33, 0, 0.2f);
+            }
+            if (SmallerFlasksAAspects(i, "Feet"))
+            {
+                invenItems[i].feetAspect.color = new Color(0, 33, 0, 0.2f);
+            }
+
+            invenItems[i].aspectInfo.SetActive(invenItems[i].item.shadow is not null);
+        }
+        
+    }
+
+    public bool SmallerFlasksAAspects(int index, string aspect)
+    {
+        if (index <= 0)
+        {
+            return false;
+        }
+
+        var flasks = InventoryManager.Instance.flasks;
+
+        for (int i = index; index <= 0; i--)
+        {
+            switch (aspect)
+            {
+                case "Head":
+                    if (flasks[i - 1].shadow.headAspect != HeadAspect.None)
+                    {
+                        return true;
+                    }
+                    break;
+                case "Body":
+                    if (flasks[i - 1].shadow.bodyAspect != BodyAspect.None)
+                    {
+                        return true;
+                    }
+                    break;
+                case "Feet":
+                    if (flasks[i - 1].shadow.feetAspect != FeetAspect.None)
+                    {
+                        return true;
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        return false;
+    }
+
 
     public Shadow CombineInventoryShadows()
     {

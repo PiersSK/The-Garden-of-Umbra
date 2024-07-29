@@ -1,3 +1,4 @@
+using System.ComponentModel.Design;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -35,8 +36,18 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     private void Update()
     {
+        if (item.shadow is not null)
+        {
+            creatureOutline.sprite = item.shadow.creatureOutline;
+            creatureOutline.color = new Color(0,0,0,0.4f);
+        }
+        else
+        {
+            creatureOutline.sprite = null;
+            creatureOutline.color = new Color(0, 0, 0, 0);
+        }
 
-        if(releaseInProgress)
+        if (releaseInProgress)
         {
             releaseTimer += Time.deltaTime;
             releaseTimerImage.fillAmount = releaseTimer / timeToRelease;
@@ -54,7 +65,8 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         }   
     }
 
-    private void UpdateShadowAspectUI() {
+    private void UpdateShadowAspectUI() 
+    {
 
         headAspect.sprite = item.shadow.headAspectSprite;
         headAspect.color = item.shadow.headAspect == Aspects.HeadAspect.None ? new Color(0,0,0,0.2f) : Color.white;
@@ -77,13 +89,10 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             transform.localScale = new Vector3(1.1f, 1.1f, 1.1f);
             releaseButton.SetActive(true);
             aspectInfo.SetActive(true);
-            Debug.Log(item.shadow.headAspect);
-            Debug.Log(item.shadow.bodyAspect);
-            Debug.Log(item.shadow.feetAspect);
         }
     }
 
-        public void OnPointerExit(PointerEventData eventData)
+    public void OnPointerExit(PointerEventData eventData)
     {
         //transform.localScale = Vector3.one;
         //transform.localEulerAngles = idleAngle;
