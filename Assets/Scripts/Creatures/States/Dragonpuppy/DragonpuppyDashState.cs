@@ -9,12 +9,15 @@ public class DragonpuppyDashState : BaseState
     private NavMeshAgent creatureAgent;
     float wanderTime = 5f;
     float wanderingTime;
+    
+    float detectionRadius = 12f;
 
-    public DragonpuppyDashState(StateMachine stateMachine, NavMeshAgent creatureAgent, Creatures creature, float wanderRadius) : base(stateMachine)
+    public DragonpuppyDashState(StateMachine stateMachine, NavMeshAgent creatureAgent, Creatures creature, float wanderRadius, GameObject player) : base(stateMachine)
     {
         this.creature = creature;
         this.wanderRadius = wanderRadius;
         this.creatureAgent = creatureAgent;
+        this.player = player;
     }
 
     public override void Enter()
@@ -28,12 +31,19 @@ public class DragonpuppyDashState : BaseState
     {
         Wander();
 
+
         if (creatureAgent.velocity.x > 0)
             creatureAgent.GetComponent<SpriteRenderer>().flipX = true;
         else if (creatureAgent.velocity.x < 0)
             creatureAgent.GetComponent<SpriteRenderer>().flipX = false;
-
+        
         creatureAgent.GetComponent<Animator>().SetBool("IsWalking", creatureAgent.velocity != Vector3.zero);
+
+            
+        if(Vector3.Distance(creatureAgent.transform.position, player.transform.position) < detectionRadius)
+        {
+            stateMachine.ChangeState("DragonpuppyPlayerState");
+        }
     }
     
     public override void Exit()
@@ -82,6 +92,5 @@ public class DragonpuppyDashState : BaseState
             creatureAgent.SetDestination(GetNewDestination());
             wanderingTime = 0;
         }
-
     }
 }
