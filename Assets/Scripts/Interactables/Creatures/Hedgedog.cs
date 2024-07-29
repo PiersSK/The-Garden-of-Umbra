@@ -6,8 +6,9 @@ public class Hedgedog : ShadowInteractable
 {
     public GameObject surpriseMarker;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         surpriseMarker.SetActive(false);
     }
 

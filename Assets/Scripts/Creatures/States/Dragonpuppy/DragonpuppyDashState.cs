@@ -22,7 +22,7 @@ public class DragonpuppyDashState : BaseState
 
     public override void Enter()
     {
-        Debug.Log("Entered Dash State");
+        creatureAgent.GetComponent<Animator>().SetBool("IsWalking", true);
         creatureAgent.SetDestination(GetNewDestination());
     }
     
@@ -30,6 +30,16 @@ public class DragonpuppyDashState : BaseState
     public override void Perform()
     {
         Wander();
+
+
+        if (creatureAgent.velocity.x > 0)
+            creatureAgent.GetComponent<SpriteRenderer>().flipX = true;
+        else if (creatureAgent.velocity.x < 0)
+            creatureAgent.GetComponent<SpriteRenderer>().flipX = false;
+        
+        creatureAgent.GetComponent<Animator>().SetBool("IsWalking", creatureAgent.velocity != Vector3.zero);
+
+            
         if(Vector3.Distance(creatureAgent.transform.position, player.transform.position) < detectionRadius)
         {
             stateMachine.ChangeState("DragonpuppyPlayerState");
@@ -38,7 +48,7 @@ public class DragonpuppyDashState : BaseState
     
     public override void Exit()
     {
-
+        creatureAgent.GetComponent<Animator>().SetBool("IsWalking", false);
     }
 
     public Vector3 GetNewDestination()

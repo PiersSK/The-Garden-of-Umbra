@@ -14,17 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 0}
   currentState: 
-  isSkittish: 0
-  isFriendly: 1
-  isIndifferent: 0
-  isHostile: 0
-  path: {fileID: 0}
+  pathName: 
   spawnPoint: {x: 0, y: 0, z: 0}
   sightDistance: 5
   creature: 6
   defaultBehaviour: 0
   defaultState: 0
-  headAspect: 0
-  bodyAspect: 0
-  feetAspect: 0
-  shadowSize: 0
+  shadow: {fileID: 11400000, guid: 48d0cf6ed0ccca048a35e79f7d6d7621, type: 2}

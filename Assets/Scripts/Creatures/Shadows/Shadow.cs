@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using Aspects;
-using System.Drawing;
+using UnityEngine;
 
 [CreateAssetMenu(menuName = "Scriptable Object/Shadow")]
 public class Shadow : ScriptableObject
@@ -17,8 +14,9 @@ public class Shadow : ScriptableObject
     public Sprite headAspectSprite;
     public Sprite bodyAspectSprite;
     public Sprite feetAspectSprite;
+    public Sprite creatureOutline;
 
-    protected Shadow (
+    public Shadow (
         ShadowSize _size,
         HeadAspect _head,
         BodyAspect _body,
@@ -28,5 +26,13 @@ public class Shadow : ScriptableObject
         bodyAspect = _body;
         feetAspect = _feet;
         size = _size;
+    }
+
+    public Shadow()
+    {
+        headAspect = HeadAspect.None;
+        bodyAspect = BodyAspect.None;
+        feetAspect = FeetAspect.None;
+        size = ShadowSize.Small;
     }
 }

@@ -69,7 +69,7 @@ public class CottonSpriteFollowState : BaseState
         }
 
         // Is too far from player
-        if (Vector3.Distance(player.transform.position, creatureAgent.transform.position) > 5f)
+        if (Vector3.Distance(player.transform.position, creatureAgent.transform.position) > 8f)
         {
             stateMachine.ChangeState("CottonSpriteWanderState");
         }

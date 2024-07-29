@@ -49,6 +49,8 @@ public class CottonSpriteSittingState : BaseState
 
     public override void Exit()
     {
+        Debug.Log("Changing to : " + nextState);
+        creatureAgent.GetComponent<CottonSprite>().intruigeMarker.SetActive(false);
         creatureAgent.GetComponent<Animator>().SetBool("IsSitting", false);
         timeSat = 0f;
         shouldStand = false;
@@ -62,6 +64,8 @@ public class CottonSpriteSittingState : BaseState
         timeSat += Time.deltaTime;
         if (timeSat >= sittingTime && distanceToPlayer > noticePlayerMaxRange)
         {
+            creatureAgent.GetComponent<CottonSprite>().intruigeMarker.SetActive(false);
+
             if (Random.Range(0f, 1f) <= chanceToWander && shouldStand == false)
             {
                 shouldStand = true;
@@ -72,10 +76,14 @@ public class CottonSpriteSittingState : BaseState
         else if (distanceToPlayer <= noticePlayerMaxRange && distanceToPlayer > noticePlayerMinRange)
         {
             shouldStand = true;
+            creatureAgent.GetComponent<CottonSprite>().intruigeMarker.SetActive(true);
             nextState = "CottonSpriteFollowState";
+
         }
         else
         {
+            creatureAgent.GetComponent<CottonSprite>().intruigeMarker.SetActive(false);
+
             shouldStand = false;
             standTimer = 0f;
 

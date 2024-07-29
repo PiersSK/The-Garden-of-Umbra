@@ -12,17 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5610d0c17ed57b143acf9e59ccb765a0, type: 3}
   m_Name: Dropsloth
   m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
   currentState: 
-  isSkittish: 0
-  isFriendly: 0
-  isIndifferent: 1
-  isHostile: 0
-  path: {fileID: 0}
+  pathName: 
+  spawnPoint: {x: 0, y: 0, z: 0}
   sightDistance: 5
   creature: 3
   defaultBehaviour: 1
   defaultState: 2
-  headAspect: 1
-  bodyAspect: 0
-  feetAspect: 2
-  shadowSize: 1
+  shadow: {fileID: 11400000, guid: 9ddfdbbc6a7da0044a32cfc652aae5b0, type: 2}
