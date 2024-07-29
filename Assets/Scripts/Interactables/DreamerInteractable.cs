@@ -19,7 +19,7 @@ public class DreamerInteractable : Interactable
 
     private List<string> dialogueLines;
     [SerializeField] private string dreamerName;
-    [SerializeField] private Quest associatedQuest;
+    public Quest associatedQuest;
 
     private bool isFormed = false;
 
@@ -27,6 +27,8 @@ public class DreamerInteractable : Interactable
     private int totalInteractions = 0;
 
     [SerializeField] private GameObject dialogueBox;
+    [SerializeField] private GameObject formedSprite;
+
     [SerializeField] private GameObject dreamDialoguePrefab;
     [SerializeField] private GameObject formedDialoguePrefab;
 
@@ -34,6 +36,8 @@ public class DreamerInteractable : Interactable
     private float showDialogueFor;
     [SerializeField] private AnimationClip dialogueFadeAnimation;
     [SerializeField] private Animator smokeAnim;
+
+    private bool autoScrollingInProgress = false;
 
     private void Start()
     {
@@ -66,8 +70,14 @@ public class DreamerInteractable : Interactable
             else if (!manuallyCycleDialogue && fadeTimer > showDialogueFor * dialogueLines.Count)
             {
                 dialogueBox.SetActive(false);
+                autoScrollingInProgress = false;
             }
         }
+    }
+
+    public override bool CanInteract()
+    {
+        return manuallyCycleDialogue || !autoScrollingInProgress;
     }
 
     public override void Interact()
@@ -88,13 +98,15 @@ public class DreamerInteractable : Interactable
                 smokeAnim.SetTrigger("Puff");
                 GetComponent<Animation>().Stop();
 
-                GetComponent<SpriteRenderer>().sprite = associatedQuest.questGiver.formedSprite;
-                GetComponent<SpriteRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+                GetComponent<SpriteRenderer>().enabled = false;
+                gameObject.name = associatedQuest.questGiver.name;
+                formedSprite.SetActive(true);
+
                 isFormed = true;
                 dialogueLines = new() { associatedQuest.completionDialogue };
                 UpdateDialogue();
 
-                Invoke("AddFormedLines", showDialogueFor + 1f);
+                Invoke("AddFormedLines", showDialogueFor);
             }
         } 
     }
@@ -123,7 +135,7 @@ public class DreamerInteractable : Interactable
             GameObject dialogueObj = Instantiate(prefab, dialogueBox.transform);
             currentIndex = 0;
             dialogueObj.GetComponentInChildren<TextMeshProUGUI>().text = dialogueLines[currentIndex];
-
+            autoScrollingInProgress = true;
         }
 
         fadeTimer = 0f;

@@ -12,6 +12,7 @@ public class ChecklistUI : MonoBehaviour
     [SerializeField] private List<ChecklistButton> checkButtons = new List<ChecklistButton>(9);
 
     [SerializeField] private TextMeshProUGUI potionName;
+    public TextMeshProUGUI dreamerNote;
 
     // Potion name lookups
     private readonly List<string> prefixes = new List<string>() { string.Empty, "Crystal-clear", "Hearty", "Swirling" };

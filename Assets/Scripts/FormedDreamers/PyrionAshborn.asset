@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dreamerName: Pyrion Ashborn
   formedSprite: {fileID: 21300000, guid: 8ff7b10bb25ccb54e9ee5cd1caab6b7b, type: 3}
-  spriteObject: {fileID: 1653704447209692611, guid: 9ee75ffde9976db42bc935b447dc6dda, type: 3}
+  spriteObject: {fileID: 1770701419616587467, guid: 9ee75ffde9976db42bc935b447dc6dda, type: 3}
   spawnPoint: {x: -6.17, y: 1.31, z: -27.79}

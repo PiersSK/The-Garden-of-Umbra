@@ -84,7 +84,8 @@ public class Tutorial : MonoBehaviour
         if (!PlayerThoughts.Instance.thought.activeSelf && firstThought && !dreamerSpawned)
         {
             GameObject dreamerObj = Instantiate(dreamerPrefab, new Vector3(-6.17f, 1.31f, -27.79f), Quaternion.identity);
-            dreamer = dreamerObj.GetComponent<DreamerInteractable>();
+            dreamer = dreamerObj.GetComponentInChildren<DreamerInteractable>();
+            dreamer.gameObject.name = "Formless Dreamer";
             dreamer.OnDreamerTalkedTo += CheckDreamerTalkedTo;
             PlayerController.Instance.playerAnimator.SetTrigger("Surprised");
             PlayerThoughts.Instance.ShowReaction(2f);

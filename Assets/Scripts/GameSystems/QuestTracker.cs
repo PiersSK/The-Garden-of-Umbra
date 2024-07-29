@@ -62,6 +62,8 @@ public class QuestTracker : MonoBehaviour
         {
             if (activeQuest != null)
             {
+                checklistUI.dreamerNote.text = string.Join("\n", activeQuest.dreamDialogue);
+
                 if (NumberOfAspectsChecked() > 0)
                 {
                     string quest = "You have set out to make a <b>" + GetShadowName() + "</b>. You'll need to craft a shadow with:";
@@ -94,6 +96,8 @@ public class QuestTracker : MonoBehaviour
     {
         Flask flask = InventoryManager.Instance.flasks[0]; // Temp just check small flask
 
+        if (flask.shadow is null) return false;
+
         return flask.shadow.headAspect == activeQuest.headSolution
             && flask.shadow.bodyAspect == activeQuest.bodySolution
             && flask.shadow.feetAspect == activeQuest.feetSolution;
@@ -118,11 +122,13 @@ public class QuestTracker : MonoBehaviour
 
             questIndex++;
             if (quests.Count > questIndex)
-                activeQuest = quests[questIndex];    
+            {
+                activeQuest = quests[questIndex];
+                GameObject obj = Instantiate(activeQuest.questGiver.spriteObject, activeQuest.questGiver.spawnPoint, Quaternion.identity);
+                obj.GetComponentInChildren<DreamerInteractable>().gameObject.name = "Formless Dreamer";
+            }
             else
                 activeQuest = null;
-
-            // spawn in new dreamer
 
             return true;
         }

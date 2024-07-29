@@ -3939,12 +3939,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e54a54625af7334992ca1e8bb2cf163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dreamerPrefab: {fileID: 1653704447209692611, guid: 9ee75ffde9976db42bc935b447dc6dda, type: 3}
+  dreamerPrefab: {fileID: 1770701419616587467, guid: 9ee75ffde9976db42bc935b447dc6dda, type: 3}
   questSystem: {fileID: 1260689166}
   questStepText: {fileID: 1341080174}
   questSteps:
   - Talk to the formless dreamer
   - Find your shadow flask and shadow-crafting notes
+  currentStep: 0
   flaskFound: 0
   notesFound: 0
 --- !u!4 &450008755
@@ -14172,7 +14173,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -11.859, y: 81.661}
+  m_AnchoredPosition: {x: 46, y: 130}
   m_SizeDelta: {x: 239.9674, y: 34.457}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1192711498
@@ -15161,8 +15162,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -11.859, y: 47.204}
-  m_SizeDelta: {x: 219.9838, y: 34.4572}
+  m_AnchoredPosition: {x: -17.465, y: -27.5755}
+  m_SizeDelta: {x: 238.7659, y: 264.845}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1267626918
 MonoBehaviour:
@@ -15211,12 +15212,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
+  m_fontSize: 24
   m_fontSizeBase: 20
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 12
+  m_fontSizeMax: 24
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
@@ -21420,7 +21421,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2044936089}
-  m_LocalRotation: {x: -0, y: -0, z: -0.10624163, w: -0.99434036}
+  m_LocalRotation: {x: -0, y: -0, z: 0.11842182, w: 0.9929634}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -21430,10 +21431,10 @@ RectTransform:
   - {fileID: 1192711497}
   - {fileID: 1267626917}
   m_Father: {fileID: 7566409921218895439}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 12.197}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 13.602}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 745, y: 243}
+  m_AnchoredPosition: {x: 729, y: 227}
   m_SizeDelta: {x: 538.5814, y: 508.9751}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2044936091
@@ -22848,6 +22849,10 @@ PrefabInstance:
       propertyPath: cutsceneUI
       value: 
       objectReference: {fileID: 159650867}
+    - target: {fileID: -8859377288018150924, guid: bf09933265a76c941984eca5aceee0ab, type: 3}
+      propertyPath: dialogueUI
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: -8859377288018150924, guid: bf09933265a76c941984eca5aceee0ab, type: 3}
       propertyPath: interactUI
       value: 
@@ -29341,11 +29346,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 984586736159128525}
   - {fileID: 2552874796874124976}
   - {fileID: 8159221380549100216}
   - {fileID: 2044936090}
   - {fileID: 4703215946820828307}
+  - {fileID: 984586736159128525}
   m_Father: {fileID: 1736724690}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -29953,6 +29958,7 @@ MonoBehaviour:
   - {fileID: 8034659538545586829}
   - {fileID: 6323200558849267932}
   potionName: {fileID: 2976735637201739276}
+  dreamerNote: {fileID: 1267626918}
 --- !u!224 &8030121552975262314
 RectTransform:
   m_ObjectHideFlags: 0
