@@ -418,7 +418,7 @@ MonoBehaviour:
   spawnManager: {fileID: 0}
   smokeObj: {fileID: 1055847238102491542, guid: 948e2246f7e2bee4683a1620a3dd41a9, type: 3}
   aspectUI: {fileID: 24821635096377500}
-  surpriseMarker: {fileID: 0}
+  surpriseMarker: {fileID: 448542935100168299}
 --- !u!114 &-7508102722168116227
 MonoBehaviour:
   m_ObjectHideFlags: 0
