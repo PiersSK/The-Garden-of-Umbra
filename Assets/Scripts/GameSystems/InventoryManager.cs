@@ -67,7 +67,7 @@ public class InventoryManager : MonoBehaviour
             case ShadowSize.Small:
                 foreach(Flask flask in unlockedFlasks)
                 {
-                    if(flask.shadow is null)
+                    if (flask.shadow is null)
                     {
                         return true;
                     }
