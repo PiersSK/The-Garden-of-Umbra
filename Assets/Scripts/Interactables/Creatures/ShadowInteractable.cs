@@ -11,7 +11,7 @@ public class ShadowInteractable : Interactable
 
     public AspectUI aspectUI;
 
-    private void Start()
+    protected virtual void Start()
     {
         if(aspectUI != null) aspectUI.UpdateAspectUI(creature.shadow);
         spawnManager = FindAnyObjectByType<SpawnManager>();

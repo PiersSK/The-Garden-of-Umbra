@@ -5,8 +5,9 @@ public class Aurafox : ShadowInteractable
 
     public GameObject surpriseMarker;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         surpriseMarker.SetActive(false);
     }
     public override bool CanInteract()
