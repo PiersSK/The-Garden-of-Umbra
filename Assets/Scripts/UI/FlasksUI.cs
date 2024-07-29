@@ -35,6 +35,9 @@ public class FlasksUI : MonoBehaviour
                 childComponent.image.sprite = flask.emptySprite;
             }
         }
+
+        // FOR TESTING
+        InventoryManager.Instance.flasks[0].flaskUnlocked = true;
     }
 
     public void UpdateGrid()

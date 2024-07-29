@@ -950,6 +950,7 @@ MonoBehaviour:
   priority: 0
   creature: {fileID: 11400000, guid: fddcd6c770f5dbb4e80b5ca139e72d71, type: 2}
   spawnManager: {fileID: 0}
+  smokeObj: {fileID: 1055847238102491542, guid: 948e2246f7e2bee4683a1620a3dd41a9, type: 3}
   aspectUI: {fileID: 6929032407505300083}
   surpriseMarker: {fileID: 2211476378480666460}
 --- !u!195 &8408842858255029865

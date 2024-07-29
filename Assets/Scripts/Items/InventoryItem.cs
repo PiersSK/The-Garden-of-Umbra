@@ -40,6 +40,7 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             releaseTimerImage.fillAmount = releaseTimer / timeToRelease;
             if(releaseTimer >= timeToRelease )
             {
+                SpawnManager.Instance.SpawnCreatureFromShadow(item.shadow);
                 item.RemoveShadow();
 
                 releaseButton.SetActive(false);
@@ -77,9 +78,6 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             transform.localScale = new Vector3(1.1f, 1.1f, 1.1f);
             releaseButton.SetActive(true);
             aspectInfo.SetActive(true);
-            Debug.Log(item.shadow.headAspect);
-            Debug.Log(item.shadow.bodyAspect);
-            Debug.Log(item.shadow.feetAspect);
         }
     }
 

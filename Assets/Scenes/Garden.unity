@@ -2457,6 +2457,7 @@ MonoBehaviour:
   priority: 0
   creature: {fileID: 11400000, guid: 52b6721e305cf9344bc182e9975b0f94, type: 2}
   spawnManager: {fileID: 1256092408}
+  smokeObj: {fileID: 0}
   aspectUI: {fileID: 1159823003}
 --- !u!212 &221960076
 SpriteRenderer:
@@ -3818,7 +3819,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &450008754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10479,6 +10480,7 @@ MonoBehaviour:
   priority: 0
   creature: {fileID: 11400000, guid: 52b6721e305cf9344bc182e9975b0f94, type: 2}
   spawnManager: {fileID: 1256092408}
+  smokeObj: {fileID: 0}
   aspectUI: {fileID: 1568823884}
 --- !u!212 &685212912
 SpriteRenderer:
@@ -14761,7 +14763,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1260689167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20416,6 +20418,7 @@ MonoBehaviour:
   priority: 0
   creature: {fileID: 11400000, guid: fddcd6c770f5dbb4e80b5ca139e72d71, type: 2}
   spawnManager: {fileID: 1256092408}
+  smokeObj: {fileID: 0}
   aspectUI: {fileID: 693216054}
 --- !u!212 &2013410769
 SpriteRenderer:
@@ -20688,7 +20691,7 @@ CanvasRenderer:
 --- !u!1 &2023606925
 GameObject:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 2579223334583426619, guid: 94d75f45a745fd545b7a6091d30c678e, type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
