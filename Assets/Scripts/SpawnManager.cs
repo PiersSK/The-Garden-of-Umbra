@@ -60,6 +60,11 @@ public class SpawnManager : MonoBehaviour
         //Dragonpuppy
         stateMachine.AddState("DragonpuppyDashState", new DragonpuppyDashState(stateMachine, creatureAgent, creature, 10f));
 
+        //Aurafox
+        stateMachine.AddState("AurafoxSleepingState", new AurafoxSleepingState(stateMachine, creatureAgent, creature, player));
+        stateMachine.AddState("AurafoxAwakeState", new AurafoxAwakeState(stateMachine, creatureAgent, creature, player));
+        stateMachine.AddState("AurafoxTeleportState", new AurafoxTeleportState(stateMachine, creatureAgent, creature, player));
+
 
         stateMachine.SetDefaultState(creature.defaultState);
         
