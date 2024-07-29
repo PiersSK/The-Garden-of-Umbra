@@ -76,17 +76,22 @@ public class MixShadowUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         var invenItems = FlasksUI.Instance.inventoryItems;
         for (int i = invenItems.Count - 1; i > -1; i--)
         {
-            if(SmallerFlasksAAspects(i, "Head"))
+            if (invenItems[i].item.shadow is null)
             {
-                invenItems[i].headAspect.color = new Color(0,33,0,0.2f);
+                continue;
             }
-            if (SmallerFlasksAAspects(i, "Body"))
+
+            if(SmallerFlasksAAspects(i, "Head") || invenItems[i].item.shadow.headAspect == HeadAspect.None)
             {
-                invenItems[i].bodyAspect.color = new Color(0, 33, 0, 0.2f);
+                invenItems[i].headAspect.color = new Color(0,0,0,0.1f);
             }
-            if (SmallerFlasksAAspects(i, "Feet"))
+            if (SmallerFlasksAAspects(i, "Body") || invenItems[i].item.shadow.bodyAspect == BodyAspect.None)
             {
-                invenItems[i].feetAspect.color = new Color(0, 33, 0, 0.2f);
+                invenItems[i].bodyAspect.color = new Color(0, 0, 0, 0.1f);
+            }
+            if (SmallerFlasksAAspects(i, "Feet") || invenItems[i].item.shadow.feetAspect == FeetAspect.None)
+            {
+                invenItems[i].feetAspect.color = new Color(0, 0, 0, 0.1f);
             }
 
             invenItems[i].aspectInfo.SetActive(invenItems[i].item.shadow is not null);
@@ -103,8 +108,13 @@ public class MixShadowUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
         var flasks = InventoryManager.Instance.flasks;
 
-        for (int i = index; index <= 0; i--)
+        for (int i = index; i > 0; i--)
         {
+            if (flasks[i-1].shadow is null)
+            {
+                continue;
+            }
+
             switch (aspect)
             {
                 case "Head":
