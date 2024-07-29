@@ -32,7 +32,7 @@ public class InventoryManager : MonoBehaviour
         foreach (Flask flask in flasks) flask.shadow = null;
     }
 
-    public bool AddShadow(Shadow newShadow, Sprite creatureOutline)
+    public bool AddShadow(Shadow newShadow)
     {
         var shadowAdded = false;
         switch(newShadow.size) 
