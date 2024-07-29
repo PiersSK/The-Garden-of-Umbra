@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5610d0c17ed57b143acf9e59ccb765a0, type: 3}
   m_Name: WillOMeow
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 4814560542865252386, guid: e1ab211b551442b47896611e68cb8759, type: 3}
   currentState: 
   pathName: 
-  spawnPoint: {x: 0, y: 0, z: 0}
+  spawnPoint: {x: -1.663512, y: 1.205, z: 16.04822}
   sightDistance: 5
   creature: 6
-  defaultBehaviour: 0
-  defaultState: 0
+  defaultBehaviour: 1
+  defaultState: WillOMeowWanderState
   shadow: {fileID: 11400000, guid: 48d0cf6ed0ccca048a35e79f7d6d7621, type: 2}

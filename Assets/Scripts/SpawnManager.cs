@@ -72,6 +72,10 @@ public class SpawnManager : MonoBehaviour
         stateMachine.AddState("AurafoxAwakeState", new AurafoxAwakeState(stateMachine, creatureAgent, creature, player));
         stateMachine.AddState("AurafoxTeleportState", new AurafoxTeleportState(stateMachine, creatureAgent, creature, player));
 
+        //WillOMeow
+        stateMachine.AddState("WillOMeowWanderingState", new WillOMeowWanderingState(stateMachine, creatureAgent, creature, player, 10f));
+
+
 
         stateMachine.SetDefaultState(creature.defaultState);
         
