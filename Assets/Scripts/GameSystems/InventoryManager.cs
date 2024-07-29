@@ -1,5 +1,6 @@
 using Aspects;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
@@ -19,6 +20,11 @@ public class InventoryManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public List<Flask> UnlockedFlasks()
+    {
+        return flasks.FindAll(flask => flask.flaskUnlocked);
     }
 
     public void ClearAllFlasks()
@@ -54,10 +60,12 @@ public class InventoryManager : MonoBehaviour
 
     public bool IsThereSpaceForAShadowSir(Shadow creatureShadow)
     {
+        List<Flask> unlockedFlasks = UnlockedFlasks();
+
         switch (creatureShadow.size)
         {
             case ShadowSize.Small:
-                foreach (Flask flask in flasks)
+                foreach(Flask flask in unlockedFlasks)
                 {
                     if (flask.shadow is null)
                     {
@@ -66,10 +74,11 @@ public class InventoryManager : MonoBehaviour
                 }
                 return false;
             case ShadowSize.Medium:
-                return flasks[1].shadow is null || flasks[2].shadow is null;
+                return unlockedFlasks.Count > 1 && (flasks[1].shadow is null || flasks[2].shadow is null);
             case ShadowSize.Large:
-                return flasks[2].shadow is null;
-            default: return false;
+                return unlockedFlasks.Count > 2 && flasks[2].shadow is null;
+            default:
+                return false;
         }
     }
 }

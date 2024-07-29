@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dreamerName: Skips
   formedSprite: {fileID: 21300000, guid: 5beb89d54cfa17c40ae49cc5765a950d, type: 3}
-  spriteObject: {fileID: 8411577234881605658, guid: eaeddc065ea0db943a3945e5b1aac776, type: 3}
-  spawnPoint: {x: -8, y: 0.06, z: -13}
+  spriteObject: {fileID: 1770701419616587467, guid: 48b486458f388b740a55eba20273ca97, type: 3}
+  spawnPoint: {x: -8, y: 1.313, z: -13}

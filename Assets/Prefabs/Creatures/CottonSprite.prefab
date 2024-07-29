@@ -394,6 +394,7 @@ MonoBehaviour:
   priority: 0
   creature: {fileID: 11400000, guid: cea6f299107483541a2f14ef4109a6fb, type: 2}
   spawnManager: {fileID: 0}
+  smokeObj: {fileID: 1055847238102491542, guid: 948e2246f7e2bee4683a1620a3dd41a9, type: 3}
   aspectUI: {fileID: 1841871051311297902}
 --- !u!195 &8452518067953360803
 NavMeshAgent:

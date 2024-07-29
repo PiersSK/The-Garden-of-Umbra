@@ -12,16 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5610d0c17ed57b143acf9e59ccb765a0, type: 3}
   m_Name: Aurafox
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 2579223334583426619, guid: 94d75f45a745fd545b7a6091d30c678e, type: 3}
   currentState: 
-  isSkittish: 1
-  isFriendly: 0
-  isIndifferent: 0
-  isHostile: 0
   pathName: 
-  spawnPoint: {x: 0, y: 0, z: 0}
+  spawnPoint: {x: -15.25, y: 1.25, z: 14.56}
   sightDistance: 5
-  creature: 0
+  creature: 4
   defaultBehaviour: 0
-  defaultState: 3
-  shadow: {fileID: 0}
+  defaultState: AurafoxSleepingState
+  shadow: {fileID: 11400000, guid: 7041749bcc0fdc2479cf29e662cbf48f, type: 2}
