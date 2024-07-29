@@ -89,6 +89,7 @@ public class MixShadowUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public  void UpdateInventoryAspectUI()
     {
+        foreach (InventoryItem flask in FlasksUI.Instance.inventoryItems.FindAll(o => o.item.flaskUnlocked && o.item.shadow is not null)) flask.UpdateShadowAspectUI();
         var invenItems = FlasksUI.Instance.inventoryItems;
         for (int i = invenItems.Count - 1; i > -1; i--)
         {

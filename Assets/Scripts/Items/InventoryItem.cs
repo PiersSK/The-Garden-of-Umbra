@@ -65,7 +65,7 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         }   
     }
 
-    private void UpdateShadowAspectUI() 
+    public void UpdateShadowAspectUI() 
     {
 
         headAspect.sprite = item.shadow.headAspectSprite;
