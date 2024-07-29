@@ -1,3 +1,4 @@
+using System.ComponentModel.Design;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -9,6 +10,7 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     [Header("UI")]
     public Image image;
+    public Image creatureOutline;
     public GameObject releaseButton;
     public GameObject aspectInfo;
     public Image releaseTimerImage;
@@ -34,7 +36,18 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     private void Update()
     {
-        if(releaseInProgress)
+        if (item.shadow is not null)
+        {
+            creatureOutline.sprite = item.shadow.creatureOutline;
+            creatureOutline.color = new Color(0,0,0,0.4f);
+        }
+        else
+        {
+            creatureOutline.sprite = null;
+            creatureOutline.color = new Color(0, 0, 0, 0);
+        }
+
+        if (releaseInProgress)
         {
             releaseTimer += Time.deltaTime;
             releaseTimerImage.fillAmount = releaseTimer / timeToRelease;
@@ -53,7 +66,8 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         }   
     }
 
-    private void UpdateShadowAspectUI() {
+    public void UpdateShadowAspectUI() 
+    {
 
         headAspect.sprite = item.shadow.headAspectSprite;
         headAspect.color = item.shadow.headAspect == Aspects.HeadAspect.None ? new Color(0,0,0,0.2f) : Color.white;
@@ -63,8 +77,6 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
         feetAspect.sprite = item.shadow.feetAspectSprite;
         feetAspect.color = item.shadow.feetAspect == Aspects.FeetAspect.None ? new Color(0, 0, 0, 0.2f) : Color.white;
-
-        shadowName.text = item.shadow.shadowName;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -81,7 +93,7 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         }
     }
 
-        public void OnPointerExit(PointerEventData eventData)
+    public void OnPointerExit(PointerEventData eventData)
     {
         //transform.localScale = Vector3.one;
         //transform.localEulerAngles = idleAngle;
