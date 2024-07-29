@@ -23,7 +23,7 @@ public class AurafoxAwakeState : BaseState
 
     public override void Enter()
     {
-        Debug.Log("I'm awake now");
+        creatureAgent.GetComponent<Animator>().SetBool("IsAwake", true);
         creatureAgent.GetComponent<Aurafox>().surpriseMarker.SetActive(true);
         elapsedTime = 0f;
     }
@@ -35,18 +35,15 @@ public class AurafoxAwakeState : BaseState
         {
             if (PlayerController.Instance.isCrouching)
             {
-            Debug.Log("Watching you squat really makes me sleepy");
             stateMachine.ChangeState("AurafoxSleepingState");
             }
         }
         if (distanceToPlayer <= teleportRadius)
         {   
-                Debug.Log("Get yeeted, son.");
                 stateMachine.ChangeState("AurafoxTeleportState");
         }
         if (distanceToPlayer >= alertnessRadius)
         {
-                Debug.Log("Bye den, bedtime for meeeee");
                 stateMachine.ChangeState("AurafoxSleepingState");
         }
 

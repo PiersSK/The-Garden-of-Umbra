@@ -19,7 +19,7 @@ public class AurafoxSleepingState : BaseState
 
     public override void Enter()
     {
-        Debug.Log("Aurafox is sleeping.");
+         creatureAgent.GetComponent<Animator>().SetBool("IsAwake", false);
     }
     public override void Perform()
     {
@@ -31,6 +31,5 @@ public class AurafoxSleepingState : BaseState
     }
     public override void Exit()
     {
-        Debug.Log("Leaving Sleep");
     }
 }

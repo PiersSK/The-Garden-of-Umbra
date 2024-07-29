@@ -16,6 +16,7 @@ public class AurafoxTeleportState : BaseState
 
     public override void Enter()
     {
+        creatureAgent.GetComponent<Animator>().SetBool("IsAwake", true);
         player.gameObject.SetActive(false);
         player.transform.position = teleportPosition;        
         stateMachine.ChangeState("AurafoxSleepingState");
@@ -28,8 +29,6 @@ public class AurafoxTeleportState : BaseState
 
     public override void Perform()
     {
-
-
     }
 }
 
