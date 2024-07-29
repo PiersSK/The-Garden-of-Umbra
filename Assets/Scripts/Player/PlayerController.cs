@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     // Player Components
     public CharacterController controller;
     private PlayerInteract playerInteract;
-    [SerializeField] private Animator playerAnimator;
+    public Animator playerAnimator;
     [SerializeField] private SpriteRenderer playerSprite;
     private Vector3 playerVelocity;
 
@@ -71,11 +71,13 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        ProcessMove();
+        if(controller.enabled) ProcessMove();
     }
 
     private void ProcessMove()
     {
+
+        Debug.Log("ProcessingMove");
         Vector2 input = roaming.Movement.ReadValue<Vector2>();
         playerAnimator.SetBool(WALKINGANIM, input != Vector2.zero);
         Vector3 moveDirection = Vector3.zero;

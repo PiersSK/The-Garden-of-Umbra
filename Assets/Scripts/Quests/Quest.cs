@@ -7,8 +7,9 @@ public class Quest : ScriptableObject
 {
     public FormedDreamer questGiver;
 
-    public string dreamDialogue;
+    public List<string> dreamDialogue;
     public string completionDialogue;
+    public List<string> formedDialogue;
 
     public Aspects.HeadAspect headSolution;
     public Aspects.BodyAspect bodySolution;

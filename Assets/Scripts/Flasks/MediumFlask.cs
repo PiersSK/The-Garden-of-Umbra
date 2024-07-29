@@ -6,7 +6,7 @@ public class MediumFlask : Flask
 {
     public override bool AddShadow(Shadow newShadow)
     {
-        if (shadow is null && newShadow.size <= ShadowSize.Medium)
+        if (shadow is null && flaskUnlocked && newShadow.size <= ShadowSize.Medium)
         {
             shadow = newShadow;
             return true;

@@ -1,18 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.Rendering;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class SpawnManager : MonoBehaviour
 {
+    public static SpawnManager Instance { get; private set; }
+
     public Creatures[] creatures;
     public float distanceFromSpawn = 10f;
     public float respawnDelay = 10f;
     private Dictionary<Creatures, GameObject> activeCreatures = new Dictionary<Creatures, GameObject>();
     public GameObject player;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     void Start()
     {
         SpawnCreatures();
@@ -57,6 +62,14 @@ public class SpawnManager : MonoBehaviour
         stateMachine.AddState("HedgedogSleepingState", new HedgedogSleepingState(stateMachine, creatureAgent, creature, player));
         stateMachine.AddState("HedgedogFleeState", new HedgedogFleeState(stateMachine, creatureAgent, player, creature, this));
 
+        //Dragonpuppy
+        stateMachine.AddState("DragonpuppyDashState", new DragonpuppyDashState(stateMachine, creatureAgent, creature, 10f));
+
+        //Aurafox
+        stateMachine.AddState("AurafoxSleepingState", new AurafoxSleepingState(stateMachine, creatureAgent, creature, player));
+        stateMachine.AddState("AurafoxAwakeState", new AurafoxAwakeState(stateMachine, creatureAgent, creature, player));
+        stateMachine.AddState("AurafoxTeleportState", new AurafoxTeleportState(stateMachine, creatureAgent, creature, player));
+
 
         stateMachine.SetDefaultState(creature.defaultState);
         
@@ -71,6 +84,18 @@ public class SpawnManager : MonoBehaviour
         creaturePath.path = path;
 
         activeCreatures[creature] = newCreature;
+    }
+
+    public void SpawnCreatureFromShadow(Shadow shadow)
+    {
+        foreach (Creatures creature in creatures)
+        {
+            if(creature.shadow == shadow)
+            {
+                SpawnCreature(creature);
+                break;
+            }
+        }
     }
 
     void SpawnCreatures()
@@ -91,7 +116,16 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    private IEnumerator RespawnCreature(Creatures creature, float delay, float distance)
+    public void DespawnCreatureWithoutRespawn(Creatures creature)
+    {
+        if (activeCreatures.TryGetValue(creature, out GameObject newCreature))
+        {
+            Destroy(newCreature);
+            activeCreatures.Remove(creature);
+        }
+    }
+
+    private IEnumerator RespawnCreature(Creatures creature, float delay, float distance) 
     {
         yield return new WaitForSeconds(delay);
         if(creature != null)

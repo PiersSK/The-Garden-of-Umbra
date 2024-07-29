@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: 2.Skips
   m_EditorClassIdentifier: 
   questGiver: {fileID: 11400000, guid: 991c61f388735bf4688962d4d542855f, type: 2}
-  dreamDialogue: intuition... warmth
-  completionDialogue: tysm
+  dreamDialogue:
+  - "\u2026 Oh, excuse me, hello there, may I introduce\u2026 oh\u2026"
+  - "\u2026 To make friends you must be <b>friendly</b>, lest you meet an early endly\u2026"
+  - "\u2026 Oh, you look approachable, or do you? Oh, I wish <b>I could just tell</b>
+    with a glance\u2026"
+  completionDialogue: Wait a second... I just need to listen and be kind! Oh yes,
+    thank you!
+  formedDialogue:
+  - Oh, hello there! May I introduce myself? My name is Skips!
+  - You look approachable, pleasure to make your acquaintance!
+  - What kind of things do you like to do? [please say something you like doing out
+    loud]
+  - Oh wow, me too! This is great, we have so much in common!
+  - "I feel like I could talk to you forever! But you probably have other dreamers
+    to help, so I won\u2019t."
   headSolution: 1
   bodySolution: 0
   feetSolution: 1
