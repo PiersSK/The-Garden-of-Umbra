@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5610d0c17ed57b143acf9e59ccb765a0, type: 3}
+  m_Name: Prismole
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 6562258817560445444, guid: 058362cffc0a6eb499cb05110bcf595a, type: 3}
+  currentState: 
+  pathName: PrismolePath
+  spawnPoint: {x: 585.897, y: 0, z: -108.638}
+  sightDistance: 5
+  creature: 11
+  defaultBehaviour: 1
+  defaultState: PrismoleIdleState
+  shadow: {fileID: 11400000, guid: 4870510fd608cd74fbbaaf2558f30e6f, type: 2}

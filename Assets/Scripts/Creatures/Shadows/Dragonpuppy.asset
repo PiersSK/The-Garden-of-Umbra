@@ -16,7 +16,7 @@ MonoBehaviour:
   headAspect: 2
   bodyAspect: 0
   feetAspect: 2
-  size: 0
+  size: 1
   headAspectSprite: {fileID: -363800826, guid: 20c6958ac049337499c2ed0a7c7afd9c, type: 3}
   bodyAspectSprite: {fileID: 21300000, guid: 5f6b302c19c8bd64c9bbd35c68cfba4f, type: 3}
   feetAspectSprite: {fileID: -1911277545, guid: 20c6958ac049337499c2ed0a7c7afd9c, type: 3}

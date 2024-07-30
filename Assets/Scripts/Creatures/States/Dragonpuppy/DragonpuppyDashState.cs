@@ -7,7 +7,10 @@ public class DragonpuppyDashState : BaseState
     private Creatures creature;
     private GameObject player;
     private NavMeshAgent creatureAgent;
+
+
     float wanderTime = 5f;
+    float playerCooldown = 0f;
     float wanderingTime;
     
     float detectionRadius = 12f;
@@ -31,7 +34,6 @@ public class DragonpuppyDashState : BaseState
     {
         Wander();
 
-
         if (creatureAgent.velocity.x > 0)
             creatureAgent.GetComponent<SpriteRenderer>().flipX = true;
         else if (creatureAgent.velocity.x < 0)
@@ -39,8 +41,9 @@ public class DragonpuppyDashState : BaseState
         
         creatureAgent.GetComponent<Animator>().SetBool("IsWalking", creatureAgent.velocity != Vector3.zero);
 
-            
-        if(Vector3.Distance(creatureAgent.transform.position, player.transform.position) < detectionRadius)
+        playerCooldown += Time.deltaTime;
+        if (Vector3.Distance(creatureAgent.transform.position, player.transform.position) < detectionRadius
+            && playerCooldown >= wanderingTime * 6f)
         {
             stateMachine.ChangeState("DragonpuppyPlayerState");
         }
@@ -48,6 +51,7 @@ public class DragonpuppyDashState : BaseState
     
     public override void Exit()
     {
+        playerCooldown = 0f;
         creatureAgent.GetComponent<Animator>().SetBool("IsWalking", false);
     }
 

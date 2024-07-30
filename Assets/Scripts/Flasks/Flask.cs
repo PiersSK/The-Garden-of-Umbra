@@ -11,6 +11,8 @@ public abstract class Flask : ScriptableObject
 
     public abstract bool AddShadow(Shadow newShadow);
 
+    public abstract bool CanAddShadow(Shadow newShadow);
+
     public void RemoveShadow()
     {
         shadow = null;

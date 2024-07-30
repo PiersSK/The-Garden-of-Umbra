@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27beef3b88b90ab4fac3952a115cf294, type: 3}
+  m_Name: 6. Pegasus
+  m_EditorClassIdentifier: 
+  questGiver: {fileID: 11400000, guid: 09d0605a9048e451598bb519a34d762b, type: 2}
+  dreamDialogue:
+  - "\u2026 Good! Then listen up! My favourite animal... It... cute... lovely...
+    smart... plus... amazing... the <b>horn</b>\u2026 so powerful\u2026 you think
+    so\u2026.?"
+  - "\u2026 Oh yes... it... stunning... kindly... love it\u2026 those <b>wings</b>\u2026! "
+  - "\u2026 Hug it... when... sleeping... so cuddly... such <b>hooves</b>... spectacular...
+    ravishing\u2026!"
+  - "\u2026 Oops! Look at the time! I kept you too long! Thanks for hearing me out!
+    I want you to have this\u2026!"
+  completionDialogue: I ASCEND!!!!
+  formedDialogue:
+  - THANK YOU SO MUCH, MY HORN IS STRONG. MY WINGS ARE MAJESTIC. MY HOOVES ARE NOBLE.
+    OH, AND MY NAME IS PEARDROP. HI!
+  - "I DON\u2019T THINK I KNOW HOW TO TAKE THIS DOWN A NOTCH, I THINK I\u2019VE ASCENDED
+    TO A PERMANENT STATE OF ECSTATIC BLISS!!"
+  - "THIS WOULD BE QUITE SCARY IF I WASN\u2019T SO SO SO HAPPY!!!"
+  - AHHHHHHH!!!!
+  headSolution: 2
+  bodySolution: 3
+  feetSolution: 3

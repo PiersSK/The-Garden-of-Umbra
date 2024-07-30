@@ -88,13 +88,18 @@ public class SpawnManager : MonoBehaviour
                 break;
             case "GreatOakWyrm":
                 //Great Oak Wyrm
-                stateMachine.AddState("GreatOakWyrmIdleState", new GreatOakWyrmIdleState(stateMachine, creatureAgent, creature, player, spriteRenderer));
-                stateMachine.AddState("GreatOakWyrmFollowState", new GreatOakWyrmFollowState(stateMachine, creatureAgent, creature, player, spriteRenderer));
+                stateMachine.AddState("GreatOakWyrmIdleState", new GreatOakWyrmIdleState(stateMachine, creatureAgent, creature, player));
+                stateMachine.AddState("GreatOakWyrmFollowState", new GreatOakWyrmFollowState(stateMachine, creatureAgent, creature, player));
                 break;
             case "WillOMeow":
                 //WillOMeow
                 stateMachine.AddState("WillOMeowWanderingState", new WillOMeowWanderingState(stateMachine, creatureAgent, creature, player, 5f));
                 stateMachine.AddState("WillOMeowSleepingState", new WillOMeowSleepingState(stateMachine, creatureAgent, creature, player));
+                break;
+            case "Prismole":
+                //Prismole
+                stateMachine.AddState("PrismoleFleeState", new PrismoleFleeState(stateMachine, creatureAgent, creature, player));
+                stateMachine.AddState("PrismoleIdleState", new PrismoleIdleState(stateMachine, creatureAgent, creature, player));
                 break;
             default:
                 break;
@@ -110,7 +115,7 @@ public class SpawnManager : MonoBehaviour
             creaturePath = newCreature.AddComponent<Path>();
         }
         creaturePath.path = path;
-
+        
         activeCreatures[creature] = newCreature;
     }
 

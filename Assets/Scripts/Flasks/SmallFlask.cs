@@ -14,4 +14,9 @@ public class SmallFlask : Flask
 
         return false;
     }
+
+    public override bool CanAddShadow(Shadow newShadow)
+    {
+        return flaskUnlocked && newShadow.size == ShadowSize.Small;
+    }
 }
