@@ -94,6 +94,7 @@ public class SpawnManager : MonoBehaviour
             case "WillOMeow":
                 //WillOMeow
                 stateMachine.AddState("WillOMeowWanderingState", new WillOMeowWanderingState(stateMachine, creatureAgent, creature, player, 5f));
+                stateMachine.AddState("WillOMeowSleepingState", new WillOMeowSleepingState(stateMachine, creatureAgent, creature, player));
                 break;
             default:
                 break;

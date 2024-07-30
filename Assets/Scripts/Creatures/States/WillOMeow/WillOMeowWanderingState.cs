@@ -14,6 +14,7 @@ public class WillOMeowWanderingState : BaseState
     private float wanderRadius = 15f;
     float wanderTime = 5f;
     float wanderingTime;
+    GameObject foodBowl;
 
     List<Vector3> waypoints = new List<Vector3>();
     int waypointIndex;
@@ -25,12 +26,13 @@ public class WillOMeowWanderingState : BaseState
         this.player = player;
         this.wanderRadius = wanderRadius;
         path = GameObject.Find(creature.pathName);
+        foodBowl = GameObject.Find("FoodBowl");
 
         foreach (Transform child in path.transform)
         {
             waypoints.Add(child.position);
         }
-
+        waypoints.Add(new Vector3(foodBowl.transform.position.x - 1f, foodBowl.transform.position.y, foodBowl.transform.position.z));
         waypointIndex = 0;
     }
 
@@ -65,6 +67,14 @@ public class WillOMeowWanderingState : BaseState
         {
             creatureAgent.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
         }
+
+        Vector3 currPos = creatureAgent.transform.position;
+
+        if (currPos.x == waypoints[3].x && currPos.z == waypoints[3].z)
+        {
+            creatureAgent.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+            stateMachine.ChangeState("WillOMeowSleepingState");
+        }
     }
 
     public Vector3 GetNewDestination()
@@ -73,9 +83,12 @@ public class WillOMeowWanderingState : BaseState
         NavMeshHit hit;
         bool notInObstacle = false;
 
-        Vector3 currPos = creatureAgent.transform.position;
-        
-        if(waypointIndex >= waypoints.Count)
+        if (foodBowl.GetComponent<FoodBowl>().foodInBowl)
+        {
+            return waypoints[3];
+        }
+
+        if (waypointIndex >= waypoints.Count)
         {
             waypointIndex = 0;
         }
