@@ -3,6 +3,7 @@ using UnityEngine;
 public class Prismole : ShadowInteractable
 {
     public bool isInLight = false;
+    public GameObject surpriseMarker;
 
     protected override void Start()
     {
