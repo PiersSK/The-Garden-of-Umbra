@@ -37,11 +37,6 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            Debug.Log("Q: hoverUI = " + hoverUI.gameObject.activeSelf + " left = " + hoverUI.left.activeSelf + " right = " + hoverUI.right.activeSelf);
-        }
-
         List<Flask> unlockedFlasks = InventoryManager.Instance.UnlockedFlasks();
         int flaskIndex = unlockedFlasks.IndexOf(item);
 

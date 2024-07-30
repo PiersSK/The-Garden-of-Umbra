@@ -82,7 +82,6 @@ public class CottonSpriteWanderState : BaseState
     {
         if(Vector3.Distance(creatureAgent.transform.position, creatureAgent.destination) < (creatureAgent.stoppingDistance*1.5f))
         {
-            Debug.Log("Sitting");
             stateMachine.ChangeState("CottonSpriteSittingState");
         }
 

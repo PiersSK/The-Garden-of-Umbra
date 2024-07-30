@@ -23,7 +23,7 @@ public class QuestTracker : MonoBehaviour
     [SerializeField] private string targetUIName;
 
     [Header("Unlockable Objects")]
-    [SerializeField] private GameObject secondFlask;
+    public GameObject secondFlask;
 
 
     private DreamerInteractable currentDreamer;
