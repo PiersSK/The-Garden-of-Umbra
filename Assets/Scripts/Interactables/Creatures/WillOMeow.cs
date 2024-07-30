@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class WillOMeow : ShadowInteractable
 {
-    public GameObject surpriseMarker;
-    public GameObject path;
+    private GameObject foodBowl;
 
     protected override void Start()
     {
         base.Start();
+        foodBowl = GameObject.Find("FoodBowl");
     }
 
     public override bool CanInteract()
     {
-        return base.CanInteract() && !GetComponent<Animator>().GetBool("IsRunning");
+        var foodInBowl = foodBowl.GetComponent<FoodBowl>().foodInBowl;
+
+        return foodInBowl && !GetComponent<Animator>().GetBool("IsWalking");
     }
 }

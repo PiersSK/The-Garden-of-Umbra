@@ -18,6 +18,7 @@ public class WillOMeowSleepingState : BaseState
     {
         creatureAgent.GetComponent<Animator>().SetBool("IsWalking", false);
         creatureAgent.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+        creatureAgent.GetComponent<SpriteRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
     }
 
     public override void Exit()

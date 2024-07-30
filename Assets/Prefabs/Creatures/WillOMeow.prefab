@@ -503,7 +503,6 @@ GameObject:
   - component: {fileID: 1858493344542286690}
   - component: {fileID: 829603259238076668}
   - component: {fileID: 8578234943679049157}
-  - component: {fileID: -2761544953814608897}
   m_Layer: 0
   m_Name: WillOMeow
   m_TagString: Untagged
@@ -674,22 +673,8 @@ MonoBehaviour:
   smokeObj: {fileID: 1055847238102491542, guid: 948e2246f7e2bee4683a1620a3dd41a9, type: 3}
   aspectUI: {fileID: 0}
   surpriseMarker: {fileID: 0}
-  waypoints:
-  - {fileID: 0}
---- !u!114 &-2761544953814608897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4814560542865252386}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ba542541877c464c956c42ec210a15f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   path: {fileID: 0}
-  waypoints: []
+  foodBowl: {fileID: 0}
 --- !u!1 &5683550031966727548
 GameObject:
   m_ObjectHideFlags: 0
