@@ -58,40 +58,49 @@ public class SpawnManager : MonoBehaviour
         // TODO: Only dynamically add the relevant states. I think because this is being created statically, any properties can just be privately
         //       maintained in the states themselves rather than passed into the constructors
 
-        //Cotton Sprite
-        stateMachine.AddState("CottonSpriteWanderState", new CottonSpriteWanderState(stateMachine, creatureAgent, creature, 10f, player));
-        stateMachine.AddState("CottonSpriteSittingState", new CottonSpriteSittingState(stateMachine, creatureAgent, creature, player));
-        stateMachine.AddState("CottonSpriteFollowState", new CottonSpriteFollowState(stateMachine, creatureAgent, creature, player));
-
-        //Flittlet
-        stateMachine.AddState("FlittletWanderState", new FlittletWanderState(stateMachine, creatureAgent, creature, 10f));
-
-        //Hedgedog
-        stateMachine.AddState("HedgedogSleepingState", new HedgedogSleepingState(stateMachine, creatureAgent, creature, player));
-        stateMachine.AddState("HedgedogFleeState", new HedgedogFleeState(stateMachine, creatureAgent, player, creature, this));
-
-        //Dragonpuppy
-        stateMachine.AddState("DragonpuppyDashState", new DragonpuppyDashState(stateMachine, creatureAgent, creature, 10f, player));
-        stateMachine.AddState("DragonpuppyPlayerState", new DragonpuppyPlayerState(stateMachine, creatureAgent, creature, player));
-
-        //Aurafox
-        stateMachine.AddState("AurafoxSleepingState", new AurafoxSleepingState(stateMachine, creatureAgent, creature, player));
-        stateMachine.AddState("AurafoxAwakeState", new AurafoxAwakeState(stateMachine, creatureAgent, creature, player));
-        stateMachine.AddState("AurafoxTeleportState", new AurafoxTeleportState(stateMachine, creatureAgent, creature, player));
-
-        //Great Oak Wyrm
-        stateMachine.AddState("GreatOakWyrmIdleState", new GreatOakWyrmIdleState(stateMachine, creatureAgent, creature, player, spriteRenderer));
-        stateMachine.AddState("GreatOakWyrmFollowState", new GreatOakWyrmFollowState(stateMachine, creatureAgent, creature, player, spriteRenderer));
-        
-
-        //WillOMeow
-        stateMachine.AddState("WillOMeowWanderingState", new WillOMeowWanderingState(stateMachine, creatureAgent, creature, player, 10f));
-
-
+        switch (newCreature.name)
+        {
+            case "CottonSprite":
+                //Cotton Sprite
+                stateMachine.AddState("CottonSpriteWanderState", new CottonSpriteWanderState(stateMachine, creatureAgent, creature, 10f, player));
+                stateMachine.AddState("CottonSpriteSittingState", new CottonSpriteSittingState(stateMachine, creatureAgent, creature, player));
+                stateMachine.AddState("CottonSpriteFollowState", new CottonSpriteFollowState(stateMachine, creatureAgent, creature, player));
+                break;
+            case "Flittlet":
+                //Flittlet
+                stateMachine.AddState("FlittletWanderState", new FlittletWanderState(stateMachine, creatureAgent, creature, 10f));
+                break;
+            case "Hedgedog":
+                //Hedgedog
+                stateMachine.AddState("HedgedogSleepingState", new HedgedogSleepingState(stateMachine, creatureAgent, creature, player));
+                stateMachine.AddState("HedgedogFleeState", new HedgedogFleeState(stateMachine, creatureAgent, player, creature, this));
+                break;
+            case "DragonPuppy":
+                //Dragonpuppy
+                stateMachine.AddState("DragonpuppyDashState", new DragonpuppyDashState(stateMachine, creatureAgent, creature, 10f, player));
+                stateMachine.AddState("DragonpuppyPlayerState", new DragonpuppyPlayerState(stateMachine, creatureAgent, creature, player));
+                break;
+            case "Aurafox":
+                //Aurafox
+                stateMachine.AddState("AurafoxSleepingState", new AurafoxSleepingState(stateMachine, creatureAgent, creature, player));
+                stateMachine.AddState("AurafoxAwakeState", new AurafoxAwakeState(stateMachine, creatureAgent, creature, player));
+                stateMachine.AddState("AurafoxTeleportState", new AurafoxTeleportState(stateMachine, creatureAgent, creature, player));
+                break;
+            case "GreatOakWyrm":
+                //Great Oak Wyrm
+                stateMachine.AddState("GreatOakWyrmIdleState", new GreatOakWyrmIdleState(stateMachine, creatureAgent, creature, player, spriteRenderer));
+                stateMachine.AddState("GreatOakWyrmFollowState", new GreatOakWyrmFollowState(stateMachine, creatureAgent, creature, player, spriteRenderer));
+                break;
+            case "WillOMeow":
+                //WillOMeow
+                stateMachine.AddState("WillOMeowWanderingState", new WillOMeowWanderingState(stateMachine, creatureAgent, creature, player, 5f));
+                break;
+            default:
+                break;
+        }
 
         stateMachine.SetDefaultState(creature.defaultState);
         
-
         GameObject path = GameObject.Find(creature.pathName);
 
         Path creaturePath = newCreature.GetComponent<Path>();
@@ -122,6 +131,7 @@ public class SpawnManager : MonoBehaviour
         {
             SpawnCreature(creature);
         }
+        Debug.Log("Creatures all spawned");
     }
     
     public void DespawnCreature(Creatures creature)

@@ -5,6 +5,7 @@ using UnityEngine;
 public class WillOMeow : ShadowInteractable
 {
     public GameObject surpriseMarker;
+    public List<GameObject> waypoints;
 
     protected override void Start()
     {

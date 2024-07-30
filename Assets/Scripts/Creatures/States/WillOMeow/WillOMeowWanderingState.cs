@@ -1,18 +1,21 @@
 ﻿using UnityEngine.AI;
 using UnityEngine;
+using System.Collections.Generic;
 
-    
+
 public class WillOMeowWanderingState : BaseState
 {
 
     private NavMeshAgent creatureAgent;
     private Creatures creature;
     private GameObject player;
-    private Vector3 randomPosition = Vector3.zero;
     private float alertnessRadius = 8f;
     private float wanderRadius = 15f;
     float wanderTime = 5f;
     float wanderingTime;
+
+    List<Vector3> waypoints;
+    int waypointIndex;
 
     public WillOMeowWanderingState(StateMachine stateMachine, NavMeshAgent creatureAgent, Creatures creature, GameObject player, float wanderRadius) : base(stateMachine)
     {
@@ -20,11 +23,15 @@ public class WillOMeowWanderingState : BaseState
         this.creature = creature;
         this.player = player;
         this.wanderRadius = wanderRadius;
+        foreach (GameObject waypointObj in creature.prefab.GetComponent<List<GameObject>>())
+        {
+            waypoints.Add(waypointObj.transform.position);
+        }
+        waypointIndex = 0;
     }
 
     public override void Enter()
     {
-        
         creatureAgent.GetComponent<Animator>().SetBool("IsWalking", true);
         creatureAgent.SetDestination(GetNewDestination());
     }
@@ -39,17 +46,20 @@ public class WillOMeowWanderingState : BaseState
         Wander();
 
         if (creatureAgent.velocity.x > 0)
-            creatureAgent.GetComponent<SpriteRenderer>().flipX = true;
-        else if (creatureAgent.velocity.x < 0)
             creatureAgent.GetComponent<SpriteRenderer>().flipX = false;
+        else if (creatureAgent.velocity.x < 0)
+            creatureAgent.GetComponent<SpriteRenderer>().flipX = true;
 
         creatureAgent.GetComponent<Animator>().SetBool("IsWalking", creatureAgent.velocity != Vector3.zero);
 
         float distanceToPlayer = Vector3.Distance(creatureAgent.transform.position, player.transform.position);
-        if(distanceToPlayer <= alertnessRadius && !PlayerController.Instance.isCrouching)
+        if(distanceToPlayer <= alertnessRadius)
         {
-            creatureAgent.GetComponent<WillOMeow>().surpriseMarker.SetActive(true);
-            
+            creatureAgent.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f, 0.3f);
+        }
+        else
+        {
+            creatureAgent.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
         }
     }
 
@@ -58,18 +68,20 @@ public class WillOMeowWanderingState : BaseState
         Vector3 newDestination = Vector3.zero;
         NavMeshHit hit;
         bool notInObstacle = false;
-        for (int i = 0; i < 10; i++)
+
+        Vector3 currPos = creatureAgent.transform.position;
+        
+        if(waypointIndex >= waypoints.Count)
         {
-            Vector2 wanderDirection = Random.insideUnitCircle * wanderRadius * 10;
-            newDestination = new Vector3(creatureAgent.transform.position.x + wanderDirection.x, creatureAgent.transform.position.y, creatureAgent.transform.position.z + wanderDirection.y);
-
-            if (NavMesh.SamplePosition(newDestination, out hit, wanderRadius, NavMesh.AllAreas))
-            {
-                notInObstacle = true;
-                break;
-            }
-
+            waypointIndex = 0;
         }
+
+        newDestination = waypoints[waypointIndex++];
+        if (NavMesh.SamplePosition(newDestination, out hit, wanderRadius, NavMesh.AllAreas))
+        {
+                notInObstacle = true;
+        }
+        
         if (notInObstacle)
         {
             return newDestination;
@@ -78,8 +90,6 @@ public class WillOMeowWanderingState : BaseState
         {
             return creature.spawnPoint;
         }
-
-
     }
 
     public void Wander()
