@@ -49,7 +49,6 @@ public class CottonSpriteSittingState : BaseState
 
     public override void Exit()
     {
-        Debug.Log("Changing to : " + nextState);
         creatureAgent.GetComponent<CottonSprite>().intruigeMarker.SetActive(false);
         creatureAgent.GetComponent<Animator>().SetBool("IsSitting", false);
         timeSat = 0f;

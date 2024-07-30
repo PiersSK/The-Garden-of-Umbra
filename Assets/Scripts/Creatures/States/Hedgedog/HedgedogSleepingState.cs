@@ -20,8 +20,6 @@ public class HedgedogSleepingState : BaseState
 
     public override void Enter()
     {
-        Debug.Log("Entered Sleep");
-
         //animator sleeping
     }
 

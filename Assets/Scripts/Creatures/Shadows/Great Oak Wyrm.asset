@@ -20,3 +20,4 @@ MonoBehaviour:
   headAspectSprite: {fileID: -1281358922, guid: 20c6958ac049337499c2ed0a7c7afd9c, type: 3}
   bodyAspectSprite: {fileID: 1048436051, guid: 20c6958ac049337499c2ed0a7c7afd9c, type: 3}
   feetAspectSprite: {fileID: -1646080030, guid: 20c6958ac049337499c2ed0a7c7afd9c, type: 3}
+  creatureOutline: {fileID: 1229660062, guid: 41459b055a7729c46a5e255704f7bf0c, type: 3}

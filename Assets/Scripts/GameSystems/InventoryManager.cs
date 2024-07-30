@@ -27,9 +27,13 @@ public class InventoryManager : MonoBehaviour
         return flasks.FindAll(flask => flask.flaskUnlocked);
     }
 
-    public void ClearAllFlasks()
+    public void ClearAllFlasksAndRespawnShadows()
     {
-        foreach (Flask flask in flasks) flask.shadow = null;
+        foreach (Flask flask in flasks)
+        {
+            SpawnManager.Instance.SpawnCreatureFromShadow(flask.shadow);
+            flask.shadow = null;
+        }
     }
 
     public bool AddShadow(Shadow newShadow)

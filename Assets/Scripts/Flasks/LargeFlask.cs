@@ -13,4 +13,9 @@ public class LargeFlask : Flask
 
         return false;
     }
+
+    public override bool CanAddShadow(Shadow newShadow)
+    {
+        return flaskUnlocked;
+    }
 }
