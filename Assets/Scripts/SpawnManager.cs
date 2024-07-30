@@ -80,8 +80,8 @@ public class SpawnManager : MonoBehaviour
         stateMachine.AddState("AurafoxTeleportState", new AurafoxTeleportState(stateMachine, creatureAgent, creature, player));
 
         //Great Oak Wyrm
-        stateMachine.AddState("GreatOakWyrmIdleState", new GreatOakWyrmIdleState(stateMachine, creatureAgent, creature, player, spriteRenderer));
-        stateMachine.AddState("GreatOakWyrmFollowState", new GreatOakWyrmFollowState(stateMachine, creatureAgent, creature, player, spriteRenderer));
+        stateMachine.AddState("GreatOakWyrmIdleState", new GreatOakWyrmIdleState(stateMachine, creatureAgent, creature, player));
+        stateMachine.AddState("GreatOakWyrmFollowState", new GreatOakWyrmFollowState(stateMachine, creatureAgent, creature, player));
 
         //Prismole
         stateMachine.AddState("PrismoleFleeState", new PrismoleFleeState(stateMachine, creatureAgent, creature, player));
