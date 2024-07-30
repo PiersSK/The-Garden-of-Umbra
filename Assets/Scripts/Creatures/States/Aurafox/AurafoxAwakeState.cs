@@ -24,6 +24,7 @@ public class AurafoxAwakeState : BaseState
     public override void Enter()
     {
        // creatureAgent.GetComponent<Animator>().SetBool("IsAwake", true);
+        creatureAgent.GetComponent<SpriteRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
         creatureAgent.GetComponent<Aurafox>().surpriseMarker.SetActive(true);
         elapsedTime = 0f;
     }

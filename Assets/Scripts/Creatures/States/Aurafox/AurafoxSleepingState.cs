@@ -19,6 +19,7 @@ public class AurafoxSleepingState : BaseState
 
     public override void Enter()
     {
+        creatureAgent.GetComponent<SpriteRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
         creatureAgent.GetComponent<SpriteRenderer>().flipX = true;
     }
     public override void Perform()

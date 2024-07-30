@@ -13,6 +13,6 @@ public class Aurafox : ShadowInteractable
     }
     public override bool CanInteract()
     {
-        return base.CanInteract() && !GetComponent<Animator>().GetBool("IsAwake");
+        return base.CanInteract();
     }
 }
