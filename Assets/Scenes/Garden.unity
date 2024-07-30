@@ -2305,7 +2305,8 @@ MonoBehaviour:
   headAspect: {fileID: 0}
   bodyAspect: {fileID: 0}
   feetAspect: {fileID: 0}
-  shadowName: {fileID: 0}
+  shadowSize: {fileID: 0}
+  flaskSize: {fileID: 0}
   timeToRelease: 2
   idleAngle: {x: -0, y: 0, z: 0}
 --- !u!114 &195244065
@@ -2876,7 +2877,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -726.3, y: -447.7}
+  m_AnchoredPosition: {x: -724, y: -437.52}
   m_SizeDelta: {x: 425.86, y: 157.34277}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &230859809
@@ -10704,18 +10705,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 224772822}
     m_Modifications:
-    - target: {fileID: 5558420371916091788, guid: 91c7dc9a5ad9d3e408bac067fb5cc27b, type: 3}
-      propertyPath: inventoryItems.Array.data[0]
-      value: 
-      objectReference: {fileID: 671359376}
-    - target: {fileID: 5558420371916091788, guid: 91c7dc9a5ad9d3e408bac067fb5cc27b, type: 3}
-      propertyPath: inventoryItems.Array.data[1]
-      value: 
-      objectReference: {fileID: 195244064}
-    - target: {fileID: 5558420371916091788, guid: 91c7dc9a5ad9d3e408bac067fb5cc27b, type: 3}
-      propertyPath: inventoryItems.Array.data[2]
-      value: 
-      objectReference: {fileID: 1763688698}
     - target: {fileID: 5569573781850326587, guid: 91c7dc9a5ad9d3e408bac067fb5cc27b, type: 3}
       propertyPath: m_Name
       value: CombinedShadowUI
@@ -11173,7 +11162,8 @@ MonoBehaviour:
   headAspect: {fileID: 0}
   bodyAspect: {fileID: 0}
   feetAspect: {fileID: 0}
-  shadowName: {fileID: 0}
+  shadowSize: {fileID: 0}
+  flaskSize: {fileID: 0}
   timeToRelease: 2
   idleAngle: {x: -0, y: 0, z: 0}
 --- !u!114 &671359377
@@ -20487,7 +20477,8 @@ MonoBehaviour:
   headAspect: {fileID: 0}
   bodyAspect: {fileID: 0}
   feetAspect: {fileID: 0}
-  shadowName: {fileID: 0}
+  shadowSize: {fileID: 0}
+  flaskSize: {fileID: 0}
   timeToRelease: 2
   idleAngle: {x: -0, y: 0, z: 0}
 --- !u!114 &1763688699
@@ -24307,13 +24298,13 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 925775975538601199, guid: bf09933265a76c941984eca5aceee0ab, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 224772822}
+    - targetCorrespondingSourceObject: {fileID: 925775975538601199, guid: bf09933265a76c941984eca5aceee0ab, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 604186087397512431}
     - targetCorrespondingSourceObject: {fileID: 925775975538601199, guid: bf09933265a76c941984eca5aceee0ab, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7566409921218895439}
-    - targetCorrespondingSourceObject: {fileID: 925775975538601199, guid: bf09933265a76c941984eca5aceee0ab, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 224772822}
     - targetCorrespondingSourceObject: {fileID: 925775975538601199, guid: bf09933265a76c941984eca5aceee0ab, type: 3}
       insertIndex: -1
       addedObject: {fileID: 159650868}

@@ -19,7 +19,8 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public Image headAspect;
     public Image bodyAspect;
     public Image feetAspect;
-    public TextMeshProUGUI shadowName;
+    public TextMeshProUGUI shadowSize;
+    public TextMeshProUGUI flaskSize;
 
     [Header("Release Logic")]
     public float timeToRelease = 2f;
@@ -91,6 +92,9 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         {
             creatureOutline.sprite = item.shadow.creatureOutline;
             creatureOutline.color = new Color(0,0,0,0.4f);
+
+            int sizeIndex = InventoryManager.Instance.flasks.IndexOf(item);
+            flaskSize.text = (sizeIndex == 0 ? "Small" : sizeIndex == 1 ? "Medium" : "Large") + " Flask";
         }
         else
         {
@@ -119,6 +123,8 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void UpdateShadowAspectUI() 
     {
+        if (item.shadow is null) shadowSize.text = string.Empty;
+        else shadowSize.text = item.shadow.size.ToString() + " Shadow";
 
         headAspect.sprite = item.shadow.headAspectSprite;
         headAspect.color = item.shadow.headAspect == Aspects.HeadAspect.None ? new Color(0,0,0,0.2f) : Color.white;
@@ -179,13 +185,6 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
         return canReceiveShadow && unlockedFlasks[swapIndex].CanAddShadow(unlockedFlasks[flaskIndex].shadow);
 
-
-
-        //if (flaskIndex == 0 && unlockedFlasks[swapIndex].shadow is not null && unlockedFlasks[swapIndex].shadow.size != Aspects.ShadowSize.Small) return false;
-        //else if (flaskIndex == 1 && unlockedFlasks[swapIndex].shadow is not null && unlockedFlasks[swapIndex].shadow.size == Aspects.ShadowSize.Large) return false;
-        //else if (flaskIndex == 2 && unlockedFlasks[flaskIndex].shadow.size != Aspects.ShadowSize.Small) return false;
-
-        //return true;
     }
 
     private bool CanMoveLeft(int flaskIndex)
@@ -199,18 +198,6 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
         return canReceiveShadow && unlockedFlasks[swapIndex].CanAddShadow(unlockedFlasks[flaskIndex].shadow);
 
-        //List<Flask> unlockedFlasks = InventoryManager.Instance.UnlockedFlasks();
-        //if (unlockedFlasks.Count == 1) return false;
-
-        //int swapIndex = flaskIndex == 0 ? unlockedFlasks.Count - 1 : flaskIndex - 1;
-
-        //if (unlockedFlasks[swapIndex] is null) return true;
-
-        //if (flaskIndex == 0 && unlockedFlasks[swapIndex].shadow is not null && unlockedFlasks[swapIndex].shadow.size != Aspects.ShadowSize.Small) return false;
-        //else if (flaskIndex == 1 && unlockedFlasks[flaskIndex].shadow.size != Aspects.ShadowSize.Small) return false;
-        //else if (flaskIndex == 2 && unlockedFlasks[flaskIndex].shadow.size == Aspects.ShadowSize.Large) return false;
-
-        //return true;
     }
 
     public void OnPointerUp(PointerEventData eventData)
