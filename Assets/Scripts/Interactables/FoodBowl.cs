@@ -1,18 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class FoodBowl : MonoBehaviour
+public class FoodBowl : Interactable
 {
-    // Start is called before the first frame update
-    void Start()
+    public bool canInteract = true;
+    public bool foodInBowl = false;
+
+    public override void Interact()
     {
-        
+        canInteract = false;
+        foodInBowl = true;
+        transform.Find("EmptyFoodBowl").gameObject.SetActive(false);
+        transform.Find("FilledFoodBowl").gameObject.SetActive(true);
     }
 
-    // Update is called once per frame
-    void Update()
+    public override bool CanInteract()
     {
-        
+        return canInteract;
     }
 }

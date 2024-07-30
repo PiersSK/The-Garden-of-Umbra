@@ -131,7 +131,6 @@ public class SpawnManager : MonoBehaviour
         {
             SpawnCreature(creature);
         }
-        Debug.Log("Creatures all spawned");
     }
     
     public void DespawnCreature(Creatures creature)
