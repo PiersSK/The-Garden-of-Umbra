@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -47,8 +48,7 @@ public class PlayerController : MonoBehaviour
 
         roaming.Interact.performed += ctx => playerInteract.InteractWithSelected();
         roaming.ToggleInteract.performed += ctx => playerInteract.CycleInteractable();
-        roaming.Crouch.started += ctx => Crouch();
-        roaming.Crouch.canceled += ctx => UnCrouch();
+        roaming.Crouch.performed += ctx => ToggleCrouch();
     }
 
     private void Crouch()
@@ -63,6 +63,18 @@ public class PlayerController : MonoBehaviour
         isCrouching = false;
         vignetteVolume.enabled = false;
         speed *= 2;
+    }
+
+    private void ToggleCrouch()
+    {
+        if(isCrouching)
+        {
+            UnCrouch();
+        }
+        else
+        {
+            Crouch();
+        }
     }
 
     private void Update()
