@@ -16,7 +16,8 @@ MonoBehaviour:
   headAspect: 0
   bodyAspect: 2
   feetAspect: 1
-  size: 1
+  size: 0
   headAspectSprite: {fileID: 21300000, guid: 5f6b302c19c8bd64c9bbd35c68cfba4f, type: 3}
   bodyAspectSprite: {fileID: 1667646779, guid: 20c6958ac049337499c2ed0a7c7afd9c, type: 3}
   feetAspectSprite: {fileID: -1646080030, guid: 20c6958ac049337499c2ed0a7c7afd9c, type: 3}
+  creatureOutline: {fileID: -596845125, guid: 7a215e3dd8e7b5745a770c42a7077c2e, type: 3}

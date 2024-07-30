@@ -62,15 +62,17 @@ public class WillOMeowWanderingState : BaseState
         if(distanceToPlayer <= alertnessRadius)
         {
             creatureAgent.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f, 0.3f);
+            creatureAgent.GetComponent<SpriteRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
         }
         else
         {
             creatureAgent.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+            creatureAgent.GetComponent<SpriteRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
         }
 
         Vector3 currPos = creatureAgent.transform.position;
 
-        if (currPos.x == waypoints[3].x && currPos.z == waypoints[3].z)
+        if (currPos.x == waypoints[3].x && currPos.z == waypoints[3].z && foodBowl.GetComponent<FoodBowl>().foodInBowl)
         {
             creatureAgent.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
             stateMachine.ChangeState("WillOMeowSleepingState");
