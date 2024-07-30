@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
 
     // UI Components
     [SerializeField] private Volume vignetteVolume;
+    public Animator smokeAnim;
 
     // Player Components
     public CharacterController controller;
