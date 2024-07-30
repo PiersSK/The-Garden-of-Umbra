@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,6 +16,9 @@ public class UIManager : MonoBehaviour
     public GameObject dialogueUI;
     public GameObject flaskUI;
     public GameObject cutsceneUI;
+
+    public TextMeshProUGUI crouchIndicator;
+
 
     public enum UIPreset
     {
@@ -39,6 +43,16 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         SetUIForPreset(UIPreset.Garden);
+    }
+
+    private void Update()
+    {
+        SetCrouchIndicator(PlayerController.Instance.isCrouching);
+    }
+
+    public void SetCrouchIndicator(bool crouching)
+    {
+        crouchIndicator.text = crouching ? "Sneaking..." : "";
     }
 
     public void SetUIForPreset(UIPreset preset)
