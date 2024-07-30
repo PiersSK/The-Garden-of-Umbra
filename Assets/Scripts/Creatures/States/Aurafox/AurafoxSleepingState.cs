@@ -19,7 +19,7 @@ public class AurafoxSleepingState : BaseState
 
     public override void Enter()
     {
-        //creatureAgent.GetComponent<Animator>().SetBool("IsAwake", false);
+        creatureAgent.GetComponent<SpriteRenderer>().flipX = true;
     }
     public override void Perform()
     {
@@ -31,5 +31,6 @@ public class AurafoxSleepingState : BaseState
     }
     public override void Exit()
     {
+        creatureAgent.GetComponent<SpriteRenderer>().flipX = false;
     }
 }
