@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27beef3b88b90ab4fac3952a115cf294, type: 3}
+  m_Name: 5.Bachus
+  m_EditorClassIdentifier: 
+  questGiver: {fileID: 11400000, guid: 82f048f44a5934011b7f87d76733e6a8, type: 2}
+  dreamDialogue:
+  - "\u2026 Surely I know a spell that <b>stops nervous sweats</b>\u2026"
+  - "\u2026 They\u2019re going to tear me apart out there, I <b>must not crumble</b>
+    to their heckles\u2026"
+  - "\u2026 Big smile, Bachus, <b>get them laughing</b>, just tell a joke, you must
+    know one\u2026"
+  completionDialogue: Abra-ka-shadow! Thank you very much my fine friend!
+  formedDialogue:
+  - Raquelle Von Spelle, at your service!
+  - Have you ever visited Mageopolis? Beautiful symposiums, all the lectures you
+    could ever want, you simply must attend!
+  - "I\u2019m unveiling my latest work there soon, you see. Wizards and witches of
+    all ages are travelling from all over to see it."
+  - It makes moustaches extra pointy.
+  headSolution: 2
+  bodySolution: 1
+  feetSolution: 1

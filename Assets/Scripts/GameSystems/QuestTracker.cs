@@ -10,7 +10,7 @@ public class QuestTracker : MonoBehaviour
     public static QuestTracker Instance { get; private set; }
 
     [SerializeField] private List<Quest> quests;
-    private int questIndex = 0;
+    public int questIndex = 0;
     public Quest activeQuest;
 
     [Header("Resultant Shadow")]
@@ -114,7 +114,7 @@ public class QuestTracker : MonoBehaviour
     private void DreamerThoughts()
     {
         if (questIndex == 1)
-            PlayerThoughts.Instance.ShowThought("Hmm this may require some proper shadowcraft... I need to find my second shadow flask (and preferably stop dropping them)", 5f);
+            PlayerThoughts.Instance.ShowThought("Hmm this may require some proper shadowcraft... I need to find my other lost shadow flasks (and preferably stop dropping them)", 5f);
     }
 
     private int NumberOfAspectsChecked()

@@ -113,6 +113,7 @@ public class DreamerInteractable : Interactable
 
     private void AddFormedLines()
     {
+        currentIndex = 0;
         manuallyCycleDialogue = true;
         dialogueLines = associatedQuest.formedDialogue;
     }

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5610d0c17ed57b143acf9e59ccb765a0, type: 3}
+  m_Name: Cavecow
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 8590236283123500328, guid: f4d34e868de594d7988eddf78e2ded41, type: 3}
+  currentState: 
+  pathName: 
+  spawnPoint: {x: 575.39, y: 1.82, z: -129.51}
+  sightDistance: 5
+  creature: 10
+  defaultBehaviour: 1
+  defaultState: 
+  shadow: {fileID: 11400000, guid: 3ab581b924aa442babadc6c8466ab8d7, type: 2}
