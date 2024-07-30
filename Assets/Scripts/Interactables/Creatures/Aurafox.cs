@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Aurafox : ShadowInteractable
 {
+
+    public bool hasTeleportedPlayer = false;
     public GameObject surpriseMarker;
 
     protected override void Start()

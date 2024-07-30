@@ -37,6 +37,8 @@ public class MixShadowUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             flasksNowUnlocked = true;
             image.color = defaultColor;
         }
+
+        combinedShadow = CombineInventoryShadows();
     }
 
     public void OnPointerEnter(PointerEventData eventData)

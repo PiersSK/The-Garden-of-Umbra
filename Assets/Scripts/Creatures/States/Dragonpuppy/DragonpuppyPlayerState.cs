@@ -7,10 +7,9 @@ public class DragonpuppyPlayerState : BaseState
     private Creatures creature;
     private GameObject player;
     private NavMeshAgent creatureAgent;
-    private float wanderRadius = 15f;
-    private float detectionRadius = 12f;
+
     private bool hasReachedPlayer = false;
-    private bool hasReachedSpawn = false;
+    private float initialSpeed = 7f;
 
     public DragonpuppyPlayerState(StateMachine stateMachine, NavMeshAgent creatureAgent, Creatures creature, GameObject player) : base(stateMachine)
     {
@@ -21,71 +20,55 @@ public class DragonpuppyPlayerState : BaseState
 
     public override void Enter()
     {
-        Debug.Log("Entered Player State");
         creatureAgent.SetDestination(player.transform.position);
+        creatureAgent.GetComponent<Dragonpuppy>().curiousMarker.SetActive(true);
+        initialSpeed = creatureAgent.speed;
+        creatureAgent.speed = 3f;
     }
     
 
     public override void Perform()
     {
+        if (creatureAgent.velocity.x > 0)
+            creatureAgent.GetComponent<SpriteRenderer>().flipX = true;
+        else if (creatureAgent.velocity.x < 0)
+            creatureAgent.GetComponent<SpriteRenderer>().flipX = false;
+
+        creatureAgent.GetComponent<Animator>().SetBool("IsWalking", creatureAgent.velocity != Vector3.zero);
+
         HasReachedPlayer();
-        if(hasReachedPlayer)
-        {
-            creatureAgent.SetDestination(creature.spawnPoint);
-        }
         HasReachedDestination();
-        if(hasReachedSpawn)
-        {
-            stateMachine.ChangeState("DragonpuppyDashState");
-        }
 
     }
     
     public override void Exit()
     {
+        creatureAgent.speed = initialSpeed;
+
+        hasReachedPlayer = false;
+
     }
+
     public void HasReachedPlayer()
     {
-        if (Vector3.Distance(creatureAgent.transform.position, player.transform.position) < creatureAgent.stoppingDistance)
-        {
-            hasReachedPlayer = true;
+        if(!hasReachedPlayer) { 
+            creatureAgent.SetDestination(player.transform.position);
+            if (Vector3.Distance(creatureAgent.transform.position, player.transform.position) < creatureAgent.stoppingDistance)
+            {
+                creatureAgent.SetDestination(creature.spawnPoint);
+                hasReachedPlayer = true;
+                creatureAgent.GetComponent<Dragonpuppy>().curiousMarker.SetActive(false);
+                creatureAgent.speed = initialSpeed * 1.5f;
+            }
         }
     }
 
     public void HasReachedDestination()
     {
-        if(Vector3.Distance(creatureAgent.transform.position, creature.spawnPoint) < creatureAgent.stoppingDistance)
+        if(Vector3.Distance(creatureAgent.transform.position, creature.spawnPoint) < creatureAgent.stoppingDistance && hasReachedPlayer)
         {
-            hasReachedSpawn = true;
+            stateMachine.ChangeState("DragonpuppyDashState");
         }
     }
 
-    public Vector3 GetNewDestination()
-    {
-        Vector3 newDestination = Vector3.zero;
-        NavMeshHit hit;
-        bool notInObstacle = false;
-        for (int i = 0; i < 10; i++)
-        {
-            Vector2 wanderDirection = Random.insideUnitCircle * wanderRadius * 10;
-            newDestination = new Vector3(creatureAgent.transform.position.x + wanderDirection.x, creatureAgent.transform.position.y, creatureAgent.transform.position.z + wanderDirection.y);
-
-            if (NavMesh.SamplePosition(newDestination, out hit, wanderRadius, NavMesh.AllAreas))
-            {
-                notInObstacle = true;
-                break;
-            }
-        
-        }
-        if (notInObstacle)
-        {
-            return newDestination;
-        }
-        else
-        {
-            return creature.spawnPoint;
-        }
-       
-        
-    }
 }

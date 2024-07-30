@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.Design;
 using TMPro;
 using UnityEngine;
@@ -11,7 +12,7 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     [Header("UI")]
     public Image image;
     public Image creatureOutline;
-    public GameObject releaseButton;
+    public InventoryItemHoverUI hoverUI;
     public GameObject aspectInfo;
     public Image releaseTimerImage;
 
@@ -36,6 +37,56 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     private void Update()
     {
+        List<Flask> unlockedFlasks = InventoryManager.Instance.UnlockedFlasks();
+        int flaskIndex = unlockedFlasks.IndexOf(item);
+
+        if (hoverUI.gameObject.activeSelf)
+        {
+            if(Input.GetKeyDown(KeyCode.Q) && hoverUI.left.activeSelf)
+            {
+                int swapIndex = flaskIndex == 0 ? unlockedFlasks.Count - 1 : flaskIndex - 1;
+
+                Shadow shadowToSwap = unlockedFlasks[swapIndex].shadow;
+                InventoryManager.Instance.flasks[swapIndex].shadow = item.shadow;
+
+                if (shadowToSwap is not null)
+                {
+                    unlockedFlasks[flaskIndex].shadow = shadowToSwap;
+                    SetHoverUI(true);
+                    UpdateShadowAspectUI();
+                }
+                else
+                {
+                    unlockedFlasks[flaskIndex].shadow = null;
+                    SetHoverUI(false);
+                    aspectInfo.SetActive(false);
+
+                }
+
+            } else if(Input.GetKeyDown(KeyCode.F) && hoverUI.right.activeSelf)
+            {
+                int swapIndex = flaskIndex == unlockedFlasks.Count - 1 ? 0 : flaskIndex + 1;
+
+                Shadow shadowToSwap = unlockedFlasks[swapIndex].shadow;
+                InventoryManager.Instance.flasks[swapIndex].shadow = item.shadow;
+
+                if (shadowToSwap is not null)
+                {
+                    unlockedFlasks[flaskIndex].shadow = shadowToSwap;
+                    SetHoverUI(true);
+                    UpdateShadowAspectUI();
+                }
+                else
+                {
+                    unlockedFlasks[flaskIndex].shadow = null;
+                    SetHoverUI(false);
+                    aspectInfo.SetActive(false);
+                }
+
+            }
+        }
+
+
         if (item.shadow is not null)
         {
             creatureOutline.sprite = item.shadow.creatureOutline;
@@ -56,7 +107,7 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
                 SpawnManager.Instance.SpawnCreatureFromShadow(item.shadow);
                 item.RemoveShadow();
 
-                releaseButton.SetActive(false);
+                SetHoverUI(false);
                 aspectInfo.SetActive(false);
 
                 releaseInProgress = false;
@@ -88,7 +139,7 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             UpdateShadowAspectUI();
 
             transform.localScale = new Vector3(1.1f, 1.1f, 1.1f);
-            releaseButton.SetActive(true);
+            SetHoverUI(true);
             aspectInfo.SetActive(true);
         }
     }
@@ -99,9 +150,67 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         //transform.localEulerAngles = idleAngle;
         if (item.shadow is not null)
         {
-            releaseButton.SetActive(false);
+            SetHoverUI(false);
             aspectInfo.SetActive(false);
         }
+    }
+
+    private void SetHoverUI(bool isActive)
+    {
+        hoverUI.gameObject.SetActive(isActive);
+
+        if (hoverUI.gameObject.activeSelf)
+        {
+            int flaskIndex = InventoryManager.Instance.flasks.IndexOf(item);
+            hoverUI.left.SetActive(CanMoveLeft(flaskIndex));
+            hoverUI.right.SetActive(CanMoveRight(flaskIndex));
+        }
+
+    }
+
+    private bool CanMoveRight(int flaskIndex)
+    {
+        List<Flask> unlockedFlasks = InventoryManager.Instance.UnlockedFlasks();
+        if (unlockedFlasks.Count == 1) return false;
+
+        int swapIndex = flaskIndex == unlockedFlasks.Count - 1 ? 0 : flaskIndex + 1;
+
+        bool canReceiveShadow = unlockedFlasks[swapIndex].shadow == null || unlockedFlasks[flaskIndex].CanAddShadow(unlockedFlasks[swapIndex].shadow);
+
+        return canReceiveShadow && unlockedFlasks[swapIndex].CanAddShadow(unlockedFlasks[flaskIndex].shadow);
+
+
+
+        //if (flaskIndex == 0 && unlockedFlasks[swapIndex].shadow is not null && unlockedFlasks[swapIndex].shadow.size != Aspects.ShadowSize.Small) return false;
+        //else if (flaskIndex == 1 && unlockedFlasks[swapIndex].shadow is not null && unlockedFlasks[swapIndex].shadow.size == Aspects.ShadowSize.Large) return false;
+        //else if (flaskIndex == 2 && unlockedFlasks[flaskIndex].shadow.size != Aspects.ShadowSize.Small) return false;
+
+        //return true;
+    }
+
+    private bool CanMoveLeft(int flaskIndex)
+    {
+        List<Flask> unlockedFlasks = InventoryManager.Instance.UnlockedFlasks();
+        if (unlockedFlasks.Count == 1) return false;
+
+        int swapIndex = flaskIndex == 0 ? unlockedFlasks.Count - 1 : flaskIndex - 1;
+
+        bool canReceiveShadow = unlockedFlasks[swapIndex].shadow == null || unlockedFlasks[flaskIndex].CanAddShadow(unlockedFlasks[swapIndex].shadow);
+
+        return canReceiveShadow && unlockedFlasks[swapIndex].CanAddShadow(unlockedFlasks[flaskIndex].shadow);
+
+        //List<Flask> unlockedFlasks = InventoryManager.Instance.UnlockedFlasks();
+        //if (unlockedFlasks.Count == 1) return false;
+
+        //int swapIndex = flaskIndex == 0 ? unlockedFlasks.Count - 1 : flaskIndex - 1;
+
+        //if (unlockedFlasks[swapIndex] is null) return true;
+
+        //if (flaskIndex == 0 && unlockedFlasks[swapIndex].shadow is not null && unlockedFlasks[swapIndex].shadow.size != Aspects.ShadowSize.Small) return false;
+        //else if (flaskIndex == 1 && unlockedFlasks[flaskIndex].shadow.size != Aspects.ShadowSize.Small) return false;
+        //else if (flaskIndex == 2 && unlockedFlasks[flaskIndex].shadow.size == Aspects.ShadowSize.Large) return false;
+
+        //return true;
     }
 
     public void OnPointerUp(PointerEventData eventData)
