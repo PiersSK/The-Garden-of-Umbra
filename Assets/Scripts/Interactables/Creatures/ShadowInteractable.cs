@@ -7,7 +7,7 @@ public class ShadowInteractable : Interactable
 {
     public Creatures creature;
     public SpawnManager spawnManager;
-    [SerializeField] private GameObject smokeObj;
+    [SerializeField] public GameObject smokeObj;
 
     public AspectUI aspectUI;
 
