@@ -49,6 +49,12 @@ public class SpawnManager : MonoBehaviour
             stateMachine = newCreature.AddComponent<StateMachine>();
         }
 
+        SpriteRenderer spriteRenderer = newCreature.GetComponent<SpriteRenderer>();
+        if (spriteRenderer == null)
+        {
+            spriteRenderer = newCreature.AddComponent<SpriteRenderer>();
+        }
+
         // TODO: Only dynamically add the relevant states. I think because this is being created statically, any properties can just be privately
         //       maintained in the states themselves rather than passed into the constructors
 
@@ -72,6 +78,11 @@ public class SpawnManager : MonoBehaviour
         stateMachine.AddState("AurafoxSleepingState", new AurafoxSleepingState(stateMachine, creatureAgent, creature, player));
         stateMachine.AddState("AurafoxAwakeState", new AurafoxAwakeState(stateMachine, creatureAgent, creature, player));
         stateMachine.AddState("AurafoxTeleportState", new AurafoxTeleportState(stateMachine, creatureAgent, creature, player));
+
+        //Great Oak Wyrm
+        stateMachine.AddState("GreatOakWyrmIdleState", new GreatOakWyrmIdleState(stateMachine, creatureAgent, creature, player, spriteRenderer));
+        stateMachine.AddState("GreatOakWyrmFollowState", new GreatOakWyrmFollowState(stateMachine, creatureAgent, creature, player, spriteRenderer));
+        
 
 
         stateMachine.SetDefaultState(creature.defaultState);
