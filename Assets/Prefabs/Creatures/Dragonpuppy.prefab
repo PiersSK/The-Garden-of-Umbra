@@ -402,7 +402,6 @@ GameObject:
   - component: {fileID: 6096180084555052591}
   - component: {fileID: 3362078438980185089}
   - component: {fileID: 1081131806221246918}
-  - component: {fileID: 7904006097783631804}
   - component: {fileID: 6497627288863822647}
   - component: {fileID: -5111505385673690276}
   - component: {fileID: 1858493344542286690}
@@ -501,24 +500,6 @@ MonoBehaviour:
   smokeObj: {fileID: 1055847238102491542, guid: 948e2246f7e2bee4683a1620a3dd41a9, type: 3}
   aspectUI: {fileID: 5376197655679060181}
   curiousMarker: {fileID: 6263338104027389243}
---- !u!114 &7904006097783631804
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4814560542865252386}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73c0bbb1ba739e34fb0ce3112f8e84b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  promptText: Take Shadow [S]
-  priority: 0
-  creature: {fileID: 11400000, guid: 52b6721e305cf9344bc182e9975b0f94, type: 2}
-  spawnManager: {fileID: 0}
-  smokeObj: {fileID: 1055847238102491542, guid: 948e2246f7e2bee4683a1620a3dd41a9, type: 3}
-  aspectUI: {fileID: 5376197655679060181}
 --- !u!65 &6497627288863822647
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -563,7 +544,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 9
   m_Speed: 7
-  m_Acceleration: 12
+  m_Acceleration: 18
   avoidancePriority: 50
   m_AngularSpeed: 0
   m_StoppingDistance: 3

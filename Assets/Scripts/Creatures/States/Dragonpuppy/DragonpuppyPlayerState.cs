@@ -9,7 +9,7 @@ public class DragonpuppyPlayerState : BaseState
     private NavMeshAgent creatureAgent;
 
     private bool hasReachedPlayer = false;
-    private bool hasReachedSpawn = false;
+    private float initialSpeed = 7f;
 
     public DragonpuppyPlayerState(StateMachine stateMachine, NavMeshAgent creatureAgent, Creatures creature, GameObject player) : base(stateMachine)
     {
@@ -20,9 +20,10 @@ public class DragonpuppyPlayerState : BaseState
 
     public override void Enter()
     {
-        Debug.Log("Entered Player State");
         creatureAgent.SetDestination(player.transform.position);
         creatureAgent.GetComponent<Dragonpuppy>().curiousMarker.SetActive(true);
+        initialSpeed = creatureAgent.speed;
+        creatureAgent.speed = 3f;
     }
     
 
@@ -42,10 +43,9 @@ public class DragonpuppyPlayerState : BaseState
     
     public override void Exit()
     {
-        hasReachedPlayer = false;
-        hasReachedSpawn = false;
+        creatureAgent.speed = initialSpeed;
 
-        Debug.Log("Exited Player State");
+        hasReachedPlayer = false;
 
     }
 
@@ -55,11 +55,10 @@ public class DragonpuppyPlayerState : BaseState
             creatureAgent.SetDestination(player.transform.position);
             if (Vector3.Distance(creatureAgent.transform.position, player.transform.position) < creatureAgent.stoppingDistance)
             {
-                Debug.Log("Reached Player");
                 creatureAgent.SetDestination(creature.spawnPoint);
                 hasReachedPlayer = true;
                 creatureAgent.GetComponent<Dragonpuppy>().curiousMarker.SetActive(false);
-
+                creatureAgent.speed = initialSpeed * 1.5f;
             }
         }
     }
@@ -68,9 +67,7 @@ public class DragonpuppyPlayerState : BaseState
     {
         if(Vector3.Distance(creatureAgent.transform.position, creature.spawnPoint) < creatureAgent.stoppingDistance && hasReachedPlayer)
         {
-            Debug.Log("Reached Spawn");
             stateMachine.ChangeState("DragonpuppyDashState");
-            hasReachedSpawn = true;
         }
     }
 
