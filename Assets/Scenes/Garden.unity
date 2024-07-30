@@ -15677,6 +15677,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cfde91cd6f37a4ea49d0e82a12205e4b, type: 2}
   - {fileID: 11400000, guid: 9dbfe1e3d8980457d920ab2b3c6c0db6, type: 2}
   - {fileID: 11400000, guid: fd06d1f8fe49a49a9968470a4724a01e, type: 2}
+  questIndex: 0
   activeQuest: {fileID: 0}
   combinedShadow: {fileID: 2081809276}
   targetUI: {fileID: 1341080174}
@@ -25546,30 +25547,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 425756709656952392, guid: 14dea992ce513814f88a8d597029c775, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2622867719458948159}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14dea992ce513814f88a8d597029c775, type: 3}
---- !u!1 &2622867719458948158 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 425756709656952392, guid: 14dea992ce513814f88a8d597029c775, type: 3}
-  m_PrefabInstance: {fileID: 2622867719458948157}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2622867719458948159
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2622867719458948158}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac9860f1765569245bb86818ce360d69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flasks:
-  - {fileID: 11400000, guid: afe4d6852e925ac46a4ec30584563de4, type: 2}
 --- !u!4 &2622867719458948160 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2973917191965442452, guid: 14dea992ce513814f88a8d597029c775, type: 3}

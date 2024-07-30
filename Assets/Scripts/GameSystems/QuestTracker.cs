@@ -10,7 +10,7 @@ public class QuestTracker : MonoBehaviour
     public static QuestTracker Instance { get; private set; }
 
     [SerializeField] private List<Quest> quests;
-    private int questIndex = 0;
+    public int questIndex = 0;
     public Quest activeQuest;
 
     [Header("Resultant Shadow")]
