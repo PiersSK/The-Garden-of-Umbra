@@ -343,7 +343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73c0bbb1ba739e34fb0ce3112f8e84b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  promptText: Take Shadow [S]
+  promptText: Take Shadow [Large]
   priority: 0
   creature: {fileID: 11400000, guid: 52b6721e305cf9344bc182e9975b0f94, type: 2}
   spawnManager: {fileID: 0}
