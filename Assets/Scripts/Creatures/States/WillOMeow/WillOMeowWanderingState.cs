@@ -9,12 +9,13 @@ public class WillOMeowWanderingState : BaseState
     private NavMeshAgent creatureAgent;
     private Creatures creature;
     private GameObject player;
+    private GameObject path;
     private float alertnessRadius = 8f;
     private float wanderRadius = 15f;
     float wanderTime = 5f;
     float wanderingTime;
 
-    List<Vector3> waypoints;
+    List<Vector3> waypoints = new List<Vector3>();
     int waypointIndex;
 
     public WillOMeowWanderingState(StateMachine stateMachine, NavMeshAgent creatureAgent, Creatures creature, GameObject player, float wanderRadius) : base(stateMachine)
@@ -23,10 +24,13 @@ public class WillOMeowWanderingState : BaseState
         this.creature = creature;
         this.player = player;
         this.wanderRadius = wanderRadius;
-        foreach (GameObject waypointObj in creature.prefab.GetComponent<List<GameObject>>())
+        path = GameObject.Find(creature.pathName);
+
+        foreach (Transform child in path.transform)
         {
-            waypoints.Add(waypointObj.transform.position);
+            waypoints.Add(child.position);
         }
+
         waypointIndex = 0;
     }
 

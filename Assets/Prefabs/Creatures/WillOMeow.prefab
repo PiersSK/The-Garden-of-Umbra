@@ -674,7 +674,8 @@ MonoBehaviour:
   smokeObj: {fileID: 1055847238102491542, guid: 948e2246f7e2bee4683a1620a3dd41a9, type: 3}
   aspectUI: {fileID: 0}
   surpriseMarker: {fileID: 0}
-  waypoints: []
+  waypoints:
+  - {fileID: 0}
 --- !u!114 &-2761544953814608897
 MonoBehaviour:
   m_ObjectHideFlags: 0

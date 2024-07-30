@@ -5,12 +5,11 @@ using UnityEngine;
 public class WillOMeow : ShadowInteractable
 {
     public GameObject surpriseMarker;
-    public List<GameObject> waypoints;
+    public GameObject path;
 
     protected override void Start()
     {
         base.Start();
-        surpriseMarker.SetActive(false);
     }
 
     public override bool CanInteract()

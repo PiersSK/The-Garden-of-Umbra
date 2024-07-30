@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 4814560542865252386, guid: e1ab211b551442b47896611e68cb8759, type: 3}
   currentState: 
-  pathName: 
+  pathName: WillOMeowPath
   spawnPoint: {x: 10, y: 1.205, z: 21}
   sightDistance: 5
   creature: 6
