@@ -76,8 +76,6 @@ public class PlayerController : MonoBehaviour
 
     private void ProcessMove()
     {
-
-        Debug.Log("ProcessingMove");
         Vector2 input = roaming.Movement.ReadValue<Vector2>();
         playerAnimator.SetBool(WALKINGANIM, input != Vector2.zero);
         Vector3 moveDirection = Vector3.zero;
