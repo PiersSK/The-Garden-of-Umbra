@@ -82,10 +82,7 @@ public class SpawnManager : MonoBehaviour
         //Great Oak Wyrm
         stateMachine.AddState("GreatOakWyrmIdleState", new GreatOakWyrmIdleState(stateMachine, creatureAgent, creature, player, spriteRenderer));
         stateMachine.AddState("GreatOakWyrmFollowState", new GreatOakWyrmFollowState(stateMachine, creatureAgent, creature, player, spriteRenderer));
-
-        //Prismole
-        stateMachine.AddState("PrismoleFleeState", new PrismoleFleeState(stateMachine, creatureAgent, creature, player));
-        stateMachine.AddState("PrismoleIdleState", new PrismoleIdleState(stateMachine, creatureAgent, creature, player));
+        
 
 
         stateMachine.SetDefaultState(creature.defaultState);
@@ -99,7 +96,7 @@ public class SpawnManager : MonoBehaviour
             creaturePath = newCreature.AddComponent<Path>();
         }
         creaturePath.path = path;
-        
+
         activeCreatures[creature] = newCreature;
     }
 
