@@ -30,7 +30,7 @@ public class Creatures : ScriptableObject
         Aurafox,
         Dragonpuppy,
         WillOMeow,
-        GreaOakWyrm,
+        GreatOakWyrm,
         Jetback,
         Primaloggon,
         CaveCow,
