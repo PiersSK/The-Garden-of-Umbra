@@ -21,12 +21,14 @@ public class FlaskInteractable : Interactable
         {
             Tutorial.Instance.flaskFound = true;
             PlayerThoughts.Instance.ShowThought("Ahh this'll do! It can only fit small creature shadows but that's a start.", 4f);
+            InventoryManager.Instance.flasks[0].flaskUnlocked = true;
         } else if (currentFlasks == 1)
         {
             PlayerThoughts.Instance.ShowThought("Yes! The second flask in my kit allows me to combine multiple creature's shadows into one. Must be something in my notes about that", 4f);
+            InventoryManager.Instance.flasks[1].flaskUnlocked = true;
+            InventoryManager.Instance.flasks[2].flaskUnlocked = true;
         }
 
-        InventoryManager.Instance.flasks[currentFlasks].flaskUnlocked = true;
         Destroy(gameObject);
     }
 }
