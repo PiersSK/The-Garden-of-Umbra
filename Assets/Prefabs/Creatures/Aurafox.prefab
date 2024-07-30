@@ -298,14 +298,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2579223334583426619}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -11.65, y: -1.6774105, z: 34.8}
   m_LocalScale: {x: 0.120554544, y: 0.120554544, z: 0.120554544}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3884434576153329969}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8191827165374607599
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -419,6 +419,7 @@ MonoBehaviour:
   spawnManager: {fileID: 0}
   smokeObj: {fileID: 1055847238102491542, guid: 948e2246f7e2bee4683a1620a3dd41a9, type: 3}
   aspectUI: {fileID: 24821635096377500}
+  hasTeleportedPlayer: 0
   surpriseMarker: {fileID: 448542935100168299}
 --- !u!114 &-7508102722168116227
 MonoBehaviour:
@@ -479,7 +480,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6707134247024119678}
-  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 8.295001, y: 8.295001, z: 8.295001}
   m_ConstrainProportionsScale: 0
