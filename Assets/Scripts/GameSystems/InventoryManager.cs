@@ -31,6 +31,7 @@ public class InventoryManager : MonoBehaviour
     {
         foreach (Flask flask in flasks)
         {
+            SpawnManager.Instance.DespawnShadowInActiveCreatures(flask.shadow);
             SpawnManager.Instance.SpawnCreatureFromShadow(flask.shadow);
             flask.shadow = null;
         }
