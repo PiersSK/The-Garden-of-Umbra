@@ -38,6 +38,8 @@ public class WillOMeowWanderingState : BaseState
 
     public override void Enter()
     {
+        creatureAgent.GetComponent<SpriteRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+        creatureAgent.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.6f);
         creatureAgent.GetComponent<Animator>().SetBool("IsWalking", true);
         creatureAgent.SetDestination(GetNewDestination());
     }
@@ -45,6 +47,9 @@ public class WillOMeowWanderingState : BaseState
     public override void Exit()
     {
         creatureAgent.GetComponent<Animator>().SetBool("IsWalking", false);
+        creatureAgent.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1f);
+
+
     }
 
     public override void Perform()
@@ -59,22 +64,22 @@ public class WillOMeowWanderingState : BaseState
         creatureAgent.GetComponent<Animator>().SetBool("IsWalking", creatureAgent.velocity != Vector3.zero);
 
         float distanceToPlayer = Vector3.Distance(creatureAgent.transform.position, player.transform.position);
-        if(distanceToPlayer <= alertnessRadius)
-        {
-            creatureAgent.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f, 0.3f);
-            creatureAgent.GetComponent<SpriteRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
-        }
-        else
-        {
-            creatureAgent.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
-            creatureAgent.GetComponent<SpriteRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
-        }
+        //if(distanceToPlayer <= alertnessRadius)
+        //{
+        //    //creatureAgent.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f, 0.3f);
+        //    //creatureAgent.GetComponent<SpriteRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+        //}
+        //else
+        //{
+        //    //creatureAgent.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+        //    //creatureAgent.GetComponent<SpriteRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+        //}
 
         Vector3 currPos = creatureAgent.transform.position;
 
         if (currPos.x == waypoints[3].x && currPos.z == waypoints[3].z && foodBowl.GetComponent<FoodBowl>().foodInBowl)
         {
-            creatureAgent.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+            //creatureAgent.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
             stateMachine.ChangeState("WillOMeowSleepingState");
         }
     }

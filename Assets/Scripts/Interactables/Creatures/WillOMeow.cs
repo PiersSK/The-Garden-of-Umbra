@@ -12,7 +12,7 @@ public class WillOMeow : ShadowInteractable
 
     public override bool CanInteract()
     {
-        return foodBowl.foodInBowl && !GetComponent<Animator>().GetBool("IsWalking");
+        return foodBowl.foodInBowl && !GetComponent<Animator>().GetBool("IsWalking") && base.CanInteract();
     }
 
     public override void Interact()
