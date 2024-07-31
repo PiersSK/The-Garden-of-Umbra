@@ -12,8 +12,7 @@ public class UIManager : MonoBehaviour
 
     public GameObject interactUI;
     public GameObject questUI;
-    public GameObject witchHutUI;
-    public GameObject dialogueUI;
+    public GameObject notesUI;
     public GameObject flaskUI;
     public GameObject cutsceneUI;
 
@@ -61,29 +60,18 @@ public class UIManager : MonoBehaviour
         {
             SetActiveIfNotNull(interactUI, true);
             SetActiveIfNotNull(questUI, true);
-            SetActiveIfNotNull(witchHutUI, false);
-            SetActiveIfNotNull(dialogueUI, false);
+            SetActiveIfNotNull(notesUI, true);
             SetActiveIfNotNull(flaskUI, true);
             SetActiveIfNotNull(cutsceneUI, false);
 
             PlayerController.Instance.EnablePlayerControl();
             if(DialogueUI.Instance!= null) DialogueUI.Instance.ShowDreamer(); //Garden should always reset dreamer for re-entry
         }
-        else if (preset == UIPreset.WitchHut)
+        else if (preset == UIPreset.Cutscene)
         {
             SetActiveIfNotNull(interactUI, false);
             SetActiveIfNotNull(questUI, false);
-            SetActiveIfNotNull(witchHutUI, true);
-            SetActiveIfNotNull(dialogueUI, false);
-            SetActiveIfNotNull(cutsceneUI, false);
-
-            PlayerController.Instance.DisablePlayerControl();
-        } else if (preset == UIPreset.Cutscene)
-        {
-            SetActiveIfNotNull(interactUI, false);
-            SetActiveIfNotNull(questUI, false);
-            SetActiveIfNotNull(witchHutUI, false);
-            SetActiveIfNotNull(dialogueUI, false);
+            SetActiveIfNotNull(notesUI, false);
             SetActiveIfNotNull(flaskUI, false);
             SetActiveIfNotNull(cutsceneUI, true);
         }
