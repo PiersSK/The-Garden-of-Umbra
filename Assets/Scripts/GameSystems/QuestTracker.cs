@@ -152,7 +152,10 @@ public class QuestTracker : MonoBehaviour
                 currentDreamer.gameObject.name = "Formless Dreamer";
             }
             else
+            {
                 activeQuest = null;
+                PlayerThoughts.Instance.ShowThought("Guess that's all the dreamers for now, thanks for playing!!!", 10f);
+            }
 
             return true;
         }
