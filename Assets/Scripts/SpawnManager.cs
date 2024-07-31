@@ -176,10 +176,7 @@ public class SpawnManager : MonoBehaviour
         yield return new WaitForSeconds(delay);
         if(creature != null)
         {
-            if(Vector3.Distance(player.transform.position, creature.spawnPoint) > distance)
-            {
-                SpawnCreature(creature);
-            }
+            SpawnCreature(creature);
         }
     }
 
