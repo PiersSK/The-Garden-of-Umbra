@@ -9,7 +9,7 @@ public class GreatOakWyrmFollowState : BaseState
     public NavMeshAgent creatureAgent;
     public Creatures creature;
     public GameObject player;
-    public float treeShadowRadius = 13f;
+    public float treeShadowRadius = 8f;
     private float followRadius = 3f;
     
     public GreatOakWyrmFollowState(StateMachine stateMachine, NavMeshAgent creatureAgent, Creatures creature, GameObject player) : base(stateMachine)
