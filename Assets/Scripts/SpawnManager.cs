@@ -114,6 +114,19 @@ public class SpawnManager : MonoBehaviour
             }
         }
     }
+    
+    public void DespawnShadowInActiveCreatures(Shadow shadow)
+    {
+        foreach (Creatures creature in activeCreatures.Keys)
+        {
+            if(creature.shadow == shadow)
+            {
+                DespawnCreatureWithoutRespawn(creature);
+                break;
+            }
+            
+        }
+    }
 
     void SpawnCreatures()
     {
