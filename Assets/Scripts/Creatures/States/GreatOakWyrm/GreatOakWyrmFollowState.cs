@@ -21,7 +21,7 @@ public class GreatOakWyrmFollowState : BaseState
 
     public override void Enter()
     {
-
+        creatureAgent.GetComponent<GreatOakWyrm>().questionMarker.SetActive(true);
     }
     public override void Exit()
     {
@@ -32,7 +32,6 @@ public class GreatOakWyrmFollowState : BaseState
         creatureAgent.SetDestination(player.transform.position);
         if (Vector3.Distance(creatureAgent.transform.position, player.transform.position) >= followRadius)
         {
-            creatureAgent.GetComponent<GreatOakWyrm>().surpriseMarker.SetActive(true);
             stateMachine.ChangeState("GreatOakWyrmIdleState");
         }
         if (Vector3.Distance(creatureAgent.transform.position, creature.spawnPoint) >= treeShadowRadius)
