@@ -152,7 +152,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &940391126850212689
 RectTransform:
   m_ObjectHideFlags: 0
@@ -527,7 +527,7 @@ MonoBehaviour:
   creature: {fileID: 11400000, guid: cd0c8fb474a7278498bbc3a88055b647, type: 2}
   spawnManager: {fileID: 0}
   smokeObj: {fileID: 1055847238102491542, guid: 948e2246f7e2bee4683a1620a3dd41a9, type: 3}
-  aspectUI: {fileID: 0}
+  aspectUI: {fileID: 2747015853596983028}
 --- !u!1 &5501135269073506890
 GameObject:
   m_ObjectHideFlags: 0

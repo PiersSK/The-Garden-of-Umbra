@@ -1,21 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WillOMeow : ShadowInteractable
 {
-    private GameObject foodBowl;
+    private FoodBowl foodBowl;
 
     protected override void Start()
     {
         base.Start();
-        foodBowl = GameObject.Find("FoodBowl");
+        foodBowl = GameObject.Find("FoodBowl").GetComponent<FoodBowl>();
     }
 
     public override bool CanInteract()
     {
-        var foodInBowl = foodBowl.GetComponent<FoodBowl>().foodInBowl;
+        return foodBowl.foodInBowl && !GetComponent<Animator>().GetBool("IsWalking");
+    }
 
-        return foodInBowl && !GetComponent<Animator>().GetBool("IsWalking");
+    public override void Interact()
+    {
+        foodBowl.FoodEaten();
+        base.Interact();
     }
 }
