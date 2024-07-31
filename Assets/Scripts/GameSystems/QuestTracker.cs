@@ -83,7 +83,7 @@ public class QuestTracker : MonoBehaviour
                 }
                 else
                 {
-                    targetUI.text = "Talk to the dreamer and work out what shadow you need to craft. Hint: Use your shadowcrafting notes to work it out and make a checklist!";
+                    targetUI.text = "Talk to the dreamer and work out what shadow you need to craft.\nIf your crafted shadow is correct you can talk to the dreamer again to apply it to them\nHint: Use your shadowcrafting notes to work it out and make a checklist!";
                 }
             }
             else

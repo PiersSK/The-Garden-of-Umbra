@@ -3195,6 +3195,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4862926081225461864, guid: bda9ce288eb242046b45ae56f59eef1b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5218382278326464622, guid: bda9ce288eb242046b45ae56f59eef1b, type: 3}
       propertyPath: reaction
       value: 
@@ -24558,6 +24562,22 @@ PrefabInstance:
     - target: {fileID: 5822465963165410134, guid: bf09933265a76c941984eca5aceee0ab, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7541268374958727216, guid: bf09933265a76c941984eca5aceee0ab, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1147.1272
+      objectReference: {fileID: 0}
+    - target: {fileID: 7541268374958727216, guid: bf09933265a76c941984eca5aceee0ab, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 139.833
+      objectReference: {fileID: 0}
+    - target: {fileID: 7541268374958727216, guid: bf09933265a76c941984eca5aceee0ab, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -333.86554
+      objectReference: {fileID: 0}
+    - target: {fileID: 7541268374958727216, guid: bf09933265a76c941984eca5aceee0ab, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 404.97473
       objectReference: {fileID: 0}
     - target: {fileID: 8318442163160756201, guid: bf09933265a76c941984eca5aceee0ab, type: 3}
       propertyPath: m_IsActive
