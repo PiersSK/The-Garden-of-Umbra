@@ -1,4 +1,5 @@
 using Aspects;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -13,6 +14,7 @@ public class MixShadowUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public Image headAspect;
     public Image bodyAspect;
     public Image feetAspect;
+    public TextMeshProUGUI textPrompt;
 
     public Shadow combinedShadow;
     private Vector3 defaultSize;
@@ -27,6 +29,7 @@ public class MixShadowUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
         flasksNowUnlocked = false;
         image.color = new Color(0,0,0,0);
+        textPrompt.color = new Color(0, 0, 0, 0);
 
     }
 
@@ -36,7 +39,10 @@ public class MixShadowUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         {
             flasksNowUnlocked = true;
             image.color = defaultColor;
+
         }
+
+        textPrompt.color = InventoryManager.Instance.UnlockedFlasks().FindAll(o => o.shadow is not null).Count == 0 ? new Color(0,0,0,0) : defaultColor;
 
         combinedShadow = CombineInventoryShadows();
     }

@@ -15,7 +15,7 @@ MonoBehaviour:
   questGiver: {fileID: 11400000, guid: c70926714511446bcb91de36cb5f8de0, type: 2}
   dreamDialogue:
   - "\u2026 So small, so precious, let me <b>cuddle</b> you closer\u2026"
-  - "\u2026 How can I teach you about everything when </b>I know nothing</b>\u2026?"
+  - "\u2026 How can I teach you about everything when <b>I know nothing</b>\u2026?"
   - "\u2026 I will be <b>your stability</b>, your rock, if only\u2026"
   completionDialogue: Oh hi shadow, I'm Dad! ...no really though, thanks for this
   formedDialogue:
