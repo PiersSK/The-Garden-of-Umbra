@@ -19,9 +19,9 @@ public class GreatOakWyrmIdleState : BaseState
 
     public override void Enter()
     {
+        creatureAgent.GetComponent<GreatOakWyrm>().questionMarker.SetActive(false);
         creatureAgent.GetComponent<GreatOakWyrm>().isUnderTree = true;
         creatureAgent.SetDestination(creature.spawnPoint);
-        creatureAgent.GetComponent<GreatOakWyrm>().surpriseMarker.SetActive(false);
     }
     public override void Exit()
     {
