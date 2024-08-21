@@ -1679,11 +1679,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 123839455}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3a8125739ca2d745a5fe23a7706e1c2, type: 3}
+  m_Script: {fileID: 11500000, guid: 8644adb80397f4a46a52a88a6c1a10e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  promptText: Face The Overgrown Half
+  promptText: 
   priority: 0
+  isLocked: 0
+  destinationName: Tene's Cottage
+  destinationCoords: {x: 0.5, y: 1.45, z: -31.5}
 --- !u!1 &124579092
 GameObject:
   m_ObjectHideFlags: 0
@@ -4819,15 +4822,15 @@ PrefabInstance:
       objectReference: {fileID: 1160234427}
     - target: {fileID: 4474501804595735548, guid: bda9ce288eb242046b45ae56f59eef1b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.47
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4474501804595735548, guid: bda9ce288eb242046b45ae56f59eef1b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.554
+      value: 1.45
       objectReference: {fileID: 0}
     - target: {fileID: 4474501804595735548, guid: bda9ce288eb242046b45ae56f59eef1b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.66
+      value: -9
       objectReference: {fileID: 0}
     - target: {fileID: 4474501804595735548, guid: bda9ce288eb242046b45ae56f59eef1b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -17302,6 +17305,7 @@ GameObject:
   - component: {fileID: 755010296}
   - component: {fileID: 755010295}
   - component: {fileID: 755010294}
+  - component: {fileID: 755010297}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -17383,6 +17387,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 248104546}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &755010297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 755010293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 73e852f10c1424c17944651c394430e6, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1001 &755830752
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40321,6 +40356,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1867554940}
+  - component: {fileID: 1867554941}
   m_Layer: 0
   m_Name: Table
   m_TagString: Untagged
@@ -40352,6 +40388,20 @@ Transform:
   - {fileID: 2013516463}
   m_Father: {fileID: 295249374}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1867554941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867554939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44f6e41dbb202409fa23945c386fff9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  promptText: Pickup Equipment
+  priority: 0
 --- !u!1001 &1872426801
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48548,6 +48598,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bush Border
       objectReference: {fileID: 0}
+    - target: {fileID: 3683146666429124927, guid: eea6b06ae07120340bb879a9cb436bf4, type: 3}
+      propertyPath: m_Name
+      value: Gate
+      objectReference: {fileID: 0}
     - target: {fileID: 8001514449866352194, guid: eea6b06ae07120340bb879a9cb436bf4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -48591,8 +48645,33 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3683146666429124927, guid: eea6b06ae07120340bb879a9cb436bf4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2986817857956137014}
   m_SourcePrefab: {fileID: 100100000, guid: eea6b06ae07120340bb879a9cb436bf4, type: 3}
+--- !u!1 &2986817857956137013 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3683146666429124927, guid: eea6b06ae07120340bb879a9cb436bf4, type: 3}
+  m_PrefabInstance: {fileID: 2986817857956137012}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2986817857956137014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2986817857956137013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8644adb80397f4a46a52a88a6c1a10e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  promptText: 
+  priority: 0
+  isLocked: 0
+  destinationName: Tutorial Clearing
+  destinationCoords: {x: -80, y: 1.45, z: -73}
 --- !u!224 &3008259163019111709
 RectTransform:
   m_ObjectHideFlags: 0

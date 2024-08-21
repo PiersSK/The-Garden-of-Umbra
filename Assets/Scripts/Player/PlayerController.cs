@@ -112,6 +112,13 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public void TeleportPlayerToPoint(Vector3 point)
+    {
+        controller.enabled = false;
+        transform.position = point;
+        controller.enabled = true;
+    }
+
     public void DisablePlayerControl()
     {
         roaming.Disable();
